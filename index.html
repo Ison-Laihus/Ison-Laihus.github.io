@@ -160,7 +160,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="步骤概览"><a href="#步骤概览" class="headerlink" title="步骤概览"></a>步骤概览</h2><ul>
-<li>注册一个github账号</li>
+<li>注册一个github账号以及配置</li>
 <li>在本地下载git，nodejs</li>
 <li>下载hexo</li>
 <li>在本地建立博客仓库</li>
@@ -168,9 +168,15 @@
 <li>选用主题</li>
 <li>撰写博客</li>
 </ul>
-<h2 id="注册一个github账号"><a href="#注册一个github账号" class="headerlink" title="注册一个github账号"></a>注册一个github账号</h2><p>我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。  </p>
+<h2 id="注册一个github账号以及配置"><a href="#注册一个github账号以及配置" class="headerlink" title="注册一个github账号以及配置"></a>注册一个github账号以及配置</h2><p>我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。  </p>
 <p>什么是github？<br>github是一个面向开元及私有软件项目的管理平台，因为只支持git作为唯一的版本库格式进行托管，故名github。  </p>
-<p>所以我们得去<a href="https://github.com/" target="_blank" rel="noopener">github</a>去注册一个账号。<br>注册页面：<br><img src="/2017/12/09/github-hexo搭建个人博客/github_register.png" title="register for github account"></p>
+<h4 id="Step-One"><a href="#Step-One" class="headerlink" title="Step One"></a>Step One</h4><p>首先，我们得去<a href="https://github.com/" target="_blank" rel="noopener">github</a>去注册一个账号。<br><img src="/2017/12/09/github-hexo搭建个人博客/github_register.png" title="register for github account">  </p>
+<blockquote>
+<p>sign up 是注册， sign in 是登录</p>
+</blockquote>
+<h4 id="Step-Two"><a href="#Step-Two" class="headerlink" title="Step Two"></a>Step Two</h4><p>新建一个代码库，点击右上角的加号，点击New repository<br><img src="/2017/12/09/github-hexo搭建个人博客/add_repository.png" title="create a new repository"><br>命名你要创建的代码库，这里需要注意，你代码库的名字一定得是yourname.github.io<br><img src="/2017/12/09/github-hexo搭建个人博客/name_repository.png" title="name for repository"><br>这里的yourname是你的账户名<br>至于description，你可写可不写，然后点击最下方的create repository绿色按钮就OK了  </p>
+<h4 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h4><p>设置代码库，开启gh-pages功能，这个功能是我们能够利用github搭建个人博客的重要功能。<br>代码库创建成功之后，我们会进入如下界面：<br><img src="/2017/12/09/github-hexo搭建个人博客/repo_success.png" title="create repository successful"><br>然后点击图片上部菜单末尾的settings属性，下滑到Github Pages设置这块<br><img src="/2017/12/09/github-hexo搭建个人博客/github_pages.png" title="github pages configuration"><br>由他的描述可知，github pages被设计为从Github库中托管您的个人、组织或项目页面。我们也获知其现在是无效的，需要我们往其中添加内容。<br>我们可以点击下方的choose a theme按钮，然后选择你喜爱的风格：<br><img src="/2017/12/09/github-hexo搭建个人博客/choose_theme.png" title="choose theme"><br>点击select theme按钮，它默认给你创建了一个issue，填充好了内容，然后你只需点击commit changes按钮即可<br><img src="/2017/12/09/github-hexo搭建个人博客/commit_content.png" title="commit changes">  </p>
+<p>如果您完成了上述的工作，name恭喜你，你已经完成了第一部分的内容。<br>然后您可以在浏览器的地址栏输入<a href="https://yourname.github.io查看您的项目页面。" target="_blank" rel="noopener">https://yourname.github.io查看您的项目页面。</a><br>  </p>
 <h2 id="在本地下载git，nodejs"><a href="#在本地下载git，nodejs" class="headerlink" title="在本地下载git，nodejs"></a>在本地下载git，nodejs</h2><p>为甚我们需要下载git和nodejs呢？<br>因为我们选用的hexo框架依赖于git和nodejs。    </p>
 <p>我们可以去<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git官网</a>上去下载git。<br>下载完成之后，双击安装即可。  </p>
 
