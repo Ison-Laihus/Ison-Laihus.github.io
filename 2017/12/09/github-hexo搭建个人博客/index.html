@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/github_add_keys.png">
 <meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/theme_search.png">
 <meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/even_theme_page.png">
-<meta property="og:updated_time" content="2017-12-09T17:56:05.662Z">
+<meta property="og:updated_time" content="2017-12-10T08:29:16.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo搭建个人博客">
 <meta name="twitter:description" content="步骤概览 注册一个github账号以及配置 在本地下载git，nodejs 下载hexo 在本地建立博客仓库 关联github page 选用主题 撰写博客  注册一个github账号以及配置我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。   什么是github？github是一个面向开元及私有软件项目的管理平台，因为只支持git作为唯一的版本库">
@@ -245,7 +245,7 @@
 <blockquote>
 <p>这是为了避免您每次想github推送您更新的博客时，都需要输入您的用户名和密码，配置公钥私钥能够让git自动帮您进行认证  </p>
 </blockquote>
-<h4 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h4><p>在您博客代码库的根目录下有一个_config.yml文件，这是您网站的配置文件。<br>您需要进行一些修改以匹配您的git page<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	type: git  </span><br><span class="line">	git@github.com:Ison-Laihus/Ison-Laihus.github.io.git  </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
+<h4 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h4><p>在您博客代码库的根目录下有一个_config.yml文件，这是您网站的配置文件。<br>您需要进行一些修改以匹配您的git page<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	type: git  </span><br><span class="line">	repo: git@github.com:Ison-Laihus/Ison-Laihus.github.io.git  </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
 <p>请进行相应的替换  </p>
 <p>在_config.yml文件中还有其他一些参数可以配置<br>例如： 修改博客站点信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Ison Blog  </span><br><span class="line">subtitle: happy to have a blog  </span><br><span class="line">description:</span><br><span class="line">author: Ison  </span><br><span class="line">language:</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure></p>
 <h4 id="将本地博客部署到github-pages"><a href="#将本地博客部署到github-pages" class="headerlink" title="将本地博客部署到github pages"></a>将本地博客部署到github pages</h4><p>部署命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy 或 hexo d</span><br></pre></td></tr></table></figure></p>
