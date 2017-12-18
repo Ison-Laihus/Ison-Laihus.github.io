@@ -139,6 +139,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-XML介绍与实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/18/XML介绍与实例/">XML介绍与实例</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/18/XML介绍与实例/" class="archive-article-date">
+  	<time datetime="2017-12-18T12:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="XML是什么"><a href="#XML是什么" class="headerlink" title="XML是什么"></a>XML是什么</h4><p>XML 是Extensible Markup Language的缩写，意思是可扩展标记语言。<br>XML 是一个十分类似于HTML的语言。<br>XML 是被设计来存储和传输数据的语言。<br>XML 是一款自描述语言。  </p>
+<h4 id="XML和HTML的差别"><a href="#XML和HTML的差别" class="headerlink" title="XML和HTML的差别"></a>XML和HTML的差别</h4><p>XML和HTML是出于不同的目的而被设计出来的： </p>
+<ul>
+<li>XML被设计出来存储和传输数据——其专注于数据的内容</li>
+<li>HTML被设计出来展示数据——其专注于数据的外观</li>
+<li>XML标签是没有被预定义的，HTML标签是被预定义的</li>
+</ul>
+<blockquote>
+<p>预定义就是提前设计好了，规定好了，你必须使用他设计好的标签，而不能使用别的<br>没有预定义就是你可以随便自己定义标签，只要你觉得这个标签能描述出你所要描述的东西  </p>
+</blockquote>
+<h4 id="XML仅仅是纯文本"><a href="#XML仅仅是纯文本" class="headerlink" title="XML仅仅是纯文本"></a>XML仅仅是纯文本</h4><p>XML仅仅是携带数据的纯文本，有能力处理纯文本的软件都可以处理XML。  </p>
+<h4 id="XML标签"><a href="#XML标签" class="headerlink" title="XML标签"></a>XML标签</h4><p>XML允许作者定义自己的标签和文档结构。  </p>
+<h2 id="XML能干什么"><a href="#XML能干什么" class="headerlink" title="XML能干什么"></a>XML能干什么</h2><h4 id="从HTML中分离数据"><a href="#从HTML中分离数据" class="headerlink" title="从HTML中分离数据"></a>从HTML中分离数据</h4><p>当用HTML展示数据的时候，当数据改变时，你不一定非得修改HTML文件，你可以使用XML存储数据形成一个单独的文件，然后使用几行JavaScript代码从XML文件中读取数据填充到HTML中。当数据更新时，只需要修改XML文件即可，HTML文件的数据也会同步跟新。</p>
+<blockquote>
+<p>HTML文件往往都很复杂，因为其中不仅仅只是包含数据，还包含一些动画，图片等需要复杂HTML标签才能展示的效果。在这些标签中寻找数据，往往十分困难。</p>
+</blockquote>
+<h4 id="简化数据共享"><a href="#简化数据共享" class="headerlink" title="简化数据共享"></a>简化数据共享</h4><p>XML 数据以纯文本格式进行存储，因此提供了一种独立于软件和硬件的数据存储方法。这让创建不同应用程序可以共享的数据变得更加容易。</p>
+<h4 id="简化数据传输"><a href="#简化数据传输" class="headerlink" title="简化数据传输"></a>简化数据传输</h4><p>因为任何系统都能够读取纯文本数据，因此通过XML可以在不兼容的系统之间轻松地交换数据。</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>关于XML的一些语法，我就不多加赘述了，如果大家感兴趣的话，可以去<a href="http://www.w3school.com.cn/xml/" target="_blank" rel="noopener">W3School</a>上去学习。  </p>
+<p>下面，我们就使用代码来介绍一下如何使用XML进行数据的存储，应用于HTML程序。  </p>
+<p>首先，我们先使用XML存储我们想要显示的数据。<br>例如，我想写一封邮件给我的同学，那么我就使用XML来存储关键的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;email&gt;  </span><br><span class="line">	&lt;from&gt;lyk&lt;/from&gt;  </span><br><span class="line">	&lt;to&gt;my friend&lt;/to&gt;  </span><br><span class="line">	&lt;title&gt;Thanks For Your Help&lt;/title&gt;  </span><br><span class="line">	&lt;content&gt;Yesterday, I forgot my pen in English test. You borrowed your pen to me. Thank your very much&lt;/content&gt;  </span><br><span class="line">&lt;email&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/18/XML介绍与实例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-github-hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
