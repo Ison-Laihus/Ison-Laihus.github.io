@@ -139,6 +139,177 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JavaScript-继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/JavaScript-继承/">JavaScript 继承</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/19/JavaScript-继承/" class="archive-article-date">
+  	<time datetime="2018-03-19T14:08:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>许多OO语言都支持两种继承方式：  </p>
+<ul>
+<li>接口继承：只继承方法签名</li>
+<li>实现继承：继承实际的方法</li>
+</ul>
+<p>由于函数没有签名，在ECMAScript中无法实现接口继承。<br>ECMAScript只支持实现继承，而且实现继承主要依靠原型链来实现的。  </p>
+<pre><code>function SuperType() {
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+    this.property = true;
+}
+
+function SubType() {
+    this.subProperty = true;
+}
+
+// 继承
+SubType.prototype = new SuperType();
+
+var instance = new SubType();
+</code></pre><p>两个问题：  </p>
+<ul>
+<li>包含引用类型值的原型，会被所有实例共享</li>
+<li>在创建子类型的实例时，不能向超类型的构造函数中传递参数</li>
+</ul>
+<h6 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h6><p>原理：函数只不过是在特定环境中执行代码的对象，因此通过使用apply()和call()方法也可以在新创建的对象上执行构造函数。  </p>
+<pre><code>function SuperType() {
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+
+function SubType() {
+    SuperType.call(this);
+}
+
+var instance = new SubType();
+instance.colors.push(&quot;black&quot;);
+console.log(instance.colors); // [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]
+</code></pre><p><strong>传递参数</strong><br>相对于原型链而言，借用构造函数有一个很大的优势，即可以在子类型构造函数中向超类型构造函数传递参数。  </p>
+<p><strong>问题</strong><br>方法都在构造函数中定义，因此函数复用就无从谈起了。<br>在超类型的原型中定义的方法，对子类型而言也是不可见的，结果所有类型都智能使用构造函数模式。  </p>
+<h6 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h6><p>有时也叫伪经典继承，指的是将原型链和借用构造函数的技术组合到一块，从而发挥二者之长的一种继承模式。<br>原型链实现对原型属性和方法的继承，借用构造函数实现对实例属性的继承。  </p>
+<pre><code>function SuperType(name) {
+    this.name = name;
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+
+SuperType.prototype.sayName = function() {
+    console.log(this.name);
+}
+
+function SubType(name, age) {
+    SuperType.call(this, name); //  第二次调用 SuperType()
+    this.age = age;
+}
+
+SubType.prototype = new SuperType(); // 第一次调用 SuperType()
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function() {
+    console.log(this.age);
+}
+</code></pre><p>组合继承避免了原型链和借用构造函数的缺陷，融合了它们的优点，成为JavaScript中做常用的继承模式。<br>而且，instanceof和isPrototypeOf()也能够用于识别基于组合继承创建的对象。  </p>
+<h6 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h6><p>借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型。  </p>
+<pre><code>function object(o) {
+    function F(){}
+    F.prototype = o;
+    return new F();
+}
+
+var person = {
+    colors: [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;]
+};
+
+// obj继承person对象
+var obj = object(person);
+</code></pre><p><strong>Object.create(fatherObj[, propertiesObj])</strong><br>ECMAScript5通过新增Object.create()方法规范化了原型继承。<br>fatherObj: 要继承的父类对象<br>propertiesObj: 和Object.defineProperties()中第二个参数一样，会覆盖原有同名属性。可选  </p>
+<h6 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h6><p>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再想真的是它做了所有工作一样返回对象。  </p>
+<pre><code>function createAnother(original) {
+    var clone = object(original);
+    clone.sayHi = function() {
+        console.log(&quot;HI&quot;);
+    }
+    return clone;
+}
+</code></pre><p>在主要考虑对象而不是自定义类型和构造函数的情况下，寄生式继承也是一种有用的模式。 </p>
+<p>前面的object()函数不是必须的，任何能够返回新对象的函数都适用于此模式。  </p>
+<blockquote>
+<p>使用寄生式继承来为对象添加函数，会由于不能做到函数服用而降低效率。这一点与构造函数模式类似</p>
+</blockquote>
+<h6 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h6><p>由于组合继承存在一个很大的缺陷： 其会调用两次超类型构造函数，一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。  </p>
+<p>因为子类型最终会包含超类型对象的全部实例属性，所以我们不得不在调用子类型构造函数时重写这些属性。    </p>
+<p><strong>解决办法：寄生组合式继承</strong><br>通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。  </p>
+<p>背后的思路：不必为了指定子类型的原型而调用超类型的构造函数，我们需要的无非就是超类型原型的一个副本而已。  </p>
+<p>本质：使用寄生式继承来继承超类型的原型，然后在将结果指定给子类型的原型。  </p>
+<pre><code>function inheritPrototype(subType, superType) {
+    var prototype = object(superType.prototype);    // 创建对象
+    prototype.constructor = subType;                // 增强对象
+    subType.prototype = prototype;                    // 指定对象
+}
+</code></pre><p>这个例子能够保持原型链不变，还避免了在SubType.prototype上面创建不必要的、多余的属性。  </p>
+<p>这被普遍认为是引用类型最理想的继承范式。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/19/JavaScript-继承/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JavaScript严格模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -160,18 +331,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>ECMAScript5最早引入了“严格模式”（strict mode）的概念。通过严格模式，可以在函数内部选择进行较为严格的全局或局部的错误条件检测。  </p>
-<p>使用严格模式的好处：可以提早知道代码中存在的错误，即使补货一些可能导致编程错误的ECMAScript行为。  </p>
-<h4 id="选择使用"><a href="#选择使用" class="headerlink" title="选择使用"></a>选择使用</h4><p>选择进入严格模式，需使用严格模式的编译指示：  </p>
+<p>使用严格模式的好处：可以提早知道代码中存在的错误，即使捕获一些可能导致编程错误的ECMAScript行为。  </p>
+<h2 id="选择使用"><a href="#选择使用" class="headerlink" title="选择使用"></a>选择使用</h2><p>选择进入严格模式，需使用严格模式的编译指示：  </p>
 <pre><code>&quot;use strict&quot;;
 </code></pre><p>其其实是一个为负值的字符串字面量，支持严格模式的引擎会启动严格模式，不支持的就会忽略。  </p>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>严格模式下，什么时候创建变量以及怎么创建变量都是有限制的。  </p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>严格模式下，什么时候创建变量以及怎么创建变量都是有限制的。  </p>
 <h6 id="不允许意外创建全局变量"><a href="#不允许意外创建全局变量" class="headerlink" title="不允许意外创建全局变量"></a>不允许意外创建全局变量</h6><pre><code>message = &quot;Hello&quot;;
 </code></pre><p>这行代码在严格模式下是错误的。<br>在严格模式下，如果给一个没有声明的变量复制，那代码在执行时就会抛出ReferenceError  </p>
 <h6 id="不能对变量调用delete操作符"><a href="#不能对变量调用delete操作符" class="headerlink" title="不能对变量调用delete操作符"></a>不能对变量调用delete操作符</h6><pre><code>var clolor = &quot;red&quot;;
 delete color;
 </code></pre><p>在严格模式下上述代码会出错。<br>虽在非严格模式下允许这样做，但是会静默失败（返回false）  </p>
 <h6 id="严格模式下对变量有限制"><a href="#严格模式下对变量有限制" class="headerlink" title="严格模式下对变量有限制"></a>严格模式下对变量有限制</h6><p>不能使用implements, interface, let, package, private, protected, public, static, yield作为变量名，这些都是保留字，将来的ECMAScript版本中可能会用到它们。  </p>
-<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>在严格模式下操作对象比在非严格模式下更容易导致错误。<br>一般来说，在非严格模式下回静默失败的情形，在严格模式下回抛出错误。  </p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>在严格模式下操作对象比在非严格模式下更容易导致错误。<br>一般来说，在非严格模式下回静默失败的情形，在严格模式下回抛出错误。  </p>
 <p>在下列情形下操作对象的属性会导致错误：  </p>
 <ul>
 <li>为只读属性赋值——抛出TypeError</li>
@@ -183,7 +354,8 @@ delete color;
     name: &quot;honghong&quot;
 }
 </code></pre><p>严格模式下报错，非严格模式下取第二个。  </p>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h6 id="严格模式下的函数命名必须唯一。"><a href="#严格模式下的函数命名必须唯一。" class="headerlink" title="严格模式下的函数命名必须唯一。"></a>严格模式下的函数命名必须唯一。</h6><h6 id="严格模式下，arguments对象的行为也有所不同"><a href="#严格模式下，arguments对象的行为也有所不同" class="headerlink" title="严格模式下，arguments对象的行为也有所不同"></a>严格模式下，arguments对象的行为也有所不同</h6><ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h6 id="严格模式下的函数命名必须唯一。"><a href="#严格模式下的函数命名必须唯一。" class="headerlink" title="严格模式下的函数命名必须唯一。"></a>严格模式下的函数命名必须唯一。</h6><p>不能出现两个命名一样的函数，JavaScript中没有像C++中的函数重载。  </p>
+<h6 id="严格模式下，arguments对象的行为也有所不同"><a href="#严格模式下，arguments对象的行为也有所不同" class="headerlink" title="严格模式下，arguments对象的行为也有所不同"></a>严格模式下，arguments对象的行为也有所不同</h6><ul>
 <li>非严格模式：arguments对象和命名参数双向绑定，改动任何一个，另一个的值也会随之改变</li>
 <li>严格模式：arguments对象和命名参数无双向绑定</li>
 </ul>
@@ -194,7 +366,7 @@ delete color;
     }
 }
 </code></pre><p>严格模式下，会导致语法错误。  </p>
-<h4 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h4><p>严格模式下，eval()在包含上下文中不再创建变量和函数。  </p>
+<h2 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h2><p>严格模式下，eval()在包含上下文中不再创建变量和函数。  </p>
 <pre><code>function doSomething() {
     eval(&quot;var x = 10&quot;);
     alert(x);
@@ -205,8 +377,8 @@ delete color;
 var result = eval(&quot;var x=10, y = 11; x+y&quot;);
 console.log(result);  // 21
 </code></pre><p>上述代码是有效的。  </p>
-<h4 id="eval和arguments"><a href="#eval和arguments" class="headerlink" title="eval和arguments"></a>eval和arguments</h4><p>严格模式已经明确禁止使用eval和arguments作为标识符，也不允许读写它们的值。<br>而在非严格模式下是可以重写eval，也可以给arguments赋值。  </p>
-<h4 id="抑制this"><a href="#抑制this" class="headerlink" title="抑制this"></a>抑制this</h4><p>在非严格模式下使用函数的apply()和call()方法时，null或undefined值会被转换为全局对象。  </p>
+<h2 id="eval和arguments"><a href="#eval和arguments" class="headerlink" title="eval和arguments"></a>eval和arguments</h2><p>严格模式已经明确禁止使用eval和arguments作为标识符，也不允许读写它们的值。<br>而在非严格模式下是可以重写eval，也可以给arguments赋值。  </p>
+<h2 id="抑制this"><a href="#抑制this" class="headerlink" title="抑制this"></a>抑制this</h2><p>在非严格模式下使用函数的apply()和call()方法时，null或undefined值会被转换为全局对象。  </p>
 <p>而在严格模式下，函数的this值始终是指定的值，无论指定的是什么值。  </p>
 <pre><code>var color = &quot;red&quot;;
 
@@ -216,7 +388,7 @@ function displayColor() {
 
 displayColor.call(null);
 </code></pre><p>非严格模式下输出red，this是全局对象<br>严格模式下报错，this是null，对null操作报错  </p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>抛弃了with语句——使用会导致语法错误</li>
 <li>去掉了JavaScript中的八进制字面量</li>
 </ul>
@@ -886,6 +1058,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -894,11 +1070,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+                <a href="javascript:void(0)" class="js-tag color4">javascript plugins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">javascript plugins</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

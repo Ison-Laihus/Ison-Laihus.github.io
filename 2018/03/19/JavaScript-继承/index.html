@@ -6,42 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://Ison-Laihus.github.io">
-  <title>github+hexo搭建个人博客 | Ison World</title>
+  <title>JavaScript 继承 | Ison World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步骤概览 注册一个github账号以及配置 在本地下载git，nodejs 下载hexo 在本地建立博客仓库 关联github page 选用主题 撰写博客  注册一个github账号以及配置我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。   什么是github？github是一个面向开元及私有软件项目的管理平台，因为只支持git作为唯一的版本库">
-<meta name="keywords" content="部署">
+  <meta name="description" content="许多OO语言都支持两种继承方式：    接口继承：只继承方法签名 实现继承：继承实际的方法  由于函数没有签名，在ECMAScript中无法实现接口继承。ECMAScript只支持实现继承，而且实现继承主要依靠原型链来实现的。   function SuperType() {     this.colors = [&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;g">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="github+hexo搭建个人博客">
-<meta property="og:url" content="http://Ison-Laihus.github.io/2017/12/09/github-hexo搭建个人博客/index.html">
+<meta property="og:title" content="JavaScript 继承">
+<meta property="og:url" content="http://Ison-Laihus.github.io/2018/03/19/JavaScript-继承/index.html">
 <meta property="og:site_name" content="Ison World">
-<meta property="og:description" content="步骤概览 注册一个github账号以及配置 在本地下载git，nodejs 下载hexo 在本地建立博客仓库 关联github page 选用主题 撰写博客  注册一个github账号以及配置我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。   什么是github？github是一个面向开元及私有软件项目的管理平台，因为只支持git作为唯一的版本库">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/github_register.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/add_repository.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/name_repository.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/repo_success.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/github_pages.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/choose_theme.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/commit_content.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/git_download.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/git_install_1.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/git_install_2.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/node_download.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/envo_1.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/envo_2.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/envo_3.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/hexo_install.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/hexo_init.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/hexo_npm_install.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/hexo_default_page.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/github_deploy_keys.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/github_add_keys.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/theme_search.png">
-<meta property="og:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/even_theme_page.png">
-<meta property="og:updated_time" content="2017-12-10T08:29:16.094Z">
+<meta property="og:description" content="许多OO语言都支持两种继承方式：    接口继承：只继承方法签名 实现继承：继承实际的方法  由于函数没有签名，在ECMAScript中无法实现接口继承。ECMAScript只支持实现继承，而且实现继承主要依靠原型链来实现的。   function SuperType() {     this.colors = [&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;g">
+<meta property="og:updated_time" content="2018-03-19T14:37:31.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="github+hexo搭建个人博客">
-<meta name="twitter:description" content="步骤概览 注册一个github账号以及配置 在本地下载git，nodejs 下载hexo 在本地建立博客仓库 关联github page 选用主题 撰写博客  注册一个github账号以及配置我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。   什么是github？github是一个面向开元及私有软件项目的管理平台，因为只支持git作为唯一的版本库">
-<meta name="twitter:image" content="http://ison-laihus.github.io/2017/12/09/github-hexo搭建个人博客/github_register.png">
+<meta name="twitter:title" content="JavaScript 继承">
+<meta name="twitter:description" content="许多OO语言都支持两种继承方式：    接口继承：只继承方法签名 实现继承：继承实际的方法  由于函数没有签名，在ECMAScript中无法实现接口继承。ECMAScript只支持实现继承，而且实现继承主要依靠原型链来实现的。   function SuperType() {     this.colors = [&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;g">
   
     <link rel="alternative" href="/atom.xml" title="Ison World" type="application/atom+xml">
   
@@ -165,115 +142,124 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-github-hexo搭建个人博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JavaScript-继承" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      github+hexo搭建个人博客
+      JavaScript 继承
     </h1>
   
 
         
-        <a href="/2017/12/09/github-hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2017-12-08T16:29:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
+        <a href="/2018/03/19/JavaScript-继承/" class="archive-article-date">
+  	<time datetime="2018-03-19T14:08:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="步骤概览"><a href="#步骤概览" class="headerlink" title="步骤概览"></a>步骤概览</h2><ul>
-<li>注册一个github账号以及配置</li>
-<li>在本地下载git，nodejs</li>
-<li>下载hexo</li>
-<li>在本地建立博客仓库</li>
-<li>关联github page</li>
-<li>选用主题</li>
-<li>撰写博客</li>
+        <p>许多OO语言都支持两种继承方式：  </p>
+<ul>
+<li>接口继承：只继承方法签名</li>
+<li>实现继承：继承实际的方法</li>
 </ul>
-<h2 id="注册一个github账号以及配置"><a href="#注册一个github账号以及配置" class="headerlink" title="注册一个github账号以及配置"></a>注册一个github账号以及配置</h2><p>我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。  </p>
-<p>什么是github？<br>github是一个面向开元及私有软件项目的管理平台，因为只支持git作为唯一的版本库格式进行托管，故名github。  </p>
-<h4 id="Step-One"><a href="#Step-One" class="headerlink" title="Step One"></a>Step One</h4><p>首先，我们得去<a href="https://github.com/" target="_blank" rel="noopener">github</a>去注册一个账号。<br><img src="/2017/12/09/github-hexo搭建个人博客/github_register.png" title="register for github account">  </p>
+<p>由于函数没有签名，在ECMAScript中无法实现接口继承。<br>ECMAScript只支持实现继承，而且实现继承主要依靠原型链来实现的。  </p>
+<pre><code>function SuperType() {
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+    this.property = true;
+}
+
+function SubType() {
+    this.subProperty = true;
+}
+
+// 继承
+SubType.prototype = new SuperType();
+
+var instance = new SubType();
+</code></pre><p>两个问题：  </p>
+<ul>
+<li>包含引用类型值的原型，会被所有实例共享</li>
+<li>在创建子类型的实例时，不能向超类型的构造函数中传递参数</li>
+</ul>
+<h6 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h6><p>原理：函数只不过是在特定环境中执行代码的对象，因此通过使用apply()和call()方法也可以在新创建的对象上执行构造函数。  </p>
+<pre><code>function SuperType() {
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+
+function SubType() {
+    SuperType.call(this);
+}
+
+var instance = new SubType();
+instance.colors.push(&quot;black&quot;);
+console.log(instance.colors); // [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]
+</code></pre><p><strong>传递参数</strong><br>相对于原型链而言，借用构造函数有一个很大的优势，即可以在子类型构造函数中向超类型构造函数传递参数。  </p>
+<p><strong>问题</strong><br>方法都在构造函数中定义，因此函数复用就无从谈起了。<br>在超类型的原型中定义的方法，对子类型而言也是不可见的，结果所有类型都智能使用构造函数模式。  </p>
+<h6 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h6><p>有时也叫伪经典继承，指的是将原型链和借用构造函数的技术组合到一块，从而发挥二者之长的一种继承模式。<br>原型链实现对原型属性和方法的继承，借用构造函数实现对实例属性的继承。  </p>
+<pre><code>function SuperType(name) {
+    this.name = name;
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+
+SuperType.prototype.sayName = function() {
+    console.log(this.name);
+}
+
+function SubType(name, age) {
+    SuperType.call(this, name); //  第二次调用 SuperType()
+    this.age = age;
+}
+
+SubType.prototype = new SuperType(); // 第一次调用 SuperType()
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function() {
+    console.log(this.age);
+}
+</code></pre><p>组合继承避免了原型链和借用构造函数的缺陷，融合了它们的优点，成为JavaScript中做常用的继承模式。<br>而且，instanceof和isPrototypeOf()也能够用于识别基于组合继承创建的对象。  </p>
+<h6 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h6><p>借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型。  </p>
+<pre><code>function object(o) {
+    function F(){}
+    F.prototype = o;
+    return new F();
+}
+
+var person = {
+    colors: [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;]
+};
+
+// obj继承person对象
+var obj = object(person);
+</code></pre><p><strong>Object.create(fatherObj[, propertiesObj])</strong><br>ECMAScript5通过新增Object.create()方法规范化了原型继承。<br>fatherObj: 要继承的父类对象<br>propertiesObj: 和Object.defineProperties()中第二个参数一样，会覆盖原有同名属性。可选  </p>
+<h6 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h6><p>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再想真的是它做了所有工作一样返回对象。  </p>
+<pre><code>function createAnother(original) {
+    var clone = object(original);
+    clone.sayHi = function() {
+        console.log(&quot;HI&quot;);
+    }
+    return clone;
+}
+</code></pre><p>在主要考虑对象而不是自定义类型和构造函数的情况下，寄生式继承也是一种有用的模式。 </p>
+<p>前面的object()函数不是必须的，任何能够返回新对象的函数都适用于此模式。  </p>
 <blockquote>
-<p>sign up 是注册， sign in 是登录</p>
+<p>使用寄生式继承来为对象添加函数，会由于不能做到函数服用而降低效率。这一点与构造函数模式类似</p>
 </blockquote>
-<h4 id="Step-Two"><a href="#Step-Two" class="headerlink" title="Step Two"></a>Step Two</h4><p>新建一个代码库，点击右上角的加号，点击New repository<br><img src="/2017/12/09/github-hexo搭建个人博客/add_repository.png" title="create a new repository"><br>命名你要创建的代码库，这里需要注意，你代码库的名字一定得是yourname.github.io<br><img src="/2017/12/09/github-hexo搭建个人博客/name_repository.png" title="name for repository"><br>这里的yourname是你的账户名<br>至于description，你可写可不写，然后点击最下方的create repository绿色按钮就OK了  </p>
-<h4 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h4><p>设置代码库，开启gh-pages功能，这个功能是我们能够利用github搭建个人博客的重要功能。<br>代码库创建成功之后，我们会进入如下界面：<br><img src="/2017/12/09/github-hexo搭建个人博客/repo_success.png" title="create repository successful"><br>然后点击图片上部菜单末尾的settings属性，下滑到Github Pages设置这块<br><img src="/2017/12/09/github-hexo搭建个人博客/github_pages.png" title="github pages configuration"><br>由他的描述可知，github pages被设计为从Github库中托管您的个人、组织或项目页面。我们也获知其现在是无效的，需要我们往其中添加内容。<br>我们可以点击下方的choose a theme按钮，然后选择你喜爱的风格：<br><img src="/2017/12/09/github-hexo搭建个人博客/choose_theme.png" title="choose theme"><br>点击select theme按钮，它默认给你创建了一个issue，填充好了内容，然后你只需点击commit changes按钮即可<br><img src="/2017/12/09/github-hexo搭建个人博客/commit_content.png" title="commit changes">  </p>
-<p>如果您完成了上述的工作，name恭喜你，你已经完成了第一部分的内容。<br>然后您可以在浏览器的地址栏输入<a href="https://yourname.github.io查看您的项目页面。" target="_blank" rel="noopener">https://yourname.github.io查看您的项目页面。</a><br>  </p>
-<h2 id="在本地下载git，nodejs"><a href="#在本地下载git，nodejs" class="headerlink" title="在本地下载git，nodejs"></a>在本地下载git，nodejs</h2><p>为甚我们需要下载git和nodejs呢？<br>因为我们选用的hexo框架依赖于git和nodejs。    </p>
-<p>我们可以去<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git官网</a>上去下载git。<br><img src="/2017/12/09/github-hexo搭建个人博客/git_download.png" title="git download"><br>下载完成之后，双击安装即可。<br><img src="/2017/12/09/github-hexo搭建个人博客/git_install_1.png" title="git download"><br><img src="/2017/12/09/github-hexo搭建个人博客/git_install_2.png" title="git download">  </p>
-<blockquote>
-<p>强烈建议不要将其安装到C盘</p>
-</blockquote>
-<p>然后一直next，知道finish  </p>
-<p>然后在桌面空白处点击右键，就会发现右键菜单中多出了Git GUI Here 和 Git Bash Here这两个选项  </p>
-<p>然后安装nodejs，<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">官网网址</a><br><img src="/2017/12/09/github-hexo搭建个人博客/node_download.png" title="git download"><br>点击.msi文件或是.zip文件均可，然后下载安装或解压。  </p>
-<blockquote>
-<p>要注意，需要配置环境变量<br>在 <code>控制面板 &gt; 系统和安全 &gt; 系统 &gt; 高级系统设置 &gt; 环境变量 &gt; 系统变量中的path &gt; 编辑 &gt; 新建 &gt; 将你安装node的文件路径复制</code><br>然后一直点击确认即可</p>
-</blockquote>
-<img src="/2017/12/09/github-hexo搭建个人博客/envo_1.png" title="git download">  
-<img src="/2017/12/09/github-hexo搭建个人博客/envo_2.png" title="git download">  
-<img src="/2017/12/09/github-hexo搭建个人博客/envo_3.png" title="git download">  
-<h2 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h2><p>什么是Hexo？<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。  </p>
-<p>安装hexo，打开命令行，执行如下命令  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-<p>安装成功，可以执行<code>hexo -v</code>查看安装的版本<br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_install.png" title="git download">  </p>
-<h4 id="建立博客代码库"><a href="#建立博客代码库" class="headerlink" title="建立博客代码库"></a>建立博客代码库</h4><p>新建一个文件夹，cmd运行进入到该目录下，使用<code>hexo init</code>命令初始化代码库<br>然后使用如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
-<p>安装所需的一些依赖包<br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_init.png" title="git download"><br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_npm_install.png" title="git download">  </p>
-<h4 id="运行博客"><a href="#运行博客" class="headerlink" title="运行博客"></a>运行博客</h4><ol>
-<li><p>清除缓存文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成静态文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate 或 hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>执行完上述命令，打开浏览器，输入<a href="http://localhost:4000，即可看到稍微满意的结果" target="_blank" rel="noopener">http://localhost:4000，即可看到稍微满意的结果</a><br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_default_page.png" title="git download">  </p>
-<h2 id="关联github-page"><a href="#关联github-page" class="headerlink" title="关联github page"></a>关联github page</h2><h4 id="配置git个人信息"><a href="#配置git个人信息" class="headerlink" title="配置git个人信息"></a>配置git个人信息</h4><p>打开git bash，输入如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;  </span><br><span class="line">git config --global user.emal &quot;xxx@xxx.xxx&quot;</span><br></pre></td></tr></table></figure></p>
-<p>将其中的xxx替换成您自己的信息  </p>
-<p>然后使用如下命令生成秘钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your email&quot;</span><br></pre></td></tr></table></figure></p>
-<p>请将your email替换成您自己的邮箱  </p>
-<p>执行完毕，就会在C盘的用户目录下生成一个.ssh文件夹，其中会有id_rsa和id_rsa.pub这两个文件，分别是私钥和公钥  </p>
-<p>添加生成的秘钥到到ssh-agent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eval `ssh-agent -s`  # 启动ssh-agent  </span><br><span class="line">ssh-add  # 添加秘钥</span><br></pre></td></tr></table></figure></p>
-<p>将公钥复制，进入github settings中的Deploy Keys选项，点击Add Deploy Key按钮<br><img src="/2017/12/09/github-hexo搭建个人博客/github_deploy_keys.png" title="git download"><br>将公钥复制到Key文本栏中，title栏可以任意填<br><img src="/2017/12/09/github-hexo搭建个人博客/github_add_keys.png" title="git download"><br>点击 Add Key即可  </p>
-<blockquote>
-<p>这是为了避免您每次想github推送您更新的博客时，都需要输入您的用户名和密码，配置公钥私钥能够让git自动帮您进行认证  </p>
-</blockquote>
-<h4 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h4><p>在您博客代码库的根目录下有一个_config.yml文件，这是您网站的配置文件。<br>您需要进行一些修改以匹配您的git page<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	type: git  </span><br><span class="line">	repo: git@github.com:Ison-Laihus/Ison-Laihus.github.io.git  </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
-<p>请进行相应的替换  </p>
-<p>在_config.yml文件中还有其他一些参数可以配置<br>例如： 修改博客站点信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Ison Blog  </span><br><span class="line">subtitle: happy to have a blog  </span><br><span class="line">description:</span><br><span class="line">author: Ison  </span><br><span class="line">language:</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure></p>
-<h4 id="将本地博客部署到github-pages"><a href="#将本地博客部署到github-pages" class="headerlink" title="将本地博客部署到github pages"></a>将本地博客部署到github pages</h4><p>部署命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy 或 hexo d</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>但是需要注意，在部署之前，需要先进行清除缓存和生成静态文件的命令  </p>
-</blockquote>
-<p>然后再浏览器中输入URL: <a href="https://yourname.gihub.io，就会发现已经将本地博客部署到github上了" target="_blank" rel="noopener">https://yourname.gihub.io，就会发现已经将本地博客部署到github上了</a>  </p>
-<h2 id="选用主题"><a href="#选用主题" class="headerlink" title="选用主题"></a>选用主题</h2><p>在github上，有许许多多github的主题，您可以在github上进行搜索<br><img src="/2017/12/09/github-hexo搭建个人博客/theme_search.png" title="git download">  </p>
-<p>您可以选择您喜爱的主题，然后下载到本地博客代码仓库themes文件夹下  </p>
-<p>例如，我们选择hexo-theme-even这个主题，然后使用git bash从github上克隆下来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-scss --save  # 首先安装依赖的包  </span><br><span class="line">git clone git@github.com:ahonn/hexo-theme-even.git themes/even</span><br></pre></td></tr></table></figure></p>
-<p>后面的themes/even请根据您的自身情况进行修改  </p>
-<p>然后修改_config.yml文件中的theme字段，因为我们将下载的主题命名为even，所以我们将这个字段设置为even  </p>
-<p>然后清除缓存，生成静态文件，部署<br>在浏览器输入URL: <a href="https://yourname.gihub.io，发现博客主题已经被更改，但是却很糟糕" target="_blank" rel="noopener">https://yourname.gihub.io，发现博客主题已经被更改，但是却很糟糕</a>  </p>
-<p>这里不知道是不是作者写错了还是怎么，不过我们可以做一些修改：  </p>
-<p>进入主题even的文件夹中，进入layout/_partial文件夹下，打开head.swig文件，将如下两行代码做些修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;&#123;&#123; url_for(theme.favicon) &#125;&#125;?v=&#123;&#123; theme.version &#125;&#125;&quot; /&gt;  </span><br><span class="line">···  </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&#123;&#123; url_for(&apos;css/style.css&apos;) &#125;&#125;?v=&#123;&#123; theme.version &#125;&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<p>修改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;&#123;&#123; url_for(theme.favicon) &#125;&#125;&quot; /&gt;  </span><br><span class="line">···  </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&#123;&#123; url_for(&apos;css/style.css&apos;) &#125;&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<p>然后执行必备的三步，即可看到炫酷的效果<br><img src="/2017/12/09/github-hexo搭建个人博客/even_theme_page.png" title="git download">  </p>
-<p>是不是很酷炫呢:)  </p>
-<h2 id="撰写博客"><a href="#撰写博客" class="headerlink" title="撰写博客"></a>撰写博客</h2><p>终于到了我们最后一个模块了——撰写博客  </p>
-<p>hexo有一个新建博客文章的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
-<p>该命令会自动在source/_post文件夹下生成一个markdown文件，然后我们可以使用Markown编辑器打开这个文件进行编辑，撰写我们的博客。  </p>
-<p>这似乎很简单，但是这并不是我所要说的重点。  </p>
-<p>我所说的重点是，如何在我们的博客代码仓库存储我们的数据文件，例如，如果有一张图片，我们该怎么保存在我们的图片呢？  </p>
-<p>不要着急，hexo给我们提供了这个功能。 </p>
-<p>我们只需要在根目录下的_config.yml中修改post_asset_folder的字段设置为true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure></p>
-<p>然后当我们使用新建博客文章的命令的同时，会在source/_post目录下生成一个与你博客文章同名的文件夹，你可以将你的数据文件放入这个文件夹中，然后使用如下命令进行引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure></p>
-<p>asset_img是不能更改的，example.jpg根据您的图片名称进行修改，This is an example是描述语句，可以任意更改。  </p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>至此，使用github+hexo搭建个人博客已经完成，如果有误，希望指正。<br>更多内容，请参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官方文档</a></p>
+<h6 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h6><p>由于组合继承存在一个很大的缺陷： 其会调用两次超类型构造函数，一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。  </p>
+<p>因为子类型最终会包含超类型对象的全部实例属性，所以我们不得不在调用子类型构造函数时重写这些属性。    </p>
+<p><strong>解决办法：寄生组合式继承</strong><br>通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。  </p>
+<p>背后的思路：不必为了指定子类型的原型而调用超类型的构造函数，我们需要的无非就是超类型原型的一个副本而已。  </p>
+<p>本质：使用寄生式继承来继承超类型的原型，然后在将结果指定给子类型的原型。  </p>
+<pre><code>function inheritPrototype(subType, superType) {
+    var prototype = object(superType.prototype);    // 创建对象
+    prototype.constructor = subType;                // 增强对象
+    subType.prototype = prototype;                    // 指定对象
+}
+</code></pre><p>这个例子能够保持原型链不变，还避免了在SubType.prototype上面创建不必要的、多余的属性。  </p>
+<p>这被普遍认为是引用类型最理想的继承范式。  </p>
 
       
 
@@ -308,7 +294,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">部署</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -364,7 +350,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://Ison-Laihus.github.io/2017/12/09/github-hexo搭建个人博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://Ison-Laihus.github.io/2018/03/19/JavaScript-继承/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -378,18 +364,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/18/XML介绍与实例/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          XML介绍与实例
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2018/03/18/JavaScript严格模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">&#39;JavaScript严格模式&#39;</div>
       <i class="icon-circle-right"></i>
     </a>
   
