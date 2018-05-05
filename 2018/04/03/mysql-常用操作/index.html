@@ -21,7 +21,10 @@
 <meta property="og:image" content="http://ison-laihus.github.io/2018/04/03/mysql-常用操作/table_charset_changed.jpg">
 <meta property="og:image" content="http://ison-laihus.github.io/2018/04/03/mysql-常用操作/column_charset.jpg">
 <meta property="og:image" content="http://ison-laihus.github.io/2018/04/03/mysql-常用操作/column_charset_changed.jpg">
-<meta property="og:updated_time" content="2018-04-11T07:40:50.996Z">
+<meta property="og:image" content="http://ison-laihus.github.io/2018/04/03/mysql-常用操作/column_charset_changed2.jpg">
+<meta property="og:image" content="http://ison-laihus.github.io/2018/04/03/mysql-常用操作/all_character_set.jpg">
+<meta property="og:image" content="http://ison-laihus.github.io/2018/04/03/mysql-常用操作/all_collation_set.jpg">
+<meta property="og:updated_time" content="2018-04-28T06:54:57.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql 常用操作">
 <meta name="twitter:description" content="数据的导入导出导入sql文件   source [/path/to/sql/file] 导入纯数据文件   load data local infile &amp;apos;[/path/of/data/file]&amp;apos; into table [tablename] fields terminated by &amp;apos;[seperator]&amp;apos; lines terminated by &amp;a">
@@ -190,24 +193,38 @@
 <pre><code>alter table [tablename] modify [columnName] char(40);
 或
 alter table [tablename] change [columnNameBeforeChange] [columnNameBeforeChange] char(40);
-</code></pre><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p><strong>查看数据库编码</strong>  </p>
+</code></pre><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h6 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h6><p><strong>查看数据库编码</strong>  </p>
 <pre><code>show create database [db_name];
 </code></pre><img src="/2018/04/03/mysql-常用操作/database_charset.jpg" title="database charset">
 <p><strong>修改数据库编码</strong>  </p>
 <pre><code>alter database [db_name] default character set [character_name];
 </code></pre><img src="/2018/04/03/mysql-常用操作/database_charset_changed.jpg" title="database charset after change">
-<p><strong>查看数据表编码</strong></p>
+<h6 id="数据表"><a href="#数据表" class="headerlink" title="数据表"></a>数据表</h6><p><strong>查看数据表编码</strong></p>
 <pre><code>show create table [table_name];
 </code></pre><img src="/2018/04/03/mysql-常用操作/table_charset.jpg" title="table charset">
 <p><strong>修改数据表编码</strong>  </p>
 <pre><code>alter table [table_name] default character set [character_name];
 </code></pre><img src="/2018/04/03/mysql-常用操作/table_charset_changed.jpg" title="table charset after change">
-<p><strong>查看数据表列字段编码</strong></p>
+<h6 id="数据表列字段"><a href="#数据表列字段" class="headerlink" title="数据表列字段"></a>数据表列字段</h6><p><strong>查看数据表列字段编码</strong></p>
 <pre><code>show full columns from [table_name];
 </code></pre><img src="/2018/04/03/mysql-常用操作/column_charset.jpg" title="column charset">
 <p><strong>修改数据表列字段编码</strong>  </p>
-<pre><code>alter database [db_name] change [column_name] [column_name] [column_type] character set [character_name];
+<pre><code>alter table [table_name] change [column_name_before] [column_name_after] [column_type] character set [character_name];
 </code></pre><img src="/2018/04/03/mysql-常用操作/column_charset_changed.jpg" title="column charset after change">
+<p>或</p>
+<pre><code>alter table [table_name] modify [column_name] [column_type] charset set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset_changed2.jpg" title="column charset after change 2">
+<h6 id="查看mysql数据库所有的编码"><a href="#查看mysql数据库所有的编码" class="headerlink" title="查看mysql数据库所有的编码"></a>查看mysql数据库所有的编码</h6><pre><code>show variables like &apos;%char%&apos;;
+</code></pre><img src="/2018/04/03/mysql-常用操作/all_character_set.jpg" title="all character set">
+<h6 id="查看mysql数据库所有排序规则"><a href="#查看mysql数据库所有排序规则" class="headerlink" title="查看mysql数据库所有排序规则"></a>查看mysql数据库所有排序规则</h6><pre><code>show variables like &apos;%collation_%&apos;;
+</code></pre><img src="/2018/04/03/mysql-常用操作/all_collation_set.jpg" title="all character set">
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_	:	匹配任何单个字符</span><br><span class="line">%	:	匹配0或任意多个字符</span><br></pre></td></tr></table></figure>
+<p>这两个通配符需要使用 LIKE 或 NOT LIKE</p>
+<blockquote>
+<p>不能使用 = 或 !=</p>
+</blockquote>
+<h4 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.	:	匹配单个字符</span><br><span class="line">*	:	匹配0个或任意多个字符</span><br><span class="line">^	:	开头</span><br><span class="line">$	:	结尾</span><br><span class="line">[]	:	某一个（括号中的字符）</span><br><span class="line">&#123;n&#125;	:	重复n次</span><br></pre></td></tr></table></figure>
+<p>使用 REGEXP 或 NOT REGEXP</p>
 
       
 
@@ -445,6 +462,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -461,15 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,6 +510,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
@@ -502,6 +527,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
             
             <div class="clearfix"></div>

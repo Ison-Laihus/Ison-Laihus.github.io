@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://Ison-Laihus.github.io">
   <title>mysql之char、varchar、text | Ison World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在mysql之中，定义了很多数据类型作为存储的字段的类型。   这里只是对char、varchar和text这三个类型进行区别介绍。   char 存储固定长度字符 上限为255字节 char(n)中的n代表字符的个数，而不是字节个数 超过char的n设置，会被截断 速度快 存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(最大字节长度)，多余的空间使用空格填充  varchar 存储">
+  <meta name="description" content="在mysql之中，定义了很多数据类型作为存储的字段的类型。   这里只是对char、varchar和text这三个类型进行区别介绍。   char 存储固定长度字符 上限为255字节 char(n)中的n代表字符的个数，而不是字节个数 超过char的n设置，会被截断 速度快 存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(字符字节长度)，多余的空间使用空格填充   varchar 存">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql之char、varchar、text">
 <meta property="og:url" content="http://Ison-Laihus.github.io/2018/04/10/mysql之char、varchar、text/index.html">
 <meta property="og:site_name" content="Ison World">
-<meta property="og:description" content="在mysql之中，定义了很多数据类型作为存储的字段的类型。   这里只是对char、varchar和text这三个类型进行区别介绍。   char 存储固定长度字符 上限为255字节 char(n)中的n代表字符的个数，而不是字节个数 超过char的n设置，会被截断 速度快 存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(最大字节长度)，多余的空间使用空格填充  varchar 存储">
-<meta property="og:updated_time" content="2018-04-10T15:39:20.690Z">
+<meta property="og:description" content="在mysql之中，定义了很多数据类型作为存储的字段的类型。   这里只是对char、varchar和text这三个类型进行区别介绍。   char 存储固定长度字符 上限为255字节 char(n)中的n代表字符的个数，而不是字节个数 超过char的n设置，会被截断 速度快 存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(字符字节长度)，多余的空间使用空格填充   varchar 存">
+<meta property="og:updated_time" content="2018-04-11T08:35:13.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql之char、varchar、text">
-<meta name="twitter:description" content="在mysql之中，定义了很多数据类型作为存储的字段的类型。   这里只是对char、varchar和text这三个类型进行区别介绍。   char 存储固定长度字符 上限为255字节 char(n)中的n代表字符的个数，而不是字节个数 超过char的n设置，会被截断 速度快 存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(最大字节长度)，多余的空间使用空格填充  varchar 存储">
+<meta name="twitter:description" content="在mysql之中，定义了很多数据类型作为存储的字段的类型。   这里只是对char、varchar和text这三个类型进行区别介绍。   char 存储固定长度字符 上限为255字节 char(n)中的n代表字符的个数，而不是字节个数 超过char的n设置，会被截断 速度快 存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(字符字节长度)，多余的空间使用空格填充   varchar 存">
   
     <link rel="alternative" href="/atom.xml" title="Ison World" type="application/atom+xml">
   
@@ -170,20 +170,51 @@
 <li>char(n)中的n代表字符的个数，而不是字节个数</li>
 <li>超过char的n设置，会被截断</li>
 <li>速度快</li>
-<li>存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(最大字节长度)，多余的空间使用空格填充</li>
+<li>存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(字符字节长度)，多余的空间使用空格填充</li>
 </ul>
+<blockquote>
 <h4 id="varchar"><a href="#varchar" class="headerlink" title="varchar"></a>varchar</h4><ul>
 <li>存储可变长度字符</li>
 <li>上限为65535字节，但实际可以存储的最大长度为65532字节</li>
 <li>varchar(n)代表可以存储n个字符，但是其最大的实际存储空间应该是n+1</li>
 <li>超过varchar的n设置，会被截断</li>
 <li>速度慢</li>
-<li>不存在空间浪费，有部分字节被用来记录数据长度，达到可变长的效果。  </li>
+<li>不存在空间浪费，有<strong>部分字节</strong>被用来记录数据长度，达到可变长的效果。  </li>
 </ul>
+</blockquote>
 <h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><ul>
 <li>存储可变长度大数据</li>
-<li>上限为65535字节</li>
+<li>上限为65535字节，实际存储的最大长度仍为65535字节，其使用的是额外的空间存放数据长度</li>
+<li>速度慢</li>
+<li>不存在空间浪费，有<strong>额外字节</strong>被用来记录数据长度，达到可变长的效果。</li>
 </ul>
+<p>text不以字符数来表明存储大小，其有几个相关的类型，并规定了最大的存储字节。  </p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Maximum length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tiny</td>
+<td>255 bytes</td>
+</tr>
+<tr>
+<td>text</td>
+<td>65,535 bytes = 64KiB</td>
+</tr>
+<tr>
+<td>mediumtext</td>
+<td>16,777,215 bytes = 16MiB</td>
+</tr>
+<tr>
+<td>longtext</td>
+<td>4,294,967,295 bytes = 4GiB</td>
+</tr>
+</tbody>
+</table>
 
       
 
@@ -287,6 +318,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/04/11/浅谈微服务/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          浅谈微服务
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/03/PHP-PCRE模式正则/" id="article-nav-older" class="article-nav-link-wrap">
@@ -412,6 +452,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -428,15 +472,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,6 +500,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
@@ -469,6 +517,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
             
             <div class="clearfix"></div>

@@ -139,755 +139,122 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-mysql之char、varchar、text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JavaScript-数组的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/10/mysql之char、varchar、text/">mysql之char、varchar、text</a>
+      <a class="article-title" href="/2018/05/05/JavaScript-数组的方法/">JavaScript 数组的方法</a>
     </h1>
   
 
         
-        <a href="/2018/04/10/mysql之char、varchar、text/" class="archive-article-date">
-  	<time datetime="2018-04-10T15:09:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+        <a href="/2018/05/05/JavaScript-数组的方法/" class="archive-article-date">
+  	<time datetime="2018-05-05T10:25:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在mysql之中，定义了很多数据类型作为存储的字段的类型。  </p>
-<p>这里只是对char、varchar和text这三个类型进行区别介绍。  </p>
-<h4 id="char"><a href="#char" class="headerlink" title="char"></a>char</h4><ul>
-<li>存储固定长度字符</li>
-<li>上限为255字节</li>
-<li>char(n)中的n代表字符的个数，而不是字节个数</li>
-<li>超过char的n设置，会被截断</li>
-<li>速度快</li>
-<li>存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(最大字节长度)，多余的空间使用空格填充</li>
-</ul>
-<h4 id="varchar"><a href="#varchar" class="headerlink" title="varchar"></a>varchar</h4><ul>
-<li>存储可变长度字符</li>
-<li>上限为65535字节，但实际可以存储的最大长度为65532字节</li>
-<li>varchar(n)代表可以存储n个字符，但是其最大的实际存储空间应该是n+1</li>
-<li>超过varchar的n设置，会被截断</li>
-<li>速度慢</li>
-<li>不存在空间浪费，有部分字节被用来记录数据长度，达到可变长的效果。  </li>
-</ul>
-<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><ul>
-<li>存储可变长度大数据</li>
-<li>上限为65535字节</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/10/mysql之char、varchar、text/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PHP-PCRE模式正则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/03/PHP-PCRE模式正则/">PHP PCRE模式正则</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/03/PHP-PCRE模式正则/" class="archive-article-date">
-  	<time datetime="2018-04-03T13:51:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="PCRE"><a href="#PCRE" class="headerlink" title="PCRE"></a>PCRE</h2><p>什么是PCRE，其全名为Perl Compatible Regular Expressions，中文解释为“兼容Perl的正则表达式”。  </p>
-<h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><p>当使用PCRE函数的时候，模式需要由<strong>分隔符</strong>闭合包裹。<br>分隔符可以是任意非字母数字、非反斜线、非空白字符。  </p>
-<p>经常使用的分隔符是正斜线(/)、has符号(#)、取反符号(~)。  </p>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>32个方法：<br>toString()、toLocaleString()、valueOf()、join()、push()、pop()、shift()、unshift()、reverse()、sort()、concat()、slice()、splice()、indexOf()、lastIndexOf()、reduce()、reduceRight()、map()、forEach()、filter()、some()、every()、Array.from()、Array.of()、copyEithin()、find()、findIndex()、fill()、entries()、keys()、values()、includes()</p>
+<h2 id="继承的方法"><a href="#继承的方法" class="headerlink" title="继承的方法"></a>继承的方法</h2><h5 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h5><p>返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。  </p>
+<h5 id="toLocaleString-NaN"><a href="#toLocaleString-NaN" class="headerlink" title="toLocaleString()"></a>toLocaleString()</h5><p>是toString()方法的本地化版本，它经常也会返回toString()方法相同的值。<br>但是在将Date对象转换为字符串的话，就会根据本地的时间进行转换。  </p>
 <blockquote>
-<p>如果分隔符需要在模式内进行匹配，它必须使用反斜线进行转义。  </p>
+<p>undefined 和 null 在使用上述两种方法时会转换为 空字符串</p>
 </blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PHP Regex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/03/PHP-PCRE模式正则/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql-常用操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/03/mysql-常用操作/">mysql 常用操作</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/03/mysql-常用操作/" class="archive-article-date">
-  	<time datetime="2018-04-03T11:26:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="数据的导入导出"><a href="#数据的导入导出" class="headerlink" title="数据的导入导出"></a>数据的导入导出</h2><p><strong>导入sql文件</strong>  </p>
-<pre><code>source [/path/to/sql/file]
-</code></pre><p><strong>导入纯数据文件</strong>  </p>
-<pre><code>load data local infile &apos;[/path/of/data/file]&apos; into table [tablename] fields terminated by &apos;[seperator]&apos; lines terminated by &apos;[seperator]&apos;;
-</code></pre><p><strong>导出数据</strong></p>
-<pre><code>mysqldump -h[hostname] -u[username] -p[password] [databasename] [tablename] &gt; [/path/to/store/sql/file]
-</code></pre><blockquote>
-<p>建议在输入上述命令，输入密码那个参数中，只需要输入 <code>-p</code> 即可，无须在其后跟上password，而是在输入这行命令之后再由系统指导进行输入，一般Linux不允许上述命令，因为密码以明文输出不安全</p>
-</blockquote>
-<p><strong>导出一部分数据</strong>  </p>
-<pre><code>SELECT ... INTO OUTFILE &apos;[file/path]&apos;;
-</code></pre><h2 id="列操作"><a href="#列操作" class="headerlink" title="列操作"></a>列操作</h2><p><strong>修改列名</strong>  </p>
-<pre><code>alter table [tablenamme] change column [columnNameBeforeChange] [columnNameAfterChange] char(40)
-</code></pre><p><strong>添加列名</strong>  </p>
-<pre><code>alter table [tablename] add column [columnName] varchar(40);
-</code></pre><p><strong>删除列名</strong>  </p>
-<pre><code>alter table [tablenam]e drop column [columnName];
-</code></pre><p><strong>修改列类型</strong>  </p>
-<pre><code>alter table [tablename] modify [columnName] char(40);
-或
-alter table [tablename] change [columnNameBeforeChange] [columnNameBeforeChange] char(40);
-</code></pre><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p><strong>查看数据库编码</strong>  </p>
-<pre><code>show create database [db_name];
-</code></pre><img src="/2018/04/03/mysql-常用操作/database_charset.jpg" title="database charset">
-<p><strong>修改数据库编码</strong>  </p>
-<pre><code>alter database [db_name] default character set [character_name];
-</code></pre><img src="/2018/04/03/mysql-常用操作/database_charset_changed.jpg" title="database charset after change">
-<p><strong>查看数据表编码</strong></p>
-<pre><code>show create table [table_name];
-</code></pre><img src="/2018/04/03/mysql-常用操作/table_charset.jpg" title="table charset">
-<p><strong>修改数据表编码</strong>  </p>
-<pre><code>alter table [table_name] default character set [character_name];
-</code></pre><img src="/2018/04/03/mysql-常用操作/table_charset_changed.jpg" title="table charset after change">
-<p><strong>查看数据表列字段编码</strong></p>
-<pre><code>show full columns from [table_name];
-</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset.jpg" title="column charset">
-<p><strong>修改数据表列字段编码</strong>  </p>
-<pre><code>alter database [db_name] change [column_name] [column_name] [column_type] character set [character_name];
-</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset_changed.jpg" title="column charset after change">
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/03/mysql-常用操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-制作Makefile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/制作Makefile/">制作Makefile</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/制作Makefile/" class="archive-article-date">
-  	<time datetime="2018-03-31T09:06:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>makefile文件，是供给make（一个工具程序）进行自动化构建的。  </p>
-<p>make，是一种转换文件形式的的工具，转换的目标称为“target”，与此同时，它也检查文件的依赖关系，如果需要的话，它会调用一些外部软件来完成任务。  </p>
-<p>它使用“makefile”的文件来确定一个target文件的依赖关系，然后把生成这个target的相关命令传给shell去执行。  </p>
+<h5 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf"></a>valueOf</h5><p>返回数组对象本身</p>
+<h2 id="数组转换方法"><a href="#数组转换方法" class="headerlink" title="数组转换方法"></a>数组转换方法</h2><h5 id="join"><a href="#join" class="headerlink" title="join"></a>join</h5><p>Array.join()方法时Sting.split()方法的逆向操作，是将数组中的元素以一个连接符连接成一个字符串。<br>默认是 <code>,</code> ，也可以传入分隔符作为join的参数。<br>null 和 undefined 会被视为 空字符串。  </p>
+<h2 id="栈和队列方法"><a href="#栈和队列方法" class="headerlink" title="栈和队列方法"></a>栈和队列方法</h2><h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p>可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度。  </p>
+<p>使用apply方法可以合并两数组  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let a = [1, 2, 3]</span><br><span class="line">let b = [4, 5, 6]</span><br><span class="line">Array.prototype.push.apply(a, b) // [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+<p>但是，使用call方法，却会将数组看成一个整体  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let a = [1, 2, 3]</span><br><span class="line">let b = [4, 5, 6]</span><br><span class="line">Array.prototype.push.call(a, b) // [1, 2, 3, [4, 5, 6] ]</span><br></pre></td></tr></table></figure>
+<h5 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h5><p>从数组末尾移除最后一项，减少数组的length值，然后返回移除的项。  </p>
 <blockquote>
-<p>大多数情况下，它被用来编译源代码，生成结果代码， 然后把结果代码连接起来生成可执行文件或者库文件。  </p>
+<p>对空数组使用pop()方法，不会报错，而是返回undefined</p>
 </blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Linux make makefile</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/制作Makefile/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux下设置输出字符的颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/27/Linux下设置输出字符的颜色/">Linux下设置输出字符的颜色</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/27/Linux下设置输出字符的颜色/" class="archive-article-date">
-  	<time datetime="2018-03-27T07:10:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre><code>\033[显示方式;前景色;背景色;m输出字符串\033[0m
-或
-\e[显示方式;前景色;背景色;m输出字符串\e[0m
-</code></pre><p><code>\033[</code> 或 <code>\e[</code> 引导转义序列，<code>m</code> 表示设置属性并结束转义序列，<code>\033[0m</code> 或 <code>\e[0m</code> 用于恢复默认的终端输出属性。  </p>
-<h5 id="转义序列"><a href="#转义序列" class="headerlink" title="转义序列"></a>转义序列</h5><p>转义序列以控制字符<code>ESC</code>开头，该字符的ASCII码十进制为27，十六进制为0x1B，八进制表示为033。<br>由于转义序列多数超过两个字符，所以通常以 <code>ESC</code> 和左括号 <code>[</code> 开头，该起始序列（<code>\033[</code> 和 <code>\e[</code>）称为控制序列引导符。</p>
-<h5 id="显示方式-amp-前景色-amp-背景色"><a href="#显示方式-amp-前景色-amp-背景色" class="headerlink" title="显示方式 &amp; 前景色 &amp; 背景色"></a>显示方式 &amp; 前景色 &amp; 背景色</h5><p>这三个属性是用来设置输出字符串的三个属性。  </p>
+<h5 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h5><p>移除数组中的第一个项并返回该项，同时数组的长度减一。  </p>
 <blockquote>
-<p>这三个属性并没有顺序的限制，因为表示他们的值范围不同</p>
+<p>对空数组使用shift()方法，不会报错，而是返回undefined</p>
 </blockquote>
-<p><strong>颜色</strong>  </p>
-<pre><code>0 - 黑
-1 - 红
-2 - 绿
-3 - 黄
-4 - 蓝
-5 - 洋红
-6 - 青
-7 - 白
-</code></pre><blockquote>
-<p>字体颜色范围 30-37<br>背景颜色返回 40-47 </p>
-</blockquote>
-<p><strong>显示</strong>  </p>
-<pre><code>0    -    默认
-1    -    粗体/高亮
-22    -    非粗体
-4    -    单条下划线
-24    -     无下划线
-5    -    闪烁
-25    -    无闪烁
-7    -    反显、翻转前景色和背景色
-</code></pre><h2 id="Linux终端下的测试"><a href="#Linux终端下的测试" class="headerlink" title="Linux终端下的测试"></a>Linux终端下的测试</h2><p>在Linux的终端下，我们可以使用如下命令来输出彩色字或彩色背景  </p>
-<pre><code>echo -e &quot;\033[显示方式;前景色;背景色;m输出字符串\033[0m&quot;
-</code></pre><img src="/2018/03/27/Linux下设置输出字符的颜色/demo.png" title="test in Linux terminal"> 
+<h5 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h5><p>在数组前端添加任意个项，并返回新数组的长度。  </p>
 <blockquote>
-<p>双引号是必须的，因为其实bash分辨词素的标记</p>
+<p>当使用多个参数调用unshift()时，参数是一次性插入的而非一次一个地插入。这意味着最终的数组中插入的元素的顺序和它们在参数列表中的顺序一致</p>
 </blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/clover-toeic/p/4031618.html" target="_blank" rel="noopener">https://www.cnblogs.com/clover-toeic/p/4031618.html</a><br><a href="https://blog.csdn.net/exlsunshine/article/details/28440889" target="_blank" rel="noopener">https://blog.csdn.net/exlsunshine/article/details/28440889</a><br><a href="https://blog.csdn.net/hejinjing_tom_com/article/details/12162491" target="_blank" rel="noopener">https://blog.csdn.net/hejinjing_tom_com/article/details/12162491</a>  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/27/Linux下设置输出字符的颜色/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-开发web服务（库：xmlrpc-c）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/">C++开发web服务（库：xmlrpc-c）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/" class="archive-article-date">
-  	<time datetime="2018-03-26T15:48:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>Ubuntu16.04<br>gcc 5.4.0<br>xmlrpc-c 1.39.12  </p>
-<h2 id="xmlrpc-c介绍"><a href="#xmlrpc-c介绍" class="headerlink" title="xmlrpc-c介绍"></a>xmlrpc-c介绍</h2><p>xmlrpc-c是一个对XML-RPC协议的一个C/C++的实现。<br>其包含了很多必须的库，在编译服务端和客户端的时候都需要使用其进行链接编译。  </p>
-<p><a href="https://sourceforge.net/projects/xmlrpc-c/" target="_blank" rel="noopener">下载地址</a>  |  <a href="http://xmlrpc-c.sourceforge.net/doc/#clibraries" target="_blank" rel="noopener">文档</a>  </p>
-<h5 id="编译安装xmlrpc-c"><a href="#编译安装xmlrpc-c" class="headerlink" title="编译安装xmlrpc-c"></a>编译安装xmlrpc-c</h5><p>下载xmlrpc-c压缩文件之后，解压，进入其目录下，使用如下命令进行安装：  </p>
-<pre><code>./configure
-make
-sudo make install
-</code></pre><h5 id="编译链接客户端和服务端"><a href="#编译链接客户端和服务端" class="headerlink" title="编译链接客户端和服务端"></a>编译链接客户端和服务端</h5><p>这里，我们只介绍最简单的服务模式（即源文件examples/cpp中的xmlrpc_sample_add_server 和 xmlrpc_sample_add_client所示例的模式）。  </p>
-<p>在源文件examples/cpp文件夹下，xmlrpc-c的开发者已经为我们写好了Makefile文件，我们只需要执行make命令即可将cpp目录下的所有文件都编译完成。  </p>
-<p>但是，其Makefile文件很晦涩难懂，在我们开发服务的时候，如何编译代码文件呢？  </p>
-<p><strong>客户端</strong><br>客户端的编译需要链接如下的库：  </p>
-<pre><code>xmlrpc_client++
-xmlrpc++ 
-xmlrpc_util++
-</code></pre><p>所以，我们编译客户端的命令如下：  </p>
-<pre><code>g++ 源文件 -o 可执行文件 -lxmlrpc_client++ -lxmlrpc++ -lxmlrpc_util++
-</code></pre><p><strong>服务端</strong><br>服务端的编译需要链接如下的库：  </p>
-<pre><code>xmlrpc_server++
-xmlrpc++
-xmlrpc_server_abyss++
-xmlrpc_util++
-</code></pre><p>所以，我们编译服务端的命令如下：  </p>
-<pre><code>g++ 源文件 -o 可执行文件 -lxmlrpc_server++ -lxmlrpc++ -lxmlrpc_server_abyss++ -lxmlrpc_util++
-</code></pre><p>知晓了这些，我们就可以将examples/cpp目录下的示例文件<code>xmlrpc_sample_add_server.cpp</code> 和 <code>xmlrpc_sample_add_client.cpp</code> 拷贝出来单独编译。  </p>
-<h5 id="客户端调用服务端的参数模型"><a href="#客户端调用服务端的参数模型" class="headerlink" title="客户端调用服务端的参数模型"></a>客户端调用服务端的参数模型</h5><p>调用示例：  </p>
-<pre><code>string const serverUrl(&quot;http://localhost:8080/RPC2&quot;);
-string const methodName(&quot;sample.add&quot;);
-xmlrpc_c::clientSimple myClient;
-xmlrpc_c::value result;
-myClient.call(serverUrl, methodName, &quot;ii&quot;, &amp;result, 5, 7);
-</code></pre><p>那么就让我来介绍一下myClient.call中的第三个参数 <code>&quot;ii&quot;</code> 代表的含义。</p>
-<p>在xmlrpc-c中定义了很多类型：  </p>
-<pre><code>xmlrpc_c::value_boolean
-xmlrpc_c::value_int
-xmlrpc_c::value_boolean
-xmlrpc_c::value_boolean
-xmlrpc_c::value_boolean
-xmlrpc_c::value_boolean
-xmlrpc_c::value_boolean
-xmlrpc_c::value_boolean
-</code></pre><p>在客户端调用服务端的时候，myClient.call中的第三个参数代表着formatChar，即对应的输入类型符，其与上述的类型的映射关系如下：  </p>
-<pre><code>i    xmlrpc_c::value_int
-b    xmlrpc_c::value_boolean
-d    xmlrpc_c::value_double
-s    xmlrpc_c::value_string
-w    xmlrpc_c::value_boolean
-t    xmlrpc_c::value_boolean
-8    xmlrpc_c::value_boolean
-6    xmlrpc_c::value_boolean
-n    xmlrpc_c::value_boolean
-I    xmlrpc_c::value_boolean
-p    xmlrpc_c::value_boolean
-A    xmlrpc_c::value_boolean
-S    xmlrpc_c::value_boolean
-V    xmlrpc_c::value_boolean
-b    xmlrpc_c::value_boolean
-</code></pre><p>xmlrpc_build.c文件中</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++ Linux xmlrpc-c</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux-下安装libmysqlclient-dev找不到链接库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">Linux 下安装libmysqlclient-dev找不到链接库</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/" class="archive-article-date">
-  	<time datetime="2018-03-26T10:19:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想用C++在Linux环境下操作MySQL数据库。  </p>
-<p><strong>环境</strong><br>Ubuntu16.04<br>MySQL5.7<br>gcc 5.4.0  </p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>安装mysql  </p>
-<pre><code>sudo apt-get install mysql-server mysql-client
-</code></pre><p>安装libmysqlclient-dev  </p>
-<pre><code>sudo apt-get install libmysqlclient-dev
-</code></pre><blockquote>
-<p>libmysqlclient-dev这个库中有着操作mysql数据库的一些头文件和链接库</p>
+<h2 id="数组排序方法"><a href="#数组排序方法" class="headerlink" title="数组排序方法"></a>数组排序方法</h2><h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h5><p>用户反转数组的顺序，返回经过排序之后的数组，而且原数组顺序也会发生改变。  </p>
+<h5 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h5><p>按字符串升序排列数组项，sort方法会调用每个数组项的toString()方法，然后比较得到的字符串排序，返回经过排序之后的数组，而原数组顺序也发生改变。  </p>
+<blockquote>
+<p>如果数组中包含undefined元素，它们会被排到数组的尾部</p>
 </blockquote>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 <code>/usr/include</code> 中可以找到mysql文件夹，其中有一些操作mysql的头文件<br><strong>但是</strong><br>在 <code>/usr/lib</code> 中找不到链接库 <code>libmysqlclient.so</code>  </p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在安装 <code>libmysqlclient-dev</code> 的时候，将 <code>libmysqlclient.so</code> 链接库文件放置在了 <code>/usr/lib/x86_64-linux-gnu</code> 这个文件夹中。  </p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在 <code>/usr/lib</code> 中增加 <code>libmysqlclient.so</code> 的链接：  </p>
-<pre><code>ln -s /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/libmysqlclient.so
-</code></pre><p>这样一来，问题就解决了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux MySQL C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux-下建立链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/Linux-下建立链接/">Linux 下建立链接</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/26/Linux-下建立链接/" class="archive-article-date">
-  	<time datetime="2018-03-26T09:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>链接，在Linux文件系统中，可以视其为档案的别名。  </p>
-<h2 id="链接的分类"><a href="#链接的分类" class="headerlink" title="链接的分类"></a>链接的分类</h2><ul>
-<li>硬链接<ol>
-<li>以文件的副本的形式存在，但不占用实际空间</li>
-<li>不允许给目录创建硬链接</li>
-<li>只有在同一个文件系统中才能创建</li>
-</ol>
-</li>
-<li>软链接<ol>
-<li>以路径的形式存在，类似于Windows操作系统中的快捷方式</li>
-<li>可以跨文件系统</li>
-<li>可以对一个不存在的文件名进行链接</li>
-<li>可以对目录进行链接</li>
-</ol>
-</li>
+<p>sort()方法可以接受一个比较函数作为参数，以便指定哪个值在哪个值的前面。比较函数接收两个参数，如果第一个参数应该位于第二个参数之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个参数之后则返回一个正数  </p>
+<blockquote>
+<p>如果对一个字符串数组执行不区分大小写的字母表排序，比较函数首先将参数转化为小写字符串再开始比较</p>
+</blockquote>
+<h2 id="数组拼接方法"><a href="#数组拼接方法" class="headerlink" title="数组拼接方法"></a>数组拼接方法</h2><h5 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h5><p>基于当前数组中的所有项创建一个新数组，先创建当前数组一个副本，然后将接收到的参数添加到这个副本的末尾，最后返回新构建的数组。所以concat()不影响原数组。  </p>
+<p>如果不给concat()方法传递参数时，它只是复制当前的数组；如果参数是一个或多个数组，则该方法会将这些数组中的每一项都添加到结果数组中；如果传递的值不是数组，这些值就会被简单地添加到结果数组的末尾。  </p>
+<p>如果不提供参数，concat()方法返回当前数组的一个浅拷贝。所谓“浅拷贝”，指的是如果数组成员包括复合类型的值（比如对象），则新数组拷贝的是该值的引用。  </p>
+<h2 id="创建子数组"><a href="#创建子数组" class="headerlink" title="创建子数组"></a>创建子数组</h2><h5 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h5><p>基于当前数组中的一个或多个项创建一个新数组，接受一个或两个参数，即要返回项的起始和结束位置，最后返回新数组，所以slice()不影响原数组。  </p>
+<p>slice(start,end)方法需要两个参数start和end，返回这个数组中从start位置到(但不包含)end位置的一个子数组；如果end为undefined或不存在，则返回从start位置到数组结尾的所有项。<br>　　<br>如果start是负数，则start = max(length + start,0)。  </p>
+<p>如果end是负数，则end = max(length + end,0)。</p>
+<p>如果没有参数，则返回原数组。  </p>
+<blockquote>
+<p>slice()方法涉及到Number()转型函数的隐式类型转换，当start被转换为NaN时，相当于start = 0；当end被转换为NaN时(end为undefined除外)，则输出空数组。</p>
+</blockquote>
+<h2 id="数组删改方法"><a href="#数组删改方法" class="headerlink" title="数组删改方法"></a>数组删改方法</h2><h5 id="splice-start-length-item1-…-itemX"><a href="#splice-start-length-item1-…-itemX" class="headerlink" title="splice(start, length, item1, …, itemX)"></a>splice(start, length, item1, …, itemX)</h5><p>用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，该方法会改变原数组。  </p>
+<p>不提供第二个参数的时候，默认到结尾。  </p>
+<p>item1,…,itemX 会用来替换被删除掉的数组项。  </p>
+<h2 id="数组位置方法"><a href="#数组位置方法" class="headerlink" title="数组位置方法"></a>数组位置方法</h2><h5 id="indexOf-search-start"><a href="#indexOf-search-start" class="headerlink" title="indexOf(search, start)"></a>indexOf(search, start)</h5><p>从start位置开始向后搜索search，返回search第一次出现的位置下标，没有则返回-1。  </p>
+<h5 id="lastIndexOf-search-start"><a href="#lastIndexOf-search-start" class="headerlink" title="lastIndexOf(search, start)"></a>lastIndexOf(search, start)</h5><p>从start位置开始向后搜索search，返回search最后一次出现的位置下标，没有则返回-1</p>
+<h2 id="数组归并方法"><a href="#数组归并方法" class="headerlink" title="数组归并方法"></a>数组归并方法</h2><h5 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h5><p>reduce()方法需要两个参数。  </p>
+<p>第一个是执行化简操作的函数。化简函数的任务就是用某种方法把两个值组合或化简为一个值，并返回化简后的值。<br>　　<br>化简函数接受四个参数，分别是：  </p>
+<ul>
+<li>初始变量，默认为数组的第一个元素值。函数第一次执行后的返回值作为函数第二次执行的初始变量，依次类推  </li>
+<li>当前变量，如果指定了第二个参数，则该变量为数组的第一个元素的值，否则，为第二个元素的值  </li>
+<li>当前变量对应的元素在数组中的索引(从0开始)  </li>
+<li>原数组对象  </li>
 </ul>
-<h2 id="创建链接的命令"><a href="#创建链接的命令" class="headerlink" title="创建链接的命令"></a>创建链接的命令</h2><p><strong>命令格式</strong>  </p>
-<pre><code>ln [参数] [源文件或目录] [目标文件或目录]
-</code></pre><p><strong>命令参数</strong><br>必要参数 </p>
-<pre><code>-b    删除，覆盖以前建立的链接
--d    允许超级用户制作目录的硬链接
--f    强制执行
--i    交互模式，文件存在则提示用户是否覆盖
--n    把符号链接视为一般目录
--s    软链接（符号链接）
--v    显示详细的处理过程
-</code></pre><p>选择参数  </p>
-<pre><code>-S    &quot;-S&lt;字尾备份字符串&gt;&quot; 或 &quot;--suffix=&lt;字尾备份字符串&gt;&quot;
--V    &quot;-V&lt;备份方式&gt;&quot; 或 &quot;--version-control=&lt;备份方式&gt;&quot;
---version    显示版本信息
-</code></pre><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
-<li>ln命令会保持每一处链接文件的同步性，也就是说，不论你改动了哪一处，其他文件都会发生相同的变化  </li>
-<li>软链接只会在选定的位置上生成一个文件的镜像，不会占用磁盘空间</li>
-<li>硬链接会在选定的位置上生成一个和源文件相同大小的文件</li>
-<li>无论是硬链接还是软链接，文件都保持同步变化</li>
-<li>ln指令用在链接文件或目录，如果同时指定两个以上的文件或目录，则最后的目的地是一个已存在的目录（把前面指定的所有文件或目录复制到该目录中），否则会报错</li>
-</ol>
+<p>化简函数的这四个参数之中，只有前两个是必须的，后两个则是可选的。  </p>
+<p>第二个(可选)的参数是一个传递给函数的初始值。  </p>
+<h5 id="reduceRight"><a href="#reduceRight" class="headerlink" title="reduceRight"></a>reduceRight</h5><p>reduceRight()的工作原理和reduce()一样，不同的是它按照数组索引从高到低（从右到左）处理数组，而不是从低到高。  </p>
+<h2 id="数组迭代方法"><a href="#数组迭代方法" class="headerlink" title="数组迭代方法"></a>数组迭代方法</h2><h5 id="map"><a href="#map" class="headerlink" title="map"></a>map</h5><p>对数组的每一项运行给定函数，返回每次函数调用的结果组成的数组。  </p>
+<p>map()方法还可以接受第二个参数，表示回调函数执行时this所指向的对象。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;];</span><br><span class="line">[1,2].map(function(item,index,arr)&#123;return this[item]&#125;,arr);//[&apos;b&apos;,&apos;c&apos;]</span><br></pre></td></tr></table></figure>
+<p>forEach()方法除了接受一个必须的回调函数参数，第二个参数还可以接受一个可选的上下文参数(改变回调函数里面的this指向)。<br>第二个参数对于多层this非常有用，因为多层this通常指向是不一致的，可以使用forEach()方法的第二个参数固定this。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var out = [];</span><br><span class="line">[1, 2, 3].forEach(function(elem)&#123;</span><br><span class="line">this.push(elem * elem);</span><br><span class="line">&#125;, out);</span><br><span class="line">console.log(out);// [1, 4, 9]</span><br></pre></td></tr></table></figure>
+<h5 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h5><p>对数组中的每一项运行给定函数，这个方法没有返回值。本质上与for循环迭代数组一样。如果需要有返回值，一般使用map方法。  </p>
+<h5 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h5><p>对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组。该方法常用于查询符合条件的所有数组项。  </p>
+<p>filter()方法还可以接受第二个参数，指定测试函数所在的上下文对象(this对象)。  </p>
+<p>filter()会跳过稀疏数组中缺少的元素，它的返回数组总是稠密的，所以可以压缩稀疏数组的空缺。  </p>
+<h5 id="some"><a href="#some" class="headerlink" title="some"></a>some</h5><p>对数组中的每一项运行给定函数，如果该函数对任一项返回true，则返回true。并且当且仅当数值中的所有元素调用判定函数都返回false，它才返回false。  </p>
+<h5 id="every"><a href="#every" class="headerlink" title="every"></a>every</h5><p>every()方法对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true；只要有一项返回false，则返回false。  </p>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h5 id="扩展运算符-…"><a href="#扩展运算符-…" class="headerlink" title="扩展运算符 …"></a>扩展运算符 …</h5><p>将一个数组转为用逗号分隔的参数序列。  </p>
+<h5 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h5><p>用于将两类对象转为真正的数组：类似数组的对象和可遍历的对象。  </p>
+<blockquote>
+<p>类似数组的对象必须有length参数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arrayLike = &#123;</span><br><span class="line">    &apos;0&apos;: &apos;a&apos;,</span><br><span class="line">    &apos;1&apos;: &apos;b&apos;,</span><br><span class="line">    &apos;2&apos;: &apos;c&apos;,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var arr2 = Array.from(arrayLike); // [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
+<h5 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h5><p>用于将一组值转换为数组。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array.of(3, 11, 8) // [3, 11, 8]</span><br><span class="line">Array.of(3, 11, 8).length // 3</span><br></pre></td></tr></table></figure>
+<h5 id="copyEithin-target-start-0-end-this-length"><a href="#copyEithin-target-start-0-end-this-length" class="headerlink" title="copyEithin(target, start=0, end=this.length)"></a>copyEithin(target, start=0, end=this.length)</h5><p>数组实例的copyWithin方法，在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。也就是说，使用这个方法，会修改当前数组。  </p>
+<p>target（必需）：从该位置开始替换数据。<br>start（可选）：从该位置开始读取数据，默认为0。如果为负值，表示倒数。<br>end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5].copyWithin(0, 3)</span><br><span class="line">// [4, 5, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+<h5 id="find-amp-findIndex"><a href="#find-amp-findIndex" class="headerlink" title="find() &amp; findIndex()"></a>find() &amp; findIndex()</h5><p>数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。  </p>
+<p>数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。  </p>
+<h5 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h5><p>使用给定值，填充一个数组。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7) // [7, 7, 7]</span><br><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7) // [7, 7, 7]</span><br></pre></td></tr></table></figure>
+<p>fill方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2) // [&apos;a&apos;, 7, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
+<h5 id="entries-amp-keys-amp-values"><a href="#entries-amp-keys-amp-values" class="headerlink" title="entries() &amp; keys() &amp; values()"></a>entries() &amp; keys() &amp; values()</h5><p>ES6 提供三个新的方法——entries()，keys()和values()——用于遍历数组。它们都返回一个遍历器对象，可以用for…of循环进行遍历，唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (let [index, elem] of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</span><br><span class="line">  console.log(index, elem);</span><br><span class="line">&#125;</span><br><span class="line">// 0 &quot;a&quot;</span><br><span class="line">// 1 &quot;b&quot;</span><br></pre></td></tr></table></figure>
+<p>如果不使用for…of循环，可以手动调用遍历器对象的next方法，进行遍历。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var letter = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</span><br><span class="line">var entries = letter.entries();</span><br><span class="line">console.log(entries.next().value); // [0, &apos;a&apos;]</span><br><span class="line">console.log(entries.next().value); // [1, &apos;b&apos;]</span><br><span class="line">console.log(entries.next().value); // [2, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
+<h5 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h5><p>Array.prototype.includes方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的includes方法类似。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].includes(2)     // true</span><br></pre></td></tr></table></figure>
+<p>该方法的第二个参数表示搜索的起始位置，默认为0。如果第二个参数为负数，则表示倒数的位置，如果这时它大于数组长度（比如第二个参数为-4，但数组长度为3），则会重置为从0开始。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].includes(3, 3);  // false</span><br><span class="line">[1, 2, 3].includes(3, -1); // true</span><br></pre></td></tr></table></figure>
 
       
 
@@ -901,7 +268,7 @@ b    xmlrpc_c::value_boolean
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
@@ -911,7 +278,7 @@ b    xmlrpc_c::value_boolean
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/Linux-下建立链接/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/05/JavaScript-数组的方法/">展开全文 >></a>
         </p>
       
 
@@ -941,179 +308,198 @@ b    xmlrpc_c::value_boolean
 
 
   
-    <article id="post-Ubuntu-下找不到动态链接库的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-输出控制格式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">Ubuntu 下找不到动态链接库的原因</a>
+      <a class="article-title" href="/2018/05/04/C-输出控制格式/">C++ 输出控制格式</a>
     </h1>
   
 
         
-        <a href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/" class="archive-article-date">
-  	<time datetime="2018-03-22T09:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
+        <a href="/2018/05/04/C-输出控制格式/" class="archive-article-date">
+  	<time datetime="2018-05-04T08:05:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="情况描述"><a href="#情况描述" class="headerlink" title="情况描述"></a>情况描述</h4><p>Linux下编程，下载所需要的安装包，解压，然后编译安装，通常命令：  </p>
-<pre><code>./configure
-make
-sudo make install # 需要创建文件
-</code></pre><p>当我们编译安装之后，到 <code>/usr/local/lib</code> 里和 <code>/usr/local/include</code> 里分别查看安装的库文件和头文件，然后我们欣喜的看到我们所安装的文件已经被放入到这里两个文件中，于是我们就去欣喜的写代码去了  </p>
-<pre><code>...
-coding
-...
-</code></pre><p>当我们的代码写好了之后，编译链接，然后运行，发下，它竟然提示:  </p>
-<pre><code>找不到shared libraries ?!!  
-</code></pre><p>然后我们又反复的去 <code>/usr/local/lib</code> 中去查找，发现的确已经存在了。  </p>
-<p>于是我们思考是否是 <code>/usr/local/lib</code> 没有加入到 共享链接库的配置文件中。  </p>
-<p>于是我们打开 <code>/etc/ld.so.conf</code> 进行查看，发现：  </p>
-<pre><code>include /etc/ld.so.conf.d/*.conf
-/usr/local/lib
-</code></pre><p>已经将 <code>/usr/local/lib</code> 包含进去了  </p>
-<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>执行下列命令  </p>
-<pre><code>sudo ldconfig
-</code></pre><p>重新加载一下所有的共享库文件，因为我们在安装好所需要的包之后，并没有给系统足够的时间来反应你所添加的内容，所以我们需要告诉系统应该重新加载一下。  </p>
-<p>之后再运行代码，OK了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux  Ubuntu  C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gcc-命令详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/gcc-命令详解/">gcc 命令详解</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/gcc-命令详解/" class="archive-article-date">
-  	<time datetime="2018-03-22T07:27:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C-C-编译过程"><a href="#C-C-编译过程" class="headerlink" title="C/C++编译过程"></a>C/C++编译过程</h2><ol>
-<li>编译预处理</li>
-<li>编译、优化</li>
-<li>汇编</li>
-<li>链接</li>
-</ol>
-<h4 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h4><p>对宏定义指令、条件编译指令、头文件包含指令、特殊符号、预处理模块进行处理。  </p>
-<p>宏定义指令：  </p>
-<pre><code>#define Name TokenString
-#undef
-...
-</code></pre><p>条件编译指令：  </p>
-<pre><code>#ifdef
-#ifndef
-#else
-#elif
-#endif
-...
-</code></pre><p>头文件包含指令：  </p>
-<pre><code>#include &quot;FileName&quot; // 开发者自己编写的头文件
-#include &lt;FileName&gt; // 系统提供的头文件
-</code></pre><p>预处理模块：  </p>
-<pre><code>#progma    // 设定编译器的窗台或是只是编译器完成一些特定的动作
-</code></pre><h4 id="编译、优化"><a href="#编译、优化" class="headerlink" title="编译、优化"></a>编译、优化</h4><p>解释代码，生成汇编程序。  </p>
-<h4 id="汇编过程"><a href="#汇编过程" class="headerlink" title="汇编过程"></a>汇编过程</h4><p>把汇编语言代码翻译成目标机器指令。  </p>
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>由汇编程序生成的目标文件并不能立即被执行，其中可能还有许多没有解决的问题。<br>归纳起来，就是调用了其他文件中的内容。<br>这需要经过链接才能解决。  </p>
-<p>链接的主要工作就是讲有关的目标文件彼此相连，也即将在一个文件中引用的符号同该符号在另外一个文件中的定义连接起来，使得所有的这些目标文件成为一个能够被操作系统装入执行的统一整体。  </p>
-<p><strong>静态连接</strong><br>在这种链接方式下，函数的代码将从其所在地静态链接库中被拷贝到最终的可执行程序中。  </p>
-<p><strong>动态连接</strong><br>在此种方式下，函数的代码被放到称作是动态链接库或共享对象的某个目标文件中。  </p>
-<h2 id="常用编译命令"><a href="#常用编译命令" class="headerlink" title="常用编译命令"></a>常用编译命令</h2><h6 id="1-选项-E-（预处理）"><a href="#1-选项-E-（预处理）" class="headerlink" title="1. 选项 -E （预处理）"></a>1. 选项 -E （预处理）</h6><p>将带#的语句重新展开至指定文件中，比如 <code>#define</code>, <code>#include &quot;*.h&quot;</code> </p>
-<pre><code>gcc -E test.c -o test.i
-</code></pre><p>将test.c预处理输出test.i文件。 </p>
-<h6 id="2-选项-S-（编译）（比前一步多了编译这一步）"><a href="#2-选项-S-（编译）（比前一步多了编译这一步）" class="headerlink" title="2. 选项 -S （编译）（比前一步多了编译这一步）"></a>2. 选项 -S （编译）（比前一步多了编译这一步）</h6><p>将.c文件编译成汇编文件（.s文件）</p>
-<pre><code>gcc -S test.c -o test.s
-</code></pre><h6 id="3-选项-c-（汇编）（比前一步多了assemble这一步）"><a href="#3-选项-c-（汇编）（比前一步多了assemble这一步）" class="headerlink" title="3. 选项 -c （汇编）（比前一步多了assemble这一步）"></a>3. 选项 -c （汇编）（比前一步多了assemble这一步）</h6><p>将.c文件编译成汇编文件（.o文件）</p>
-<pre><code>gcc -c test.c -o test.o
-</code></pre><h6 id="4-无选项编译链接（比前一步多了链接这一步）"><a href="#4-无选项编译链接（比前一步多了链接这一步）" class="headerlink" title="4. 无选项编译链接（比前一步多了链接这一步）"></a>4. 无选项编译链接（比前一步多了链接这一步）</h6><pre><code>gcc test.c
-</code></pre><p>将test.c预处理、汇编、编译并链接形成可执行文件。<br>这里未指定输出文件，默认输出为a.out。  </p>
-<h6 id="5-无选项链接"><a href="#5-无选项链接" class="headerlink" title="5. 无选项链接"></a>5. 无选项链接</h6><pre><code>gcc test.o -o test
-</code></pre><p>将编译输出文件test.o链接成最终可执行文件test。  </p>
-<h6 id="6-选项-O"><a href="#6-选项-O" class="headerlink" title="6. 选项-O"></a>6. 选项-O</h6><pre><code>gcc -O1 test.c -o test
-</code></pre><p>使用编译优化级别1编译程序。级别为1~3，级别越大优化效果越好，但编译时间越长。  </p>
-<h6 id="7-选项-std"><a href="#7-选项-std" class="headerlink" title="7. 选项-std"></a>7. 选项-std</h6><p>指定使用哪个C/C++语言标准编译  </p>
-<pre><code>// 使用 C++11
-g++ -std=c++11 
-</code></pre><h6 id="8-选项-I"><a href="#8-选项-I" class="headerlink" title="8. 选项-I"></a>8. 选项-I</h6><p>指定使用的头文件的目录，默认为 <code>/usr/include</code> 和 <code>/usr/local/include</code>，这两个目录是GCC默认的头文件寻找目录。  </p>
-<pre><code>gcc -I . test.c -o test
-</code></pre><p>当在预处理test.c的时候，遇到引用头文件，会在当前目录下进行寻找</p>
-<h6 id="9-选项-L"><a href="#9-选项-L" class="headerlink" title="9. 选项-L"></a>9. 选项-L</h6><p>指定链接库的目录，默认为 <code>/usr/lib</code> 和 <code>/usr/local/lib</code>。  </p>
-<pre><code>gcc -L . test.c -o test -lpthread
-</code></pre><p>在当前目录下寻找pthread的链接库文件进行链接。  </p>
-<h6 id="10-选项-l"><a href="#10-选项-l" class="headerlink" title="10. 选项-l"></a>10. 选项-l</h6><p>指定某个链接库进行链接。  </p>
-<pre><code>gcc test.c -o test -lpthread
-</code></pre><p>将test.c的二进制文件与pthread链接库进行链接生成可执行文件。  </p>
-<h2 id="多源文件的编译方法"><a href="#多源文件的编译方法" class="headerlink" title="多源文件的编译方法"></a>多源文件的编译方法</h2><h6 id="1-多个文件一起编译"><a href="#1-多个文件一起编译" class="headerlink" title="1. 多个文件一起编译"></a>1. 多个文件一起编译</h6><pre><code>gcc testfun.c test.c -o test
-</code></pre><p>将testfun.c 和 test.c 分别变异后连接成test可执行文件  </p>
-<h6 id="2-分别编译各个源文件，之后对编译后输出的目标文件链接"><a href="#2-分别编译各个源文件，之后对编译后输出的目标文件链接" class="headerlink" title="2. 分别编译各个源文件，之后对编译后输出的目标文件链接"></a>2. 分别编译各个源文件，之后对编译后输出的目标文件链接</h6><pre><code>gcc -c testfun.c
-gcc -c test.c
-gcc testfunc.o test.o -o test
-</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/ibyte/p/5828445.html" target="_blank" rel="noopener">gcc编译命令</a>  </p>
+        <h2 id="输入输出流的控制符"><a href="#输入输出流的控制符" class="headerlink" title="输入输出流的控制符"></a>输入输出流的控制符</h2><table>
+<thead>
+<tr>
+<th>控制符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dec</td>
+<td>设置数值的技术为10</td>
+</tr>
+<tr>
+<td>hex</td>
+<td>设置数值的技术为16</td>
+</tr>
+<tr>
+<td>oct</td>
+<td>设置数值的技术为8</td>
+</tr>
+<tr>
+<td>setfill(c)</td>
+<td>设置填充字符c，c可以是字符常量或字符变量</td>
+</tr>
+<tr>
+<td>setprecision(n)</td>
+<td>设置浮点数的精度为n位。在以一般十进制小数形式输出时，n代表有效数字。在以fixed（固定小数位数）形式和scientific（指数）形式输出时，n为小数位数</td>
+</tr>
+<tr>
+<td>setw(n)</td>
+<td>设置字段宽度为n位</td>
+</tr>
+<tr>
+<td>setiosflags(ios::fixed)</td>
+<td>设置浮点数以固定的小数位数显示</td>
+</tr>
+<tr>
+<td>setiosflags(ios::scientific)</td>
+<td>设置浮点数以科学计数法（即指数形式）显示</td>
+</tr>
+<tr>
+<td>setiosflags(ios::left)</td>
+<td>输出数据左对齐</td>
+</tr>
+<tr>
+<td>setiosflags(ios::right)</td>
+<td>输出数据右对齐</td>
+</tr>
+<tr>
+<td>setiosflags(ios::skipws)</td>
+<td>忽略前导的空格</td>
+</tr>
+<tr>
+<td>setiosflags(ios::uppercase)</td>
+<td>数据以十六进制形式输出时字母以大写表示</td>
+</tr>
+<tr>
+<td>setiosflags(ios::lowercase)</td>
+<td>数据以十六进制形式输出时字母以小写表示</td>
+</tr>
+<tr>
+<td>setiosflags(ios::showpos)</td>
+<td>输出正数的时候给出 “+” 号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="流控制成员函数"><a href="#流控制成员函数" class="headerlink" title="流控制成员函数"></a>流控制成员函数</h2><table>
+<thead>
+<tr>
+<th>流成员函数</th>
+<th>与之作用相同的控制符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>precision(n)</td>
+<td>setprocision(n)</td>
+<td>设置实数的精度为n位</td>
+</tr>
+<tr>
+<td>width(n)</td>
+<td>setw(n)</td>
+<td>设置字段宽度为n位</td>
+</tr>
+<tr>
+<td>fill(c)</td>
+<td>setfill(c)</td>
+<td>设置填充字符c</td>
+</tr>
+<tr>
+<td>setf()</td>
+<td>setiosflags()</td>
+<td>设置输出格式状态</td>
+</tr>
+<tr>
+<td>unsetf()</td>
+<td>resetioflags()</td>
+<td>终止已设置的输出格式状态，在括号中指定内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="设置格式状态的格式标志"><a href="#设置格式状态的格式标志" class="headerlink" title="设置格式状态的格式标志"></a>设置格式状态的格式标志</h2><table>
+<thead>
+<tr>
+<th>格式标志</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ios::left</td>
+<td>输出数据在本域宽范围内向左对齐</td>
+</tr>
+<tr>
+<td>ios::right</td>
+<td>输出数据在本域宽范围内向右对齐</td>
+</tr>
+<tr>
+<td>ios::internal</td>
+<td>数值的符号位在域宽内左对齐，数值右对齐，中间由填充字符填充</td>
+</tr>
+<tr>
+<td>ios::dec</td>
+<td>设置整数的基数为10</td>
+</tr>
+<tr>
+<td>ios::oct</td>
+<td>设置整数的基数为8</td>
+</tr>
+<tr>
+<td>ios::hex</td>
+<td>设置整数的基数为16</td>
+</tr>
+<tr>
+<td>ios::showbase</td>
+<td>强制输出整数的基数（八进制以0打头，十六进制以0x打头）</td>
+</tr>
+<tr>
+<td>ios::showpoint</td>
+<td>强制输出浮点数的小数点和尾数0</td>
+</tr>
+<tr>
+<td>ios::uppercase</td>
+<td>在以科学计数法格式E和以十六进制输出字母时以大写表示</td>
+</tr>
+<tr>
+<td>ios::lowercase</td>
+<td>在以科学计数法格式e和以十六进制输出字母时以小写表示</td>
+</tr>
+<tr>
+<td>ios::showpos</td>
+<td>对正数显示 “+” 号</td>
+</tr>
+<tr>
+<td>ios::scientific</td>
+<td>浮点数以科学计数法格式输出</td>
+</tr>
+<tr>
+<td>ios::fixed</td>
+<td>浮点数以定点格式（小数形式）输出</td>
+</tr>
+<tr>
+<td>ios::unitbuf</td>
+<td>每次输出之后刷新所有的流</td>
+</tr>
+<tr>
+<td>ios::stdio</td>
+<td>每次输出之后清除所有的流</td>
+</tr>
+</tbody>
+</table>
 
       
 
@@ -1137,7 +523,812 @@ gcc testfunc.o test.o -o test
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/gcc-命令详解/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/04/C-输出控制格式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux-常用命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/22/Linux-常用命令记录/">Linux 常用命令记录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/22/Linux-常用命令记录/" class="archive-article-date">
+  	<time datetime="2018-04-22T06:16:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="查看linux的系统位数"><a href="#查看linux的系统位数" class="headerlink" title="查看linux的系统位数"></a>查看linux的系统位数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+<p>若返回的内容有 x86_64 的字样，则是64位系统。<br>若返回的内容有 i386 的字样，则是32位系统。  </p>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>建议使用wget下载，curl一般是模拟提交web数据。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -o [保存在本地的文件或文件夹名称] URL</span><br></pre></td></tr></table></figure>
+<p>wget命令大全：<a href="http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html</a></p>
+<p>wget和curl区别： <a href="https://blog.csdn.net/hzraymond/article/details/8181349" target="_blank" rel="noopener">https://blog.csdn.net/hzraymond/article/details/8181349</a>  </p>
+<h2 id="查看文件夹或目录大小"><a href="#查看文件夹或目录大小" class="headerlink" title="查看文件夹或目录大小"></a>查看文件夹或目录大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">du [目录] # 显示字节大小</span><br><span class="line">du -k [目录] # 以k为单位</span><br><span class="line">du -m [目录] # 以M为单位</span><br><span class="line">du -h [目录] # 以G为单位</span><br><span class="line">du -h --max-depth=1 [目录] # 只往下一层计算大小</span><br></pre></td></tr></table></figure>
+<p>参考： <a href="https://blog.csdn.net/ouyang_peng/article/details/10414499" target="_blank" rel="noopener">https://blog.csdn.net/ouyang_peng/article/details/10414499</a>  </p>
+<h2 id="修改文件或目录名"><a href="#修改文件或目录名" class="headerlink" title="修改文件或目录名"></a>修改文件或目录名</h2><ol>
+<li><p>使用mv命令</p>
+<p> mv [原命名] [新命名]</p>
+</li>
+<li><p>使用rename命令</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/22/Linux-常用命令记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP-CURL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/22/PHP-CURL/">PHP CURL</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/22/PHP-CURL/" class="archive-article-date">
+  	<time datetime="2018-04-22T03:35:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PHP-CURL介绍"><a href="#PHP-CURL介绍" class="headerlink" title="PHP CURL介绍"></a>PHP CURL介绍</h2><p>PHP 的 CURL 是 PHP 的 Client URL 库。  </p>
+<h2 id="CURL语法"><a href="#CURL语法" class="headerlink" title="CURL语法"></a>CURL语法</h2><h4 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$ch = curl_init(&quot;http://baidu.com&quot;); # 初始化一个curl会话，并给予其要访问的网址</span><br><span class="line">$fp = fopen(&quot;baidu_ctx&quot;, &quot;w&quot;); # 打开一个本地文件</span><br><span class="line"></span><br><span class="line">curl_setopt($ch, CURLOPT_FILE, $fp); # 设置curl获取URL的资源后存储的文件属性</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, 0); # 设置curl header属性为空</span><br><span class="line"></span><br><span class="line">curl_exec($ch); # 执行curl的设定，访问url</span><br><span class="line"></span><br><span class="line">if ( curl_errno($ch) ) &#123; # 返回最后一次错误代码</span><br><span class="line">    echo &quot;error: &quot; . curl_error($ch); # 返回当前会话最后一次错误的字符串</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">curl_close($ch); # 关闭curl会话</span><br><span class="line">fclose($fp);  # 关闭文件</span><br></pre></td></tr></table></figure>
+<p>在这里，我们已经学习到了CURL的几个重要的函数了： curl_init, curl_setopt, curl_exec, curl_close。 下面，让我们来一一介绍。  </p>
+<ul>
+<li>curl_init: 初始化一个curl会话，其可以在初始化会话的时候传入URL信息，也可以不传入，改为用curl_setopt设置，如下</li>
+</ul>
+<pre><code>$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+</code></pre><ul>
+<li>curl_setopt: 设置会话的一些属性，这个函数特别重要，因为在访问大多数网站的时候，必须得设置一些属性才能够访问</li>
+<li>curl_exec: 会话初始化并设置完属性之后，就可以执行这个会话，去向相应的url发出请求了</li>
+<li>curl_errno: 返回最后一次错误代码，判断请求是否失败</li>
+<li>curl_error: 返回当前会话最后一次错误的字符串</li>
+<li>curl_close: 关闭curl会话</li>
+</ul>
+<h4 id="如何访问HTTPS资源"><a href="#如何访问HTTPS资源" class="headerlink" title="如何访问HTTPS资源"></a>如何访问HTTPS资源</h4><p>参考： <a href="http://www.jackxiang.com/post/2653/" target="_blank" rel="noopener">http://www.jackxiang.com/post/2653/</a>  </p>
+<p>访问HTTPS资源，前提是你本地PHP安装了openssl扩展。<br>然后，在代码中设置会话的这两个属性即可：  </p>
+<pre><code>curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0); # 设置curl ssl verify host 属性为空
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); # 设置curl ssl verify peer 属性为空
+</code></pre><p>#### </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/22/PHP-CURL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux-下关机命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/Linux-下关机命令/">Linux 下关机命令</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/Linux-下关机命令/" class="archive-article-date">
+  	<time datetime="2018-04-18T15:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令列表"><a href="#命令列表" class="headerlink" title="命令列表"></a>命令列表</h2><ul>
+<li>shutdown</li>
+<li>halt</li>
+<li>reboot</li>
+<li>init</li>
+</ul>
+<h2 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h2><p>shutdown命令通常必须由超级用户才能执行。  </p>
+<p>shutdown命令执行后，会以广播的形式通知正在系统中工作的所有用户，系统将在指定的时间内关闭,请用户保存文件，停止作业，注销用户。此时login指令被冻结，新的用户不能登录。  </p>
+<p><strong>语法：</strong>  </p>
+<pre><code>shutdown [-fFhknc(参数名称)] [-t描述] 时间 [警告信息]
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-f: 重启系统时不执行fsck</span><br><span class="line">-F: 重启是执行fsck</span><br><span class="line">-h: 将系统关闭，相当于halt命令</span><br><span class="line">-k: 只是送出信息给所有用户，但不会真正关机</span><br><span class="line">-n: 不调用init程序关机，而是由shutdown自己进行，使用此类参数将加快关机速度，但是不建议用户使用此种关机方式</span><br><span class="line">-r: shutdown之后重新启动系统</span><br><span class="line">-c: 取消一个shutdown命令</span><br><span class="line">-t&lt;秒数&gt;: 送出警告信息和关机信号之间要延迟多少秒</span><br><span class="line">[警告信息]: 要传送给所有登录用户的信息</span><br></pre></td></tr></table></figure>
+<p>示例：  </p>
+<pre><code>shutdown 16:50 # 在16:50执行shutdown关机
+shutdown -r now # 立即 重启系统
+shutdown -h now # 立即 关机
+shutdown +5 &quot;system will shutdown after 5 minutes&quot; # 设定5分钟后关机，同时发出警告信息给登录用户
+</code></pre><h2 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h2><p>halt是最简单的关机命令，相当于“shutdown -h”组合。  </p>
+<p>halt’执行时，将杀死所有应用程序，然后调用系统指令sync。sync将所有内存信息通过文件系统写入硬盘，然后停止内核。  </p>
+<p><strong>语法：</strong>  </p>
+<pre><code>halt [-finp]
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-f: 不管当前系统处于何种运行级别，不调用shutdown而强制关机。</span><br><span class="line">-i: 关机之前，关掉所有的网络接口。</span><br><span class="line">-n: halt执行时，不调用系统指令sync。</span><br><span class="line">-p: 关机时调用poweroff，也就是关机时同时关闭电源。此选项为缺省选项。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>halt指令在执行时，会首先检测系统的运行级别，如果运行级为0或6，则立即关闭系统，否则调用shutdown来关闭系统。  </p>
+</blockquote>
+<h2 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a>reboot</h2><p>reboot命令的执行过程与halt基本类似，不同的是halt是用于关机，而reboot是关机后引发系统重启。  </p>
+<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p>init程序主要用于系统不用运行级之间的切换。  </p>
+<p>示例：  </p>
+<pre><code>init 0 # 将系统运行级切换到0，也就是关机
+init 6 # 将系统运行级切换到6，也就是重启系统
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/Linux-下关机命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux-初始化服务init的配置文件inittab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/Linux-初始化服务init的配置文件inittab/">Linux 初始化服务init的配置文件inittab</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/Linux-初始化服务init的配置文件inittab/" class="archive-article-date">
+  	<time datetime="2018-04-18T15:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux操作系统系统启动流程"><a href="#Linux操作系统系统启动流程" class="headerlink" title="Linux操作系统系统启动流程"></a>Linux操作系统系统启动流程</h2><ul>
+<li>加电开机</li>
+<li>硬件自检</li>
+<li>配置基本设备</li>
+<li>装载内核引导镜像</li>
+<li>配置其他设备</li>
+<li>初始化服务init（/etc/inittab）</li>
+</ul>
+<img src="/2018/04/18/Linux-初始化服务init的配置文件inittab/linux_start_process.jpg" title="linux start process">
+<p>linux在完成核内引导以后，就开始运行init程序。<br>init程序进程号是1，是所有进程的起点。  </p>
+<h2 id="inittab文件中值的格式"><a href="#inittab文件中值的格式" class="headerlink" title="inittab文件中值的格式"></a>inittab文件中值的格式</h2><pre><code>label:runlevel:action:process
+</code></pre><h4 id="label"><a href="#label" class="headerlink" title="label"></a>label</h4><p>label一般是1-2个字符标签，用来标示输入的值。  </p>
+<p>常用的值如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">id: 用来定义缺省的init运行的级别</span><br><span class="line">si: 是系统初始化的进程</span><br><span class="line">ln: 其中n是从1~6，指明该进程可以使用的runlevel的级别</span><br><span class="line">ca: 指明当按下Ctrl+Alt+Del时运行的进程</span><br><span class="line">pf: 指“当UPS表明断电”时运行的进程</span><br><span class="line">pr: 是在系统真正关闭之前，UPS发出电源回复信号时需要运行的进程</span><br><span class="line">x: 是将系统转入X终端时需要运行的进程</span><br></pre></td></tr></table></figure>
+<h4 id="action"><a href="#action" class="headerlink" title="action"></a>action</h4><p>action字段定义了该进程应该运行在何种状态下。  </p>
+<p>其常见的取值和含义如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">boot: 在系统启动时运行忽略runlevel</span><br><span class="line">bootwait: 在系统启动时运行，init等待进程完成。忽略runlevel</span><br><span class="line">ctrlaltdel: 当Ctrl+Alt+Del三个键同时按下时运行，把SIGINT信号发送给init</span><br><span class="line">initdefault: 不要执行这个进程，它用于设置默认runlevel</span><br><span class="line">off: 禁止进入，因此该进程不运行</span><br><span class="line">once: 运行一次</span><br><span class="line">respawn: 不管何时终止都重新启动进程</span><br><span class="line">sysinit: 在运行boot或bootwait进程之前运行</span><br><span class="line">wait: 需等待其运行完毕再运行其他项</span><br></pre></td></tr></table></figure>
+<h4 id="process"><a href="#process" class="headerlink" title="process"></a>process</h4><p>process字段包含init执行的进程，该进程采用的格式与在命令行下运行该进程的格式一样。  </p>
+<p>因此process字段都以该进程的名字开头，紧跟着是运行时要传递给该进程的参数。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/Linux-初始化服务init的配置文件inittab/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-node-package-json-语法笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/16/node-package-json-语法笔记/">node package.json 语法笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/16/node-package-json-语法笔记/" class="archive-article-date">
+  	<time datetime="2018-04-16T11:47:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="npm简介"><a href="#npm简介" class="headerlink" title="npm简介"></a>npm简介</h2><p>npm，全称：Node Package Manager，即包管理工具。<br>其是Node.js默认的，以JavaScript编写的软件包管理系统。  </p>
+<h2 id="package-json介绍"><a href="#package-json介绍" class="headerlink" title="package.json介绍"></a>package.json介绍</h2><p>npm进行包管理，需要有一些已经写好的规则，npm会读取这个规则文件，然后进行包的安装。<br>而这个规则文件，就是pacakge.json。  </p>
+<p>举个例子：npm 和 package.json的关系就像是 Make 和 Makefile之间的关系。  </p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>在package.json中，有一些字段，这些字段十分重要，就是这些字段告知npm该要做什么。  </p>
+<p>package.json中，<code>name</code> 和 <code>version</code> 字段是必须字段，没有这两个字段，npm是不可能工作的。  </p>
+<blockquote>
+<p>这些字段忽略大小写</p>
+</blockquote>
+<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>标志你的项目名称。    </p>
+<p>一些规则：  </p>
+<ul>
+<li>名字必须不大于214个字符，这个限定包括项目包含的包的名称</li>
+<li>名字不能以 <code>.</code> 或 <code>_</code> 开始</li>
+<li>新包的名称中不能有大写字母</li>
+<li>该名称最终会在成为URL的一部分，命令行参数 和 文件夹名称，因此，其不能包含任何非URL安全字符</li>
+</ul>
+<p>一些提示：  </p>
+<ul>
+<li>别将项目名称命名为与Node核心模块同样的名称</li>
+<li>别把 <code>js</code> 或 <code>node</code> 放在名字中</li>
+<li>项目名称会被作为 <code>require()</code> 的一个参数，所以它应该尽量短且有说明性</li>
+</ul>
+<h4 id="version"><a href="#version" class="headerlink" title="version"></a>version</h4><p>标志项目的版本。<br>和那么一起唯一标志一个项目。  </p>
+<blockquote>
+<p>name 和 version 一起 标志了一个项目，就像是一个项目的ID，不存在任何项目的 name 和 version完全相同。  </p>
+</blockquote>
+<h4 id="description"><a href="#description" class="headerlink" title="description"></a>description</h4><p>用来描述这个项目，其是一个字符串。<br>它可以帮助人们发些它，当我们在npm官网上搜索项目或使用 <code>npm search</code> 时，会匹配description。  </p>
+<h4 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h4><p>项目关键字。<br>同description一般，帮助人们发现这个项目。  </p>
+<h4 id="homepage"><a href="#homepage" class="headerlink" title="homepage"></a>homepage</h4><p>项目主页的URL。  </p>
+<h4 id="bugs"><a href="#bugs" class="headerlink" title="bugs"></a>bugs</h4><p>他的值是一个对象，这个对象中有两个字段，<code>url</code> 和 <code>email</code>，其含义是人们发现这个项目的问题的时候，可以去访问这个url或是联系这个email。  </p>
+<p>示例：    </p>
+<pre><code>{
+    &quot;url&quot;: &quot;http://github.com/owner/project/issues&quot;,
+    &quot;email&quot;: &quot;project@hostname.com&quot;
+}
+</code></pre><h4 id="license"><a href="#license" class="headerlink" title="license"></a>license</h4><p>标志这个项目的使用权限。  </p>
+<p>如 BSD-2，MIT，SPDX等。  </p>
+<h4 id="author"><a href="#author" class="headerlink" title="author"></a>author</h4><p>author是标志一个人的名字，表示项目的作者。  </p>
+<h4 id="contributors"><a href="#contributors" class="headerlink" title="contributors"></a>contributors</h4><p>contributors是一组人的名字，是一个数组，表示项目的作者。  </p>
+<h4 id="files"><a href="#files" class="headerlink" title="files"></a>files</h4><p>可选字段，是一个文件模式的数组， 它描述当你的项目作为一个依赖包被安装时所需包含的条目。  </p>
+<p>你可以写一个.npmignore的文件来告诉npm不应该包含哪些文件或目录，但当项目中有.gitignore时，就以.gitignore为准。  </p>
+<p>但是，得注意，.npmignore和.gitignore不会将package.json中files字段所设置的文件或目录，即使他们中有写，也会被忽略。  </p>
+<p>有一些文件是无论如何设置都会被包含的：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">README</span><br><span class="line">CHANGES/CHANGELOG/HISTORY</span><br><span class="line">LICENSE/LICENCE</span><br><span class="line">NOTICE</span><br><span class="line">main字段标志的文件</span><br></pre></td></tr></table></figure>
+<p>有一些文件是无论如何设置，都会被忽略的：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.git</span><br><span class="line">CVS</span><br><span class="line">.svn</span><br><span class="line">.hg</span><br><span class="line">.lock-wscript</span><br><span class="line">.wafpickle-N</span><br><span class="line">.*.swp</span><br><span class="line">.DS_Store</span><br><span class="line">._*</span><br><span class="line">npm-debug.log</span><br><span class="line">.npmrc</span><br><span class="line">node_modules</span><br><span class="line">config.gypi</span><br><span class="line">*.orig</span><br><span class="line">package-lock.json</span><br></pre></td></tr></table></figure>
+<h4 id="main"><a href="#main" class="headerlink" title="main"></a>main</h4><p>其标志了这个项目的主要入口文件。  </p>
+<h4 id="browser"><a href="#browser" class="headerlink" title="browser"></a>browser</h4><p>如果你的项目是客户端项目，那么这个browser字段就应该替换掉main字段。  </p>
+<h4 id="repository"><a href="#repository" class="headerlink" title="repository"></a>repository</h4><p>指定代码所在的位置。  </p>
+<p>示例：  </p>
+<pre><code>&quot;repository&quot;: {
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;, &quot;https://github.com/npm/npm.git&quot;
+}
+</code></pre><p>对于github，github gist，bitbucket，gitlab，可以对repository的值进行缩写：  </p>
+<pre><code>&quot;repository&quot;: &quot;github:user/repo&quot;
+&quot;repository&quot;: &quot;gist:11081aaa281&quot;
+&quot;repository&quot;: &quot;bitbucket:user/repo&quot;
+&quot;repository&quot;: &quot;gitlab:user/repo&quot;
+</code></pre><h4 id="srcipts"><a href="#srcipts" class="headerlink" title="srcipts"></a>srcipts</h4><p>其是一个包含脚本命令的字典，它在您的包的生命周期中的不同时间运行。  </p>
+<h4 id="dependencies"><a href="#dependencies" class="headerlink" title="dependencies"></a>dependencies</h4><p>其用一个简单的对象来将包映射到一个版本范围。  </p>
+<p>版本范围语法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">version:	精确匹配</span><br><span class="line">&gt;version:	大于该版本 </span><br><span class="line">&gt;=version:	大于等于该版本</span><br><span class="line">&lt;version:	</span><br><span class="line">&lt;=version:</span><br><span class="line">~version:	大约相当于该版本</span><br><span class="line">^version:	兼容该版本</span><br><span class="line">1.2.x:		</span><br><span class="line">*:			所有版本均可</span><br><span class="line">&quot;&quot;(空):		和*一样</span><br><span class="line">version1 - version2:	version1和version2之间</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>更多详细信息，请查阅官方文档<a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="noopener">https://docs.npmjs.com/files/package.json</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">node npm pakage.json</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/16/node-package-json-语法笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux-下备份和恢复技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/13/Linux-下备份和恢复技术/">Linux 下备份和恢复技术</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/13/Linux-下备份和恢复技术/" class="archive-article-date">
+  	<time datetime="2018-04-13T13:10:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>数据有丢失的风险，因此文件的备份十分重要。</p>
+<p>在Linux下，一般来说，一下目录是需要备份的：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc	：	包含所有核心配置文件。</span><br><span class="line">/var	：	包含系统守护进程（服务）所使用的信息，包括DNS配置，DHCP租期、邮件缓冲文件、HTTP服务器文件、db2实例配置等。</span><br><span class="line">/home	：	包含所有用户的默认用户主目录。</span><br><span class="line">/root	：	是超级用户（root）的主目录。</span><br><span class="line">/opt	：	是安装许多非文件系统的地方。</span><br></pre></td></tr></table></figure>
+<p>而有些目录应该考虑不备份的：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/proc	：	它不是一个真实的文件系统，而是运行内核和环境的虚拟化视图。应该永远不要备份这个目录。  </span><br><span class="line">/dev	：	包含硬件设备的文件表示。如果计划还原到一个空白的系统，那就可以备份 /dev。然而，如果计划还原到一个已安装的 Linux 系统，那么备份 /dev 是没有必要的。</span><br><span class="line">其他目录	：	其他目录包含系统文件和已经安装的包。在服务器环境中，这其中的许多信息都不是自定义的。大多数自定义都发生在 /etc 和/home 目录中。</span><br></pre></td></tr></table></figure>
+<h2 id="备份技术"><a href="#备份技术" class="headerlink" title="备份技术"></a>备份技术</h2><pre><code>tar [主选项+辅选项] 文件或者目录
+</code></pre><p><strong>主选项</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c	：	创建新的档案文件</span><br><span class="line">x	：	从档案文件中释放文件</span><br><span class="line">t	：	列出档案文件的内容，查看已经备份了哪些文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述三个参数 <code>c/x/t</code> 仅能存在一个，不能同时存在，因为不可能同时压缩和解压缩。  </p>
+</blockquote>
+<p><strong>辅助选项</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-z	：	是否需要用gzip压缩或解压，一般格式为xxx.tar.gz或xx.tgz</span><br><span class="line">-j	：	是否需要用bzip2压缩或解压，一般格式为xx.tar.bz2</span><br><span class="line">-v	：	压缩的过程中显示文件</span><br><span class="line">--exclude FILE	：	在压缩的过程中，不要将FILE打包</span><br></pre></td></tr></table></figure>
+<p><strong>打包压缩示例</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># tar -cvf /tmp/etc.tar /etc		# 仅打包</span><br><span class="line"># tar -zcvf /tmp/etc.tar.gz /etc	# 打包后，以gzip压缩</span><br><span class="line"># tar -jcvf /tmp/etc.tar.bz2 /etc	# 打包后，以bzig2压缩</span><br><span class="line"># tar --exclude /home/user001 -zcvf myfile.tar.gz /home/* /etc	# 备份/home目录下除user001的所由文件目录和/etc目录</span><br></pre></td></tr></table></figure>
+<p><strong>解压示例</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># tar -ztvf /tmp/etc.tar.gz</span><br><span class="line"># tar -jtvf /tmp/etc.tar.bz2</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/13/Linux-下备份和恢复技术/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-static详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/13/C-static详解/">C++ static详解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/13/C-static详解/" class="archive-article-date">
+  	<time datetime="2018-04-13T12:58:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/13/C-static详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-网络、群体与市场笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/11/网络、群体与市场笔记/">网络、群体与市场笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/11/网络、群体与市场笔记/" class="archive-article-date">
+  	<time datetime="2018-04-11T10:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><p><strong>路径</strong>  </p>
+<pre><code>一个节点序列的集合，序列中任意两个相邻节点间都有一条边相连。  
+</code></pre><p><strong>连通图</strong>  </p>
+<pre><code>若一个图中任两点间有路相通，称此图为联通图。  
+</code></pre><p><strong>联通分量</strong>  </p>
+<pre><code>1. 子集中任意两个节点间均有路径相连
+2. 该自己不是其他任何满足条件1的子集的一部分
+</code></pre><h4 id="小世界现象"><a href="#小世界现象" class="headerlink" title="小世界现象"></a>小世界现象</h4><pre><code>你和朋友间的路径不仅可延伸至世界相当比例的人群，这些路径实际上都惊人的短。  
+</code></pre><h2 id="强联系和弱联系"><a href="#强联系和弱联系" class="headerlink" title="强联系和弱联系"></a>强联系和弱联系</h2><p>基本的社交网络概念引申的三个问题：  </p>
+<ol>
+<li>信息如何通过社交网络传播</li>
+<li>不同的节点如何在这一进程中发挥独特作用</li>
+<li>这些结构性因素怎样印象网络本身的演化</li>
+</ol>
+<h4 id="三元闭包"><a href="#三元闭包" class="headerlink" title="三元闭包"></a>三元闭包</h4><pre><code>在一个社交圈内，若两个人有一个共同的朋友，则这两人在未来成为朋友的可能性就会提高。  
+</code></pre><p><strong>聚集系数</strong> </p>
+<pre><code>节点A的聚集系数定义为A的任意两个朋友彼此也是朋友的概率。  
+</code></pre><blockquote>
+<p>通常，一个节点的聚集系数范围在0和1之间，且该节点附近的的三元闭包过程越强，其聚集系数就倾向于越大</p>
+</blockquote>
+<h4 id="弱联系"><a href="#弱联系" class="headerlink" title="弱联系"></a>弱联系</h4><p><strong>桥</strong>  </p>
+<pre><code>已知A和B相连，若去掉连接A和B的扁会导致A和B分属不同的联通分量，则该边称为桥。  
+</code></pre><p><strong>捷径</strong>  </p>
+<pre><code>若边A-B的端点A和B没有共同的朋友，则称边A-B为捷径。  
+</code></pre><p><strong>捷径的跨度</strong>  </p>
+<pre><code>我们定义捷径的跨度为该边两端点在没有该边情况下的实际距离。  
+</code></pre><blockquote>
+<p>捷径与三元闭包在概念上隐含着一种对立：一条边若是捷径，则不可能是三元闭包关系中的任意一边。  </p>
+</blockquote>
+<p><strong>强三元闭包性质</strong>  </p>
+<pre><code>若节点A与节点B和C的关系均为强联系，且B和C之间无任何连接（强或弱），则称节点A违反了强三元闭包性质，否则，称节点A满足强三元闭包性质。  
+</code></pre><p><strong>捷径与弱联系</strong>  </p>
+<pre><code>社交网络中，若节点A满足强三元闭包性质，并有至少两个强联系边与之相连，则其与其相连的任何捷径均为弱关系。  
+</code></pre><h4 id="弱联系与捷径概念的推广"><a href="#弱联系与捷径概念的推广" class="headerlink" title="弱联系与捷径概念的推广"></a>弱联系与捷径概念的推广</h4><p>邻里重叠度 = （与A、B均为邻居的节点数） / （与A、B中至少一个为邻居的节点数）</p>
+<h4 id="闭包、结构洞和社会资本"><a href="#闭包、结构洞和社会资本" class="headerlink" title="闭包、结构洞和社会资本"></a>闭包、结构洞和社会资本</h4><p>社会网络是用弱联系链接起来的若干紧密群体。  </p>
+<p><strong>边的嵌入性</strong>  </p>
+<pre><code>定义网络中一条边的嵌入性为其两个端点共同的邻居的数量。  
+</code></pre><p><strong>结构洞</strong>  </p>
+<h2 id="网络及其存在的环境"><a href="#网络及其存在的环境" class="headerlink" title="网络及其存在的环境"></a>网络及其存在的环境</h2><h4 id="同质现象"><a href="#同质现象" class="headerlink" title="同质现象"></a>同质现象</h4><p>影响社交网络结构最基本的概念之一是同质性，即我们和自己的朋友间往往会有相同的特性。  </p>
+<p><strong>同质性测试</strong>  </p>
+<pre><code>如果跨性别边所占的比例显著低于2pq，则就有同质现象。  
+
+前提：社交网络的节点被二分为两个属性A，B。  
+p = A / (A + B)  
+q = B / (A + B)
+</code></pre><h4 id="同质现象背后的机制：选择与社会影响"><a href="#同质现象背后的机制：选择与社会影响" class="headerlink" title="同质现象背后的机制：选择与社会影响"></a>同质现象背后的机制：选择与社会影响</h4><p>一个人的属性当他出生的时候即被选定，且在他/她以后的人生中，建立社会联系发挥一定的作用。  </p>
+<p>社会化和社会影响： 人们会因为需要和朋友们保持一致而改变自己的行为。  </p>
+<p>社会影响可以看成是和选择相反的观念：在选择中，个体的特征主导网络连接的形成，但在社会影响过程中，已存在的社会网络连接将会改变人们（可变）的特征。  </p>
+<h4 id="归属"><a href="#归属" class="headerlink" title="归属"></a>归属</h4><p><strong>归属网络</strong>  </p>
+<pre><code>用图来表示一群人参与一组社会焦点的情况。  
+</code></pre><blockquote>
+<p>归属网络是所谓的二部图</p>
+</blockquote>
+<p><strong>社会网络与归属网络的协同演化</strong>  </p>
+<pre><code>第一类关系连接是在社会网络中：连接两个个体，表明两者之间的友谊关系。  
+
+第二类关系连接是在归属网络中：连接个体和社团活动，表明这个个体参与其中。（我们称此网络是社会归属网络）  
+</code></pre><h2 id="正关系与负关系"><a href="#正关系与负关系" class="headerlink" title="正关系与负关系"></a>正关系与负关系</h2><p><strong>平衡定理</strong>  </p>
+<pre><code>如果一个标记的完全图是平衡的，则要么它的所有节点两两都是朋友，要么它的节点可以被分为两个组X和Y，其中X组内的节点两两都是朋友，Y组内的节点两两也都是朋友，而X组中的每个节点都是Y组中每个节点的敌人。  
+</code></pre><p><strong>弱结构平衡性质</strong>  </p>
+<pre><code>任意三个节点，均不存在两个正关系边和一个负关系边的连接模式。
+</code></pre><blockquote>
+<p>这里所言，三个负关系也是平衡的，只不过是弱平衡</p>
+</blockquote>
+<p><strong>弱平衡网络的特性</strong>  </p>
+<pre><code>如果一个标记的完全图是弱平衡的，则它的节点可分成不同的组，并且满足同一组中任意两个节点互为朋友，不同组之间任意两个节点互为敌人。
+</code></pre><h2 id="博弈"><a href="#博弈" class="headerlink" title="博弈"></a>博弈</h2><p><strong>纳什均衡</strong>  </p>
+<pre><code>即使不存在占优策略，我们也可以通过参与人彼此策略的最佳应对，来预测参与人的策略选择行为。  
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/网络、群体与市场笔记/">展开全文 >></a>
         </p>
       
 
@@ -1169,7 +1360,7 @@ gcc testfunc.o test.o -o test
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1260,6 +1451,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -1276,15 +1471,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1304,6 +1499,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
@@ -1317,6 +1516,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
             
             <div class="clearfix"></div>

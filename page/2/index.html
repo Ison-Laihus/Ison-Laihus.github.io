@@ -139,96 +139,49 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-了解cmake" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-浅谈微服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/21/了解cmake/">了解CMake</a>
+      <a class="article-title" href="/2018/04/11/浅谈微服务/">浅谈微服务</a>
     </h1>
   
 
         
-        <a href="/2018/03/21/了解cmake/" class="archive-article-date">
-  	<time datetime="2018-03-21T08:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+        <a href="/2018/04/11/浅谈微服务/" class="archive-article-date">
+  	<time datetime="2018-04-11T09:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是CMake"><a href="#什么是CMake" class="headerlink" title="什么是CMake"></a>什么是CMake</h2><p>CMake允许开发者编写一种平台无关的CMakeList.txt文件来定制整个编译流程，然后在根据目标用户的平台进一步生成所需的本地化Makefile和工程文件。  </p>
-<p>其特点是： <code>Write once, run everywhere.</code></p>
-<h2 id="使用CMake生成Makefile并编译的流程"><a href="#使用CMake生成Makefile并编译的流程" class="headerlink" title="使用CMake生成Makefile并编译的流程"></a>使用CMake生成Makefile并编译的流程</h2><ol>
-<li>编写CMake配置文件CMakeLists.txt</li>
-<li>执行命令 <code>cmake PATH</code> 或者 <code>ccmake PATH</code> 生成 <code>Makefile</code>，其中 <code>PATH</code> 是CMakeLists.txt所在的目录。  </li>
-<li>使用make命令进行编译</li>
+        <h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>首先，我们从服务开始说起。  </p>
+<p>何为服务？在我看来，服务就是一个能够提供一些功能的开放功能体。  </p>
+<p>之所以说其开放，是由于其能够被供以其他服务进行调用。  </p>
+<p>通常我们所说的服务，一般都只那些大而却的系统。其层次较深，逻辑复杂，结构混乱，牵一发而动全身，模块间的高内聚、低耦合似乎并不容易做到。  </p>
+<p>人都喜欢精简轻巧的东西。俗话说，简单即是美，于是微服务就应运而生。  </p>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>微服务，顾名思义，就是小型的服务。  </p>
+<p>其就是将产品的功能细分，每个细分之后的模块都单独做成一个服务（即微服务），然后这些服务之间通过网络通信进行协同工作。  </p>
+<p>将模块微服务化，就形成了一种架构风格——微服务架构。  </p>
+<p>其网络通信的方式有很多，但通常都是HTTP RESTful API的方式。  </p>
+<p>但是，在对产品进行功能细分的时候，我们不能盲目的划分到最细。毕竟，服务间的通信也是影响性能的重要指标之一。  </p>
+<p>尽管微服务架构会有通信的开销，但是它有很多好处，使得人们对其趋之若鹜。  </p>
+<ol>
+<li><p>容易被替换和升级</p>
+<p> 由于项目是若干个微服务的组合，在需要替换或升级的时候，只需要一次针对一个微服务。做好之后，替换掉相应的微服务，相同的接口使其能够完美实现替换。能够使得产品很平滑地过渡而不影响使用。  </p>
+</li>
+<li><p>微服务可选择最适合自己的技术方案</p>
+<p> 不同服务之间除了功能调用之外没有任何的联系。所以，每个服务都可以选用独立的开发语言和环境，不需要依赖于其他任何服务。这样就很灵活。</p>
+</li>
+<li><p>能够去中心化管理</p>
+<p> 自行其是, 自我管理, 不必在局限在一个系统里, 围绕着一个中心。不光是在功能上，在数据管理方面也是一样。各人自扫门前雪, 自己管理和维护自己的数据, 各自之间互不直接访问彼此的数据, 只通过 API 来存取数据。</p>
+</li>
 </ol>
-<blockquote>
-<p><code>ccmake</code> 和 <code>cmake</code> 的区别在于前者提供了一个交互式的界面</p>
-</blockquote>
-<h2 id="CMakeLists-txt语法"><a href="#CMakeLists-txt语法" class="headerlink" title="CMakeLists.txt语法"></a>CMakeLists.txt语法</h2><p>其由命令、注释和空格组成，其中命令是不区分大小写的。<br>注释由 <code>#</code> 开头。<br>命令由命令名称、小括号和参数组成，参数之间使用空格进行间隔。  </p>
-<h2 id="CMakeLists-txt常见命令"><a href="#CMakeLists-txt常见命令" class="headerlink" title="CMakeLists.txt常见命令"></a>CMakeLists.txt常见命令</h2><h4 id="一层目录"><a href="#一层目录" class="headerlink" title="一层目录"></a>一层目录</h4><pre><code>cmake_minimum_required(VERSION 2.8)
-</code></pre><p>指定运行此配置文件所需的CMake的最低版本为2.8<br>一般项目的主CMakeLists.txt文件中一定有这个命令，子目录里不需要。  </p>
-<pre><code>project(TEST)
-</code></pre><p>表示项目的名称为TEST，主目录中的CMakeLists.txt文件中必须有，子目录中的CMakeLists.txt文件中不需要。  </p>
-<pre><code>add_executable(Test main.cc)
-</code></pre><p>将名为main.cc的源文件编译成一个名称为Test的可执行文件。<br>如果需要将多个源文件编译成一个可执行文件，则添加到main.cc 的后面。<br>更简便的方法如下：  </p>
-<pre><code>aux_source_direct(. DIR_SRCS)
-</code></pre><p>查找 <code>.</code> 目录下（也就是当前目录下）的所有源文件，并将名称保存到DIR_SRCS变量中。<br>编译时就可如下：  </p>
-<pre><code>add_executable(Test ${DIR_SRCS})
-</code></pre><h4 id="多层目录"><a href="#多层目录" class="headerlink" title="多层目录"></a>多层目录</h4><pre><code>add_subdirectory(sub)
-</code></pre><p>当一个项目中有多层目录时，需要在上层CMakeLists.txt文件中添加子目录，并且子目录下也应当有CMakeLists.txt文件。<br>这样一来，子目录下的CMakeLists.txt文件和源代码也会被处理。  </p>
-<pre><code>aux_source_directory(. DIR_LIB_SRCS)
-add_library(MathFunctions ${DIR_LIB_SRCS})
-</code></pre><p>上面是子目录中CMakeLists.txt文件中的内容，其将子目录下的所有源文件编译为静态链接库。  </p>
-<pre><code>set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
-target_link_libraries(Test ${EXTRA_LIBS})
-</code></pre><p>链接，当有子目录的时候，且子目录的代码是可执行文件的一部分而未被分离成另一个可执行文件，则需要链接它。  </p>
-<h4 id="自定义编译选项"><a href="#自定义编译选项" class="headerlink" title="自定义编译选项"></a>自定义编译选项</h4><p>Cmake允许为项目增加编译选项，从而可以根据用户的环境和需求选择最合适的编译方案。  </p>
-<pre><code>cinfigure_file(
-    &quot;${PROJECT_SOURCE_DIR}/config.h.in&quot;
-    &quot;${PROJECT_BINARY_DIR}/config.h&quot;
-)  
-</code></pre><p>该命令用于加入一个配置头文件config.h，这个文件有CMake从config.h.in生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成。  </p>
-<p>config.h.in文件中的内容如下：  </p>
-<pre><code>#cmakedefine USE_MYMATH  
-</code></pre><p>其定义了变量USE_MYMATH，以供CMakeLists.txt文件使用。  </p>
-<pre><code>option (USE_MYMATH
-        &quot;Use provded math implementation&quot; ON)
-</code></pre><p>option命令添加了一个USE_MYMATH选项，并且设置了默认值为ON，中间的参数是对USE_MYMATH参数的描述。  </p>
-<p>设置为ON，则生成的config.h文件中就会定义出在config.h.in中配置的变量；设置为OFF，则生成的config.h文件中的定义就会被注释掉。  </p>
-<h4 id="安装和测试"><a href="#安装和测试" class="headerlink" title="安装和测试"></a>安装和测试</h4><p>CMake可以指定安装规则，以及添加测试。<br>这两个功能分别可以通过产生Makefile后使用 <code>make install</code> 和 <code>make test</code> 来执行。  </p>
-<p><strong>定制安装规则</strong><br>在子目录下的CMakeLists.txt文件中添加如下两行  </p>
-<pre><code>install (TARGETS MathFunctions DESTINATION bin)
-install (FILES MathFunctions.h DESTINATION include)
-</code></pre><p>在项目根目录下的CMakeLists.txt文件总添加如下两行</p>
-<pre><code>install (TARGETS Test DESTINATION bin)
-install (FILES &quot;${PROJECT_BINARY_DIR}/config.h&quot; DESTINATION include)
-</code></pre><p>通过上面的定制，生成Test文件和MathFunctions函数库libMathFunctions.o文件将会被复制到 <code>/usr/local/bin</code> 中，而 MathFunctions.h和生成的config.h文件则会被复制到 <code>/usr/local/include</code> 中。  </p>
-<p><strong>为工程添加测试</strong><br>CMake提供了一个称谓CTest的测试工具。我们只要在项目的根目录的CMakeLists.txt文件总调用一系列的 <code>add_test</code> 命令。  </p>
-<pre><code>enable_testing() # 启用测试
-</code></pre><p>在CMakeLists.txt文件的开头，需要添加这一行。  </p>
-<p>语法：  </p>
-<pre><code>add_test(TEST_NAME executable_file params)
-# 示例
-add_test(test_run test 5, 2)
-</code></pre><p>add_test语法有两个以上的参数，第一个是自定义的测试命名，第二个是可执行文件名，其他的为可执行文件需要传入的参数。  </p>
-<pre><code>set_tests_properties(自定义的测试名 PROPERTIES PASS_REGULAR_EXPRESSION 被包含的字符串)
-</code></pre><p>这个语句是为了检测定义的测试的返回值中是否包含所给的字符串，<code>PASS_REGULAR_EXPRESSION</code>用来测试输出是否所给的字符串。  </p>
-<p><strong>简化测试用例——宏定义</strong>  </p>
-<pre><code>macro(do_test arg1 arg2 result)
-    add_test (test_${arg1}_${arg2} Test ${arg1} ${arg2})
-    set_tests_properties(test_${arg1}_${arg2} PROPERTIES PASS_REGULAR_EXPRESSION ${result})
-endmacro(do_test)
-
-do_test(5 2 &quot;is 25&quot;)
-do_test(5 2 &quot;is 25&quot;)
-do_test(5 2 &quot;is 25&quot;)
-do_test(5 2 &quot;is 25&quot;)
-</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.hahack.com/codes/cmake/#stq=&amp;stp=0" target="_blank" rel="noopener">CMake入门实战</a><br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/" target="_blank" rel="noopener">在linux下使用CMake构建应用程序</a><br><a href="https://www.jianshu.com/p/bbf68f9ddffa" target="_blank" rel="noopener">CMake简要教程</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/39c1e4ec0d63" target="_blank" rel="noopener">什么是微服务</a><br><a href="https://www.ibm.com/developerworks/community/blogs/3302cc3b-074e-44da-90b1-5055f1dc0d9c/entry/%E8%A7%A3%E6%9E%90%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84_%E4%B8%80_%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1?lang=en" target="_blank" rel="noopener">解析微服务架构(一)：什么是微服务</a><br><a href="https://www.ibm.com/developerworks/community/blogs/3302cc3b-074e-44da-90b1-5055f1dc0d9c/entry/%E8%A7%A3%E6%9E%90%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84_%E4%BA%8C_%E8%9E%8D%E5%85%A5%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BC%81%E4%B8%9A%E9%9B%86%E6%88%90%E6%9E%B6%E6%9E%84?lang=zh" target="_blank" rel="noopener">解析微服务架构(二)：融入微服务的企业集成架构</a><br><a href="https://www.ibm.com/developerworks/community/blogs/3302cc3b-074e-44da-90b1-5055f1dc0d9c/entry/%E8%A7%A3%E6%9E%90%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84_%E4%B8%89_%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%87%8D%E6%9E%84%E5%BA%94%E7%94%A8%E5%8F%8AIBM%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88?lang=zh" target="_blank" rel="noopener">解析微服务架构(三)：微服务重构应用及IBM解决方案</a></p>
 
       
 
@@ -242,7 +195,7 @@ do_test(5 2 &quot;is 25&quot;)
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具 C++ cmake</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">架构</a>
         		</li>
       		
 		</ul>
@@ -252,7 +205,7 @@ do_test(5 2 &quot;is 25&quot;)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/21/了解cmake/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/11/浅谈微服务/">展开全文 >></a>
         </p>
       
 
@@ -282,58 +235,80 @@ do_test(5 2 &quot;is 25&quot;)
 
 
   
-    <article id="post-Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysql之char、varchar、text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/20/Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序/">Ubuntu16.04 + nginx + C++ + spawn-fcgi 开发web程序</a>
+      <a class="article-title" href="/2018/04/10/mysql之char、varchar、text/">mysql之char、varchar、text</a>
     </h1>
   
 
         
-        <a href="/2018/03/20/Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序/" class="archive-article-date">
-  	<time datetime="2018-03-20T12:49:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+        <a href="/2018/04/10/mysql之char、varchar、text/" class="archive-article-date">
+  	<time datetime="2018-04-10T15:09:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>系统：Ubuntu16.04<br>nginx：1.13.9<br>spawn-fcgi：1.6.4<br>gcc：5.6  </p>
-<h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><p>nginx<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">下载</a>  </p>
-<ol>
-<li><p>解压后，进入nginx目录下，进行安装：  </p>
-<pre><code>./configure
-</code></pre><p>但是，在安装过程，可能会缺少一些安装包，例如<code>pcre</code>，<code>zlib</code>，<code>OpenSSL</code>，直接进行apt-get install 安装即可。  </p>
-</li>
-<li><p>install</p>
-<pre><code>make
-sudo make install # 注意需要root权限，因为需要创建文件
-</code></pre></li>
-</ol>
-<p>安装完成后，nginx放置在/usr/local/nginx目录下，主要的配置文件是其下的conf中的nginx.conf  </p>
-<h4 id="安装spawn-fcgi"><a href="#安装spawn-fcgi" class="headerlink" title="安装spawn-fcgi"></a>安装spawn-fcgi</h4><p>spawn-fcgi<a href="http://redmine.lighttpd.net/versions/21" target="_blank" rel="noopener">下载</a>  </p>
-<ol>
-<li><p>解压后，进入spawn-fcgi目录</p>
-<pre><code>./configure
-make
-</code></pre></li>
-<li>生成可执行文件之后，将其移动到nginx的sbin目录下  <pre><code>cp src/spaw-fcgi /usr/local/nginx/sbin
-</code></pre></li>
-</ol>
-<h4 id="安装fcgi库"><a href="#安装fcgi库" class="headerlink" title="安装fcgi库"></a>安装fcgi库</h4><p>fcgi库<a href="http://download.chinaunix.net/download.php?id=5447&amp;ResourceID=2941" target="_blank" rel="noopener">下载</a><br>需要修改 /include/fcgio.h，添加如下代码  </p>
-<pre><code>#include &lt;cstdio&gt;
-</code></pre><p>然后，进行安装  </p>
-<pre><code>./configure
-make
-sudo make install # 注意需要root权限，因为需要创建文件
-</code></pre><h4 id="nginx命令"><a href="#nginx命令" class="headerlink" title="nginx命令"></a>nginx命令</h4><p>启动服务  </p>
-<pre><code>/usr/local/nginx/sbin/nginx start
-</code></pre><p>关闭服务  </p>
-<h4 id="spawn-fcgi命令"><a href="#spawn-fcgi命令" class="headerlink" title="spawn-fcgi命令"></a>spawn-fcgi命令</h4>
+        <p>在mysql之中，定义了很多数据类型作为存储的字段的类型。  </p>
+<p>这里只是对char、varchar和text这三个类型进行区别介绍。  </p>
+<h4 id="char"><a href="#char" class="headerlink" title="char"></a>char</h4><ul>
+<li>存储固定长度字符</li>
+<li>上限为255字节</li>
+<li>char(n)中的n代表字符的个数，而不是字节个数</li>
+<li>超过char的n设置，会被截断</li>
+<li>速度快</li>
+<li>存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(字符字节长度)，多余的空间使用空格填充</li>
+</ul>
+<blockquote>
+<h4 id="varchar"><a href="#varchar" class="headerlink" title="varchar"></a>varchar</h4><ul>
+<li>存储可变长度字符</li>
+<li>上限为65535字节，但实际可以存储的最大长度为65532字节</li>
+<li>varchar(n)代表可以存储n个字符，但是其最大的实际存储空间应该是n+1</li>
+<li>超过varchar的n设置，会被截断</li>
+<li>速度慢</li>
+<li>不存在空间浪费，有<strong>部分字节</strong>被用来记录数据长度，达到可变长的效果。  </li>
+</ul>
+</blockquote>
+<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><ul>
+<li>存储可变长度大数据</li>
+<li>上限为65535字节，实际存储的最大长度仍为65535字节，其使用的是额外的空间存放数据长度</li>
+<li>速度慢</li>
+<li>不存在空间浪费，有<strong>额外字节</strong>被用来记录数据长度，达到可变长的效果。</li>
+</ul>
+<p>text不以字符数来表明存储大小，其有几个相关的类型，并规定了最大的存储字节。  </p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Maximum length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tiny</td>
+<td>255 bytes</td>
+</tr>
+<tr>
+<td>text</td>
+<td>65,535 bytes = 64KiB</td>
+</tr>
+<tr>
+<td>mediumtext</td>
+<td>16,777,215 bytes = 16MiB</td>
+</tr>
+<tr>
+<td>longtext</td>
+<td>4,294,967,295 bytes = 4GiB</td>
+</tr>
+</tbody>
+</table>
+
       
 
       
@@ -341,11 +316,22 @@ sudo make install # 注意需要root权限，因为需要创建文件
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/20/Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/10/mysql之char、varchar、text/">展开全文 >></a>
         </p>
       
 
@@ -375,46 +361,508 @@ sudo make install # 注意需要root权限，因为需要创建文件
 
 
   
-    <article id="post-Linux-cURL命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP-PCRE模式正则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/20/Linux-cURL命令记录/">Linux cURL命令记录</a>
+      <a class="article-title" href="/2018/04/03/PHP-PCRE模式正则/">PHP PCRE模式正则</a>
     </h1>
   
 
         
-        <a href="/2018/03/20/Linux-cURL命令记录/" class="archive-article-date">
-  	<time datetime="2018-03-20T12:07:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+        <a href="/2018/04/03/PHP-PCRE模式正则/" class="archive-article-date">
+  	<time datetime="2018-04-03T13:51:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是cURL"><a href="#什么是cURL" class="headerlink" title="什么是cURL"></a>什么是cURL</h2><p>cURL，是linux中一个利用URL规则在命令行下工作的文件传输工具，是一款很强大的http命令行工具。<br><strong>语法</strong></p>
-<pre><code>curl [option] [url]
-</code></pre><p><strong>常见参数</strong>  </p>
-<pre><code>-A/--user-agent &lt;string&gt;        设置用户代理发送给服务器
--b/--cookie &lt;name=string/file&gt;    cookie字符串或文件读取位置
--c/--cookie-jar &lt;file&gt;            操作结束后把cookie写入到这个文件中
--C/--continue-at &lt;offset&gt;        断点续转
--D/--dump-header &lt;file&gt;            把header信息写入到该文件中
--e/--referer                    来源网址
--f/--fail                        链接失败时不显示http错误
--o/--output                        把输出写到该文件中
--O/--remote-name                把输出写到该文件中，保留远程文件的文件名
--r/--range &lt;range&gt;                检索来自HTTP/1.1或FTP服务器字节范围
--s/--slient                        静音模式，不输出任何东西
--T/--upload-file &lt;file&gt;            上传文件
--u/--user &lt;user[:password]&gt;        设置服务器的用户和秘密
--w/--write-out [format]            什么输出完成后
--x/--proxy &lt;host[:port]&gt;        在给定的端口上使用HTTP代理
--#/--progress-bar                进度条显示当前的传送状态
-</code></pre>
+        <h2 id="PCRE"><a href="#PCRE" class="headerlink" title="PCRE"></a>PCRE</h2><p>什么是PCRE，其全名为Perl Compatible Regular Expressions，中文解释为“兼容Perl的正则表达式”。  </p>
+<h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><p>当使用PCRE函数的时候，模式需要由<strong>分隔符</strong>闭合包裹。<br>分隔符可以是任意非字母数字、非反斜线、非空白字符。  </p>
+<p>经常使用的分隔符是正斜线(/)、has符号(#)、取反符号(~)。  </p>
+<blockquote>
+<p>如果分隔符需要在模式内进行匹配，它必须使用反斜线进行转义。  </p>
+</blockquote>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><p>这里不进行赘述，基础语法可以参见<a href="https://wizardforcel.gitbooks.io/w3school-regex/content/" target="_blank" rel="noopener">W3School正则表达式教程</a></p>
+<h2 id="模式修饰符"><a href="#模式修饰符" class="headerlink" title="模式修饰符"></a>模式修饰符</h2><ol>
+<li>大小写不敏感匹配</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i(PCRE_CLAELESS)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>“行首”(^)和“行末”($)匹配目标字符串中任何换行符之前或之后</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m(PCRE_MULTILINE)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式中的点号元字符匹配所有字符，包括换行符</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s(PCRE_DOTALL)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式中没有经过转义的或不在字符类中的空白数据字符总会被忽略，并且位于一个未转义的字符类外部的#字符和下一个换行符之间的字符也被忽略</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x(PCRE_EXTENDED)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式被强制为“锚定”模式，也就是说约束匹配使其仅从 目标字符串的开始位置搜索</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A(PCRE_ANCHORED)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式中的元字符美元符号仅仅匹配目标字符串的末尾。如果这个修饰符 没有设置，当字符串以一个换行符结尾时， 美元符号还会匹配该换行符(但不会匹配之前的任何换行符)。 如果设置了修饰符m，这个修饰符被忽略.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D(PCRE_DOLLAR_ENDONLY)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>当一个模式需要多次使用的时候，为了得到匹配速度的提升，值得花费一些时间 对其进行一些额外的分析。如果设置了这个修饰符，这个额外的分析就会执行。当前， 这种对一个模式的分析仅仅适用于非锚定模式的匹配(即没有单独的固定开始字符)。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S</span><br></pre></td></tr></table></figure>
+<ol>
+<li>这个修饰符逆转了量词的”贪婪”模式。 使量词默认为非贪婪的，通过量词后紧跟? 的方式可以使其成为贪婪的。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">U(PCRE_UNGEEDY)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式和目标字符串都被认为是 utf-8 的。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u(PCRE_UTF8)</span><br></pre></td></tr></table></figure>
+<h2 id="中文匹配"><a href="#中文匹配" class="headerlink" title="中文匹配"></a>中文匹配</h2><p>这里，重点讲的是进行中文的匹配。  </p>
+<p>在其他的一些语言中，使用<code>\w</code>是可以匹配得上中文字符的。但是在PHP的PCRE模式中，并不能匹配上。  </p>
+<p>这时，我们就得用到模式修饰符<code>u</code>  </p>
+<p>基本汉字Unicode编码范围为 <code>4E00-9FA5</code><br>我们可以这样编写正则模式：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$pattern = &apos;/[\x&#123;4E00&#125;-\x&#123;9FA5&#125;]+/u&apos;</span><br></pre></td></tr></table></figure>
+<p>但是这样并不能匹配所有的汉字，所有汉字的Unicode编码范围见<a href="http://www.qqxiuzi.cn/zh/hanzi-unicode-bianma.php" target="_blank" rel="noopener">详情</a>  </p>
+<p>由于英文字符所占的Unicode编码范围为 <code>00-FF</code>，若在只有中文和英文字符的情况下，我们可以取巧，使用如下的模式进行匹配：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$pattern = &apos;/[^\x&#123;00&#125;-\x&#123;ff&#125;]+/u&apos;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PHP Regex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/03/PHP-PCRE模式正则/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql-常用操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/03/mysql-常用操作/">mysql 常用操作</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/03/mysql-常用操作/" class="archive-article-date">
+  	<time datetime="2018-04-03T11:26:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据的导入导出"><a href="#数据的导入导出" class="headerlink" title="数据的导入导出"></a>数据的导入导出</h2><p><strong>导入sql文件</strong>  </p>
+<pre><code>source [/path/to/sql/file]
+</code></pre><p><strong>导入纯数据文件</strong>  </p>
+<pre><code>load data local infile &apos;[/path/of/data/file]&apos; into table [tablename] fields terminated by &apos;[seperator]&apos; lines terminated by &apos;[seperator]&apos;;
+</code></pre><p><strong>导出数据</strong></p>
+<pre><code>mysqldump -h[hostname] -u[username] -p[password] [databasename] [tablename] &gt; [/path/to/store/sql/file]
+</code></pre><blockquote>
+<p>建议在输入上述命令，输入密码那个参数中，只需要输入 <code>-p</code> 即可，无须在其后跟上password，而是在输入这行命令之后再由系统指导进行输入，一般Linux不允许上述命令，因为密码以明文输出不安全</p>
+</blockquote>
+<p><strong>导出一部分数据</strong>  </p>
+<pre><code>SELECT ... INTO OUTFILE &apos;[file/path]&apos;;
+</code></pre><h2 id="列操作"><a href="#列操作" class="headerlink" title="列操作"></a>列操作</h2><p><strong>修改列名</strong>  </p>
+<pre><code>alter table [tablenamme] change column [columnNameBeforeChange] [columnNameAfterChange] char(40)
+</code></pre><p><strong>添加列名</strong>  </p>
+<pre><code>alter table [tablename] add column [columnName] varchar(40);
+</code></pre><p><strong>删除列名</strong>  </p>
+<pre><code>alter table [tablenam]e drop column [columnName];
+</code></pre><p><strong>修改列类型</strong>  </p>
+<pre><code>alter table [tablename] modify [columnName] char(40);
+或
+alter table [tablename] change [columnNameBeforeChange] [columnNameBeforeChange] char(40);
+</code></pre><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h6 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h6><p><strong>查看数据库编码</strong>  </p>
+<pre><code>show create database [db_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/database_charset.jpg" title="database charset">
+<p><strong>修改数据库编码</strong>  </p>
+<pre><code>alter database [db_name] default character set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/database_charset_changed.jpg" title="database charset after change">
+<h6 id="数据表"><a href="#数据表" class="headerlink" title="数据表"></a>数据表</h6><p><strong>查看数据表编码</strong></p>
+<pre><code>show create table [table_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/table_charset.jpg" title="table charset">
+<p><strong>修改数据表编码</strong>  </p>
+<pre><code>alter table [table_name] default character set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/table_charset_changed.jpg" title="table charset after change">
+<h6 id="数据表列字段"><a href="#数据表列字段" class="headerlink" title="数据表列字段"></a>数据表列字段</h6><p><strong>查看数据表列字段编码</strong></p>
+<pre><code>show full columns from [table_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset.jpg" title="column charset">
+<p><strong>修改数据表列字段编码</strong>  </p>
+<pre><code>alter table [table_name] change [column_name_before] [column_name_after] [column_type] character set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset_changed.jpg" title="column charset after change">
+<p>或</p>
+<pre><code>alter table [table_name] modify [column_name] [column_type] charset set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset_changed2.jpg" title="column charset after change 2">
+<h6 id="查看mysql数据库所有的编码"><a href="#查看mysql数据库所有的编码" class="headerlink" title="查看mysql数据库所有的编码"></a>查看mysql数据库所有的编码</h6><pre><code>show variables like &apos;%char%&apos;;
+</code></pre><img src="/2018/04/03/mysql-常用操作/all_character_set.jpg" title="all character set">
+<h6 id="查看mysql数据库所有排序规则"><a href="#查看mysql数据库所有排序规则" class="headerlink" title="查看mysql数据库所有排序规则"></a>查看mysql数据库所有排序规则</h6><pre><code>show variables like &apos;%collation_%&apos;;
+</code></pre><img src="/2018/04/03/mysql-常用操作/all_collation_set.jpg" title="all character set">
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_	:	匹配任何单个字符</span><br><span class="line">%	:	匹配0或任意多个字符</span><br></pre></td></tr></table></figure>
+<p>这两个通配符需要使用 LIKE 或 NOT LIKE</p>
+<blockquote>
+<p>不能使用 = 或 !=</p>
+</blockquote>
+<h4 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.	:	匹配单个字符</span><br><span class="line">*	:	匹配0个或任意多个字符</span><br><span class="line">^	:	开头</span><br><span class="line">$	:	结尾</span><br><span class="line">[]	:	某一个（括号中的字符）</span><br><span class="line">&#123;n&#125;	:	重复n次</span><br></pre></td></tr></table></figure>
+<p>使用 REGEXP 或 NOT REGEXP</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/03/mysql-常用操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-制作Makefile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/31/制作Makefile/">制作Makefile</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/31/制作Makefile/" class="archive-article-date">
+  	<time datetime="2018-03-31T09:06:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是Makefile"><a href="#什么是Makefile" class="headerlink" title="什么是Makefile"></a>什么是Makefile</h2><p>Makefile文件，是供给make（一个工具程序）进行自动化构建的规则文件。  </p>
+<p>make，是一种转换文件形式的的工具，转换的目标称为“target”，与此同时，它也检查文件的依赖关系，如果需要的话，它会调用一些外部软件来完成任务。  </p>
+<p>它使用“Makefile”的文件来确定一个target文件的依赖关系，然后把生成这个target的相关命令传给shell去执行。  </p>
+<blockquote>
+<p>大多数情况下，它被用来编译源代码，生成结果代码， 然后把结果代码连接起来生成可执行文件或者库文件。  </p>
+</blockquote>
+<h2 id="Makefile文件的格式"><a href="#Makefile文件的格式" class="headerlink" title="Makefile文件的格式"></a>Makefile文件的格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;target&gt; : &lt;prerequisites&gt;  </span><br><span class="line">	&lt;commands&gt;</span><br></pre></td></tr></table></figure>
+<p>上面第一行冒号前面的部分，叫做”目标”（target），冒号后面的部分叫做”前置条件”（prerequisites）；第二行必须由一个tab键起首，后面跟着”命令”（commands）。  </p>
+<p>“目标”是必需的，不可省略；”前置条件”和”命令”都是可选的，但是两者之中必须至少存在一个。  </p>
+<p>每条规则就明确两件事：构建目标的前置条件是什么，以及如何构建。下面就详细讲解，每条规则的这三个组成部分。  </p>
+<h4 id="目标（target）"><a href="#目标（target）" class="headerlink" title="目标（target）"></a>目标（target）</h4><p>目标可以是文件名，也可以是操作名。  </p>
+<p>当其为文件名时，指的是Make命令所要构建的对象。其也可以是多个文件名。  </p>
+<p>当其为操作名时，被称为“伪目标”（phony target）。但是，如果当前目录有和伪目标重名的文件时，操作不会被执行。他会将操作名看成是目标文件名。为避免这种情况，可以明确声明操作时“伪目标”。  </p>
+<pre><code>.PHONY: clean
+clean:
+    rm *.o temp
+</code></pre><p>明确声明了clean是“伪目标”。  </p>
+<blockquote>
+<p>若Make运行时不指明目标，则默认执行规则构建文件中的第一个目标。  </p>
+</blockquote>
+<h4 id="前置条件（prerequisite）"><a href="#前置条件（prerequisite）" class="headerlink" title="前置条件（prerequisite）"></a>前置条件（prerequisite）</h4><p>前置条件通常是一组文件名，之间用空格分隔。它指定了”目标”是否重新构建的判断标准：只要有一个前置文件不存在，或者有过更新（前置文件的last-modification时间戳比目标的时间戳新），”目标”就需要重新构建。  </p>
+<h4 id="命令（commands）"><a href="#命令（commands）" class="headerlink" title="命令（commands）"></a>命令（commands）</h4><p>命令（commands）表示如何更新目标文件，由一行或多行的Shell命令组成。它是构建”目标”的具体指令，它的运行结果通常就是生成目标文件。  </p>
+<p>每行命令之前必须有一个tab键。如果想用其他键，可以用内置变量 <code>.RECIPEPREFIX</code> 声明。  </p>
+<pre><code>.RECIPEPREFIX = &gt;
+clean:
+&gt; rm *.o temp
+</code></pre><blockquote>
+<p>每行命令在一个单独的shell中执行。这些Shell之间没有继承关系。<br>也就是说，一行shell命令不能使用其他行shell命令的变量和结果。</p>
+</blockquote>
+<p>要使得他们在一个shell进程中执行，有三种方法：  </p>
+<ul>
+<li>所有shell命令写在一行</li>
+</ul>
+<pre><code>clean:
+    export end=finish; echo $end
+</code></pre><ul>
+<li>行尾使用反斜杠</li>
+</ul>
+<pre><code>clean:
+    export end=finish; \
+    echo $end
+</code></pre><ul>
+<li>我们可以使用<code>.ONESHELL</code>命令来标志一个target中的所有shell命令都在一个shell进程中执行。</li>
+</ul>
+<pre><code>.ONESHELL
+clean:
+    export end=finish
+    echo $end     
+</code></pre><h2 id="Makefile文件语法"><a href="#Makefile文件语法" class="headerlink" title="Makefile文件语法"></a>Makefile文件语法</h2><h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p><code>#</code>号开头代表注释一行。  </p>
+<h4 id="回声（echoing）"><a href="#回声（echoing）" class="headerlink" title="回声（echoing）"></a>回声（echoing）</h4><p>正常情况下，make会打印每条命令，然后再执行，这就叫做回声（echoing）。  </p>
+<blockquote>
+<p>在命令的前面加上@，就可以关闭回声</p>
+</blockquote>
+<h4 id="通配符（wildcard）"><a href="#通配符（wildcard）" class="headerlink" title="通配符（wildcard）"></a>通配符（wildcard）</h4><p>用来指定一组符合条件的文件名。与Bash的通配符一致</p>
+<h4 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h4><pre><code>%.o: %.c
+</code></pre><p>等同于</p>
+<pre><code>f1.o: f1.c
+f2.o: f2.c
+</code></pre><p>使用匹配符%，可以将大量同类型的文件，只用一条规则就能完成构建。  </p>
+<h4 id="变量和赋值符"><a href="#变量和赋值符" class="headerlink" title="变量和赋值符"></a>变量和赋值符</h4><ul>
+<li>变量可以随意定义，但是定义时需要有初始值</li>
+<li>变量的使用，必须使用 <code>$()</code> 符进行变量的调用</li>
+</ul>
+<pre><code>txt=Hello
+test:
+    @echo $(txt)  
+</code></pre><p>调用shell变量时，需要在shell变量前再加上一个 <code>$</code> 符  </p>
+<p>赋值符分为四类：  </p>
+<ul>
+<li><code>=</code>：在执行时扩展，允许递归扩展</li>
+<li><code>:=</code>：在定义时扩展</li>
+<li><code>?=</code>：只有在该变量为空时才设置值</li>
+<li><code>+=</code>：将值追加到变量的尾端</li>
+</ul>
+<h4 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AR: 归档程序，默认为&apos;ar&apos;</span><br><span class="line">CC: C语言代码编译程序，默认为&apos;cc&apos;</span><br><span class="line">CXX: C++代码编译程序，默认为&apos;g++&apos;</span><br><span class="line">CPP: 运行C代码预处理的程序，从标准输出输出结果，默认为&apos;$(CC) -E&apos;</span><br><span class="line">CFLAGS: 给C编译器的额外标志</span><br><span class="line">CXXFLAGS: 给C++编译器的额外标志</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>内置变量在shell命令中使用时，需要使用 <code>$()</code> 进行调用</p>
+</blockquote>
+<h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><p><strong>1. $@</strong><br>指代当前目标，就是Make命令当前构建的目标。  </p>
+<p><strong>2. $&lt;</strong><br>指代第一个前置条件。  </p>
+<p><strong>3. $?</strong><br>指代比目标更新的所有前置条件，之间以空格分隔。  </p>
+<p><strong>4. $^</strong><br>指代所有前置条件，之间以空格分隔。  </p>
+<p><strong>5. $*</strong><br>指代匹配符%匹配的部分。  </p>
+<p><strong>6. $(@D) &amp; $(@F)</strong><br>分别指向$@的目录名和文件名。  </p>
+<p><strong>7. $(&lt;D) &amp; $(&lt;F)</strong><br>分别指向$&lt;的目录名和文件名。  </p>
+<h4 id="判断和循环"><a href="#判断和循环" class="headerlink" title="判断和循环"></a>判断和循环</h4><p>Makefile使用Bash语法，完成判断和循环。  </p>
+<p>Bash语法，见<a href="http://www.runoob.com/linux/linux-shell.html" target="_blank" rel="noopener">此教程</a>  </p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><pre><code>$(function arguments)
+或
+$(function arguments)
+</code></pre><p>Makefile提供了很多内置的函数，可供调用，如下：  </p>
+<ol>
+<li>shell函数</li>
+</ol>
+<p>用来执行shell命令  </p>
+<pre><code>srcfiles := $(shell echo src/{00..99}.txt)
+</code></pre><ol>
+<li>wildcard函数</li>
+</ol>
+<p>用来在Makfile中替换Bash通配符  </p>
+<pre><code>srcfiles := $(wildcard src/*.txt)
+</code></pre><ol>
+<li>subst函数</li>
+</ol>
+<p>用来文本替换  </p>
+<pre><code>$(subst from,to,text)
+例如
+$(substr ee,EE,feet on the street) # 将feet on the street 替换成 fEEt on the street
+</code></pre><ol>
+<li>patsubst函数</li>
+</ol>
+<p>用于模式匹配的替换  </p>
+<pre><code>$(patsubst pattern,replacement,text)
+</code></pre><ol>
+<li>替换后缀名</li>
+</ol>
+<p>写法： 变量名 + 冒号 + 后缀名替换规则。  </p>
+<p>其实际上是patsubst函数的一种简写。  </p>
+<pre><code>min: $(OUTPUT:.js=.min.js)
+# 将变量OUTPUT的后缀名 `.js` 全部替换成 `.min.js`
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.ruanyifeng.com/blog/2015/02/make.html" target="_blank" rel="noopener">阮一峰的Make命令教程</a><br><a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="noopener">GUN make官方教程</a><br><a href="https://gist.github.com/isaacs/62a2d1825d04437c6f08" target="_blank" rel="noopener">Makefile文件教程</a>  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Linux make makefile</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/31/制作Makefile/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux下设置输出字符的颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/Linux下设置输出字符的颜色/">Linux下设置输出字符的颜色</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/27/Linux下设置输出字符的颜色/" class="archive-article-date">
+  	<time datetime="2018-03-27T07:10:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre><code>\033[显示方式;前景色;背景色;m输出字符串\033[0m
+或
+\e[显示方式;前景色;背景色;m输出字符串\e[0m
+</code></pre><p><code>\033[</code> 或 <code>\e[</code> 引导转义序列，<code>m</code> 表示设置属性并结束转义序列，<code>\033[0m</code> 或 <code>\e[0m</code> 用于恢复默认的终端输出属性。  </p>
+<h5 id="转义序列"><a href="#转义序列" class="headerlink" title="转义序列"></a>转义序列</h5><p>转义序列以控制字符<code>ESC</code>开头，该字符的ASCII码十进制为27，十六进制为0x1B，八进制表示为033。<br>由于转义序列多数超过两个字符，所以通常以 <code>ESC</code> 和左括号 <code>[</code> 开头，该起始序列（<code>\033[</code> 和 <code>\e[</code>）称为控制序列引导符。</p>
+<h5 id="显示方式-amp-前景色-amp-背景色"><a href="#显示方式-amp-前景色-amp-背景色" class="headerlink" title="显示方式 &amp; 前景色 &amp; 背景色"></a>显示方式 &amp; 前景色 &amp; 背景色</h5><p>这三个属性是用来设置输出字符串的三个属性。  </p>
+<blockquote>
+<p>这三个属性并没有顺序的限制，因为表示他们的值范围不同</p>
+</blockquote>
+<p><strong>颜色</strong>  </p>
+<pre><code>0 - 黑
+1 - 红
+2 - 绿
+3 - 黄
+4 - 蓝
+5 - 洋红
+6 - 青
+7 - 白
+</code></pre><blockquote>
+<p>字体颜色范围 30-37<br>背景颜色返回 40-47 </p>
+</blockquote>
+<p><strong>显示</strong>  </p>
+<pre><code>0    -    默认
+1    -    粗体/高亮
+22    -    非粗体
+4    -    单条下划线
+24    -     无下划线
+5    -    闪烁
+25    -    无闪烁
+7    -    反显、翻转前景色和背景色
+</code></pre><h2 id="Linux终端下的测试"><a href="#Linux终端下的测试" class="headerlink" title="Linux终端下的测试"></a>Linux终端下的测试</h2><p>在Linux的终端下，我们可以使用如下命令来输出彩色字或彩色背景  </p>
+<pre><code>echo -e &quot;\033[显示方式;前景色;背景色;m输出字符串\033[0m&quot;
+</code></pre><img src="/2018/03/27/Linux下设置输出字符的颜色/demo.png" title="test in Linux terminal"> 
+<blockquote>
+<p>双引号是必须的，因为其实bash分辨词素的标记</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/clover-toeic/p/4031618.html" target="_blank" rel="noopener">https://www.cnblogs.com/clover-toeic/p/4031618.html</a><br><a href="https://blog.csdn.net/exlsunshine/article/details/28440889" target="_blank" rel="noopener">https://blog.csdn.net/exlsunshine/article/details/28440889</a><br><a href="https://blog.csdn.net/hejinjing_tom_com/article/details/12162491" target="_blank" rel="noopener">https://blog.csdn.net/hejinjing_tom_com/article/details/12162491</a>  </p>
+
       
 
       
@@ -437,7 +885,7 @@ sudo make install # 注意需要root权限，因为需要创建文件
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/20/Linux-cURL命令记录/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/27/Linux下设置输出字符的颜色/">展开全文 >></a>
         </p>
       
 
@@ -467,27 +915,83 @@ sudo make install # 注意需要root权限，因为需要创建文件
 
 
   
-    <article id="post-浅谈CGI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-开发web服务（库：xmlrpc-c）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/20/浅谈CGI/">浅谈CGI</a>
+      <a class="article-title" href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/">C++开发web服务（库：xmlrpc-c）</a>
     </h1>
   
 
         
-        <a href="/2018/03/20/浅谈CGI/" class="archive-article-date">
-  	<time datetime="2018-03-20T11:40:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+        <a href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/" class="archive-article-date">
+  	<time datetime="2018-03-26T15:48:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>文章参考：<br><a href="https://www.zhihu.com/question/30672017" target="_blank" rel="noopener">CGI,FastCGI,php-fpm之间的关系</a><br><a href="http://ms.csdn.net/share/5EB5472B0837D27DEB083BA97982ED2F_1_IPHONE_APP" target="_blank" rel="noopener">深入理解FastCGI协议</a></p>
+        <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>Ubuntu16.04<br>gcc 5.4.0<br>xmlrpc-c 1.39.12  </p>
+<h2 id="xmlrpc-c介绍"><a href="#xmlrpc-c介绍" class="headerlink" title="xmlrpc-c介绍"></a>xmlrpc-c介绍</h2><p>xmlrpc-c是一个对XML-RPC协议的一个C/C++的实现。<br>其包含了很多必须的库，在编译服务端和客户端的时候都需要使用其进行链接编译。  </p>
+<p><a href="https://sourceforge.net/projects/xmlrpc-c/" target="_blank" rel="noopener">下载地址</a>  |  <a href="http://xmlrpc-c.sourceforge.net/doc/#clibraries" target="_blank" rel="noopener">文档</a>  </p>
+<h5 id="编译安装xmlrpc-c"><a href="#编译安装xmlrpc-c" class="headerlink" title="编译安装xmlrpc-c"></a>编译安装xmlrpc-c</h5><p>下载xmlrpc-c压缩文件之后，解压，进入其目录下，使用如下命令进行安装：  </p>
+<pre><code>./configure
+make
+sudo make install
+</code></pre><h5 id="编译链接客户端和服务端"><a href="#编译链接客户端和服务端" class="headerlink" title="编译链接客户端和服务端"></a>编译链接客户端和服务端</h5><p>这里，我们只介绍最简单的服务模式（即源文件examples/cpp中的xmlrpc_sample_add_server 和 xmlrpc_sample_add_client所示例的模式）。  </p>
+<p>在源文件examples/cpp文件夹下，xmlrpc-c的开发者已经为我们写好了Makefile文件，我们只需要执行make命令即可将cpp目录下的所有文件都编译完成。  </p>
+<p>但是，其Makefile文件很晦涩难懂，在我们开发服务的时候，如何编译代码文件呢？  </p>
+<p><strong>客户端</strong><br>客户端的编译需要链接如下的库：  </p>
+<pre><code>xmlrpc_client++
+xmlrpc++ 
+xmlrpc_util++
+</code></pre><p>所以，我们编译客户端的命令如下：  </p>
+<pre><code>g++ 源文件 -o 可执行文件 -lxmlrpc_client++ -lxmlrpc++ -lxmlrpc_util++
+</code></pre><p><strong>服务端</strong><br>服务端的编译需要链接如下的库：  </p>
+<pre><code>xmlrpc_server++
+xmlrpc++
+xmlrpc_server_abyss++
+xmlrpc_util++
+</code></pre><p>所以，我们编译服务端的命令如下：  </p>
+<pre><code>g++ 源文件 -o 可执行文件 -lxmlrpc_server++ -lxmlrpc++ -lxmlrpc_server_abyss++ -lxmlrpc_util++
+</code></pre><p>知晓了这些，我们就可以将examples/cpp目录下的示例文件<code>xmlrpc_sample_add_server.cpp</code> 和 <code>xmlrpc_sample_add_client.cpp</code> 拷贝出来单独编译。  </p>
+<h5 id="客户端调用服务端的参数模型"><a href="#客户端调用服务端的参数模型" class="headerlink" title="客户端调用服务端的参数模型"></a>客户端调用服务端的参数模型</h5><p>调用示例：  </p>
+<pre><code>string const serverUrl(&quot;http://localhost:8080/RPC2&quot;);
+string const methodName(&quot;sample.add&quot;);
+xmlrpc_c::clientSimple myClient;
+xmlrpc_c::value result;
+myClient.call(serverUrl, methodName, &quot;ii&quot;, &amp;result, 5, 7);
+</code></pre><p>那么就让我来介绍一下myClient.call中的第三个参数 <code>&quot;ii&quot;</code> 代表的含义。</p>
+<p>在xmlrpc-c中定义了很多类型：  </p>
+<pre><code>xmlrpc_c::value_boolean
+xmlrpc_c::value_int
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+</code></pre><p>在客户端调用服务端的时候，myClient.call中的第三个参数代表着formatChar，即对应的输入类型符，其与上述的类型的映射关系如下：  </p>
+<pre><code>i    xmlrpc_c::value_int
+b    xmlrpc_c::value_boolean
+d    xmlrpc_c::value_double
+s    xmlrpc_c::value_string
+w    xmlrpc_c::value_boolean
+t    xmlrpc_c::value_boolean
+8    xmlrpc_c::value_boolean
+6    xmlrpc_c::value_boolean
+n    xmlrpc_c::value_boolean
+I    xmlrpc_c::value_boolean
+p    xmlrpc_c::value_boolean
+A    xmlrpc_c::value_boolean
+S    xmlrpc_c::value_boolean
+V    xmlrpc_c::value_boolean
+b    xmlrpc_c::value_boolean
+</code></pre><p>xmlrpc_build.c文件中</p>
 
       
 
@@ -501,7 +1005,7 @@ sudo make install # 注意需要root权限，因为需要创建文件
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络 C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++ Linux xmlrpc-c</a>
         		</li>
       		
 		</ul>
@@ -511,7 +1015,7 @@ sudo make install # 注意需要root权限，因为需要创建文件
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/20/浅谈CGI/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/">展开全文 >></a>
         </p>
       
 
@@ -541,124 +1045,40 @@ sudo make install # 注意需要root权限，因为需要创建文件
 
 
   
-    <article id="post-JavaScript-继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-下安装libmysqlclient-dev找不到链接库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/JavaScript-继承/">JavaScript 继承</a>
+      <a class="article-title" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">Linux 下安装libmysqlclient-dev找不到链接库</a>
     </h1>
   
 
         
-        <a href="/2018/03/19/JavaScript-继承/" class="archive-article-date">
-  	<time datetime="2018-03-19T14:08:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+        <a href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/" class="archive-article-date">
+  	<time datetime="2018-03-26T10:19:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>许多OO语言都支持两种继承方式：  </p>
-<ul>
-<li>接口继承：只继承方法签名</li>
-<li>实现继承：继承实际的方法</li>
-</ul>
-<p>由于函数没有签名，在ECMAScript中无法实现接口继承。<br>ECMAScript只支持实现继承，而且实现继承主要依靠原型链来实现的。  </p>
-<pre><code>function SuperType() {
-    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
-    this.property = true;
-}
-
-function SubType() {
-    this.subProperty = true;
-}
-
-// 继承
-SubType.prototype = new SuperType();
-
-var instance = new SubType();
-</code></pre><p>两个问题：  </p>
-<ul>
-<li>包含引用类型值的原型，会被所有实例共享</li>
-<li>在创建子类型的实例时，不能向超类型的构造函数中传递参数</li>
-</ul>
-<h2 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h2><p>原理：函数只不过是在特定环境中执行代码的对象，因此通过使用apply()和call()方法也可以在新创建的对象上执行构造函数。  </p>
-<pre><code>function SuperType() {
-    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
-}
-
-function SubType() {
-    SuperType.call(this);
-}
-
-var instance = new SubType();
-instance.colors.push(&quot;black&quot;);
-console.log(instance.colors); // [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]
-</code></pre><p><strong>传递参数</strong><br>相对于原型链而言，借用构造函数有一个很大的优势，即可以在子类型构造函数中向超类型构造函数传递参数。  </p>
-<p><strong>问题</strong><br>方法都在构造函数中定义，因此函数复用就无从谈起了。<br>在超类型的原型中定义的方法，对子类型而言也是不可见的，结果所有类型都智能使用构造函数模式。  </p>
-<h2 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h2><p>有时也叫伪经典继承，指的是将原型链和借用构造函数的技术组合到一块，从而发挥二者之长的一种继承模式。<br>原型链实现对原型属性和方法的继承，借用构造函数实现对实例属性的继承。  </p>
-<pre><code>function SuperType(name) {
-    this.name = name;
-    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
-}
-
-SuperType.prototype.sayName = function() {
-    console.log(this.name);
-}
-
-function SubType(name, age) {
-    SuperType.call(this, name); //  第二次调用 SuperType()
-    this.age = age;
-}
-
-SubType.prototype = new SuperType(); // 第一次调用 SuperType()
-SubType.prototype.constructor = SubType;
-SubType.prototype.sayAge = function() {
-    console.log(this.age);
-}
-</code></pre><p>组合继承避免了原型链和借用构造函数的缺陷，融合了它们的优点，成为JavaScript中做常用的继承模式。<br>而且，instanceof和isPrototypeOf()也能够用于识别基于组合继承创建的对象。  </p>
-<h2 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h2><p>借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型。  </p>
-<pre><code>function object(o) {
-    function F(){}
-    F.prototype = o;
-    return new F();
-}
-
-var person = {
-    colors: [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;]
-};
-
-// obj继承person对象
-var obj = object(person);
-</code></pre><p><strong>Object.create(fatherObj[, propertiesObj])</strong><br>ECMAScript5通过新增Object.create()方法规范化了原型继承。<br>fatherObj: 要继承的父类对象<br>propertiesObj: 和Object.defineProperties()中第二个参数一样，会覆盖原有同名属性。可选  </p>
-<h2 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h2><p>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再想真的是它做了所有工作一样返回对象。  </p>
-<pre><code>function createAnother(original) {
-    var clone = object(original);
-    clone.sayHi = function() {
-        console.log(&quot;HI&quot;);
-    }
-    return clone;
-}
-</code></pre><p>在主要考虑对象而不是自定义类型和构造函数的情况下，寄生式继承也是一种有用的模式。 </p>
-<p>前面的object()函数不是必须的，任何能够返回新对象的函数都适用于此模式。  </p>
-<blockquote>
-<p>使用寄生式继承来为对象添加函数，会由于不能做到函数服用而降低效率。这一点与构造函数模式类似</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想用C++在Linux环境下操作MySQL数据库。  </p>
+<p><strong>环境</strong><br>Ubuntu16.04<br>MySQL5.7<br>gcc 5.4.0  </p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>安装mysql  </p>
+<pre><code>sudo apt-get install mysql-server mysql-client
+</code></pre><p>安装libmysqlclient-dev  </p>
+<pre><code>sudo apt-get install libmysqlclient-dev
+</code></pre><blockquote>
+<p>libmysqlclient-dev这个库中有着操作mysql数据库的一些头文件和链接库</p>
 </blockquote>
-<h2 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h2><p>由于组合继承存在一个很大的缺陷： 其会调用两次超类型构造函数，一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。  </p>
-<p>因为子类型最终会包含超类型对象的全部实例属性，所以我们不得不在调用子类型构造函数时重写这些属性。    </p>
-<p><strong>解决办法：寄生组合式继承</strong><br>通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。  </p>
-<p>背后的思路：不必为了指定子类型的原型而调用超类型的构造函数，我们需要的无非就是超类型原型的一个副本而已。  </p>
-<p>本质：使用寄生式继承来继承超类型的原型，然后在将结果指定给子类型的原型。  </p>
-<pre><code>function inheritPrototype(subType, superType) {
-    var prototype = object(superType.prototype);    // 创建对象
-    prototype.constructor = subType;                // 增强对象
-    subType.prototype = prototype;                    // 指定对象
-}
-</code></pre><p>这个例子能够保持原型链不变，还避免了在SubType.prototype上面创建不必要的、多余的属性。  </p>
-<p>这被普遍认为是引用类型最理想的继承范式。  </p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 <code>/usr/include</code> 中可以找到mysql文件夹，其中有一些操作mysql的头文件<br><strong>但是</strong><br>在 <code>/usr/lib</code> 中找不到链接库 <code>libmysqlclient.so</code>  </p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在安装 <code>libmysqlclient-dev</code> 的时候，将 <code>libmysqlclient.so</code> 链接库文件放置在了 <code>/usr/lib/x86_64-linux-gnu</code> 这个文件夹中。  </p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在 <code>/usr/lib</code> 中增加 <code>libmysqlclient.so</code> 的链接：  </p>
+<pre><code>ln -s /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/libmysqlclient.so
+</code></pre><p>这样一来，问题就解决了</p>
 
       
 
@@ -672,7 +1092,7 @@ var obj = object(person);
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux MySQL C++</a>
         		</li>
       		
 		</ul>
@@ -682,7 +1102,7 @@ var obj = object(person);
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/JavaScript-继承/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">展开全文 >></a>
         </p>
       
 
@@ -712,545 +1132,63 @@ var obj = object(person);
 
 
   
-    <article id="post-JavaScript严格模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-下建立链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/JavaScript严格模式/">&#39;JavaScript严格模式&#39;</a>
+      <a class="article-title" href="/2018/03/26/Linux-下建立链接/">Linux 下建立链接</a>
     </h1>
   
 
         
-        <a href="/2018/03/18/JavaScript严格模式/" class="archive-article-date">
-  	<time datetime="2018-03-18T07:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
+        <a href="/2018/03/26/Linux-下建立链接/" class="archive-article-date">
+  	<time datetime="2018-03-26T09:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ECMAScript5最早引入了“严格模式”（strict mode）的概念。通过严格模式，可以在函数内部选择进行较为严格的全局或局部的错误条件检测。  </p>
-<p>使用严格模式的好处：可以提早知道代码中存在的错误，即使捕获一些可能导致编程错误的ECMAScript行为。  </p>
-<h2 id="选择使用"><a href="#选择使用" class="headerlink" title="选择使用"></a>选择使用</h2><p>选择进入严格模式，需使用严格模式的编译指示：  </p>
-<pre><code>&quot;use strict&quot;;
-</code></pre><p>其其实是一个为负值的字符串字面量，支持严格模式的引擎会启动严格模式，不支持的就会忽略。  </p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>严格模式下，什么时候创建变量以及怎么创建变量都是有限制的。  </p>
-<h6 id="不允许意外创建全局变量"><a href="#不允许意外创建全局变量" class="headerlink" title="不允许意外创建全局变量"></a>不允许意外创建全局变量</h6><pre><code>message = &quot;Hello&quot;;
-</code></pre><p>这行代码在严格模式下是错误的。<br>在严格模式下，如果给一个没有声明的变量复制，那代码在执行时就会抛出ReferenceError  </p>
-<h6 id="不能对变量调用delete操作符"><a href="#不能对变量调用delete操作符" class="headerlink" title="不能对变量调用delete操作符"></a>不能对变量调用delete操作符</h6><pre><code>var clolor = &quot;red&quot;;
-delete color;
-</code></pre><p>在严格模式下上述代码会出错。<br>虽在非严格模式下允许这样做，但是会静默失败（返回false）  </p>
-<h6 id="严格模式下对变量有限制"><a href="#严格模式下对变量有限制" class="headerlink" title="严格模式下对变量有限制"></a>严格模式下对变量有限制</h6><p>不能使用implements, interface, let, package, private, protected, public, static, yield作为变量名，这些都是保留字，将来的ECMAScript版本中可能会用到它们。  </p>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>在严格模式下操作对象比在非严格模式下更容易导致错误。<br>一般来说，在非严格模式下回静默失败的情形，在严格模式下回抛出错误。  </p>
-<p>在下列情形下操作对象的属性会导致错误：  </p>
-<ul>
-<li>为只读属性赋值——抛出TypeError</li>
-<li>对不可配置的属性使用delete操作符——抛出TypeError</li>
-<li>对不可扩展的对象添加属性——抛出TypeError</li>
-</ul>
-<h6 id="使用对象字面量时，属性名必须唯一"><a href="#使用对象字面量时，属性名必须唯一" class="headerlink" title="使用对象字面量时，属性名必须唯一"></a>使用对象字面量时，属性名必须唯一</h6><pre><code>var person = {
-    name: &quot;xiaoming&quot;,
-    name: &quot;honghong&quot;
-}
-</code></pre><p>严格模式下报错，非严格模式下取第二个。  </p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h6 id="严格模式下的函数命名必须唯一。"><a href="#严格模式下的函数命名必须唯一。" class="headerlink" title="严格模式下的函数命名必须唯一。"></a>严格模式下的函数命名必须唯一。</h6><p>不能出现两个命名一样的函数，JavaScript中没有像C++中的函数重载。  </p>
-<h6 id="严格模式下，arguments对象的行为也有所不同"><a href="#严格模式下，arguments对象的行为也有所不同" class="headerlink" title="严格模式下，arguments对象的行为也有所不同"></a>严格模式下，arguments对象的行为也有所不同</h6><ul>
-<li>非严格模式：arguments对象和命名参数双向绑定，改动任何一个，另一个的值也会随之改变</li>
-<li>严格模式：arguments对象和命名参数无双向绑定</li>
-</ul>
-<h6 id="淘汰了arguments-callee-和-arguments-caller"><a href="#淘汰了arguments-callee-和-arguments-caller" class="headerlink" title="淘汰了arguments.callee 和 arguments.caller"></a>淘汰了arguments.callee 和 arguments.caller</h6><p>在非严格模式下，这两个属性一个引用函数本身，一个引用调用函数。<br>在严格模式下，访问哪个属性都会抛出TypeError。  </p>
-<h6 id="函数名不能使用保留字"><a href="#函数名不能使用保留字" class="headerlink" title="函数名不能使用保留字"></a>函数名不能使用保留字</h6><h6 id="只能在脚本的顶级和在函数内部声明函数"><a href="#只能在脚本的顶级和在函数内部声明函数" class="headerlink" title="只能在脚本的顶级和在函数内部声明函数"></a>只能在脚本的顶级和在函数内部声明函数</h6><pre><code>if (true) {
-    function doSomething() {
-        // ...
-    }
-}
-</code></pre><p>严格模式下，会导致语法错误。  </p>
-<h2 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h2><p>严格模式下，eval()在包含上下文中不再创建变量和函数。  </p>
-<pre><code>function doSomething() {
-    eval(&quot;var x = 10&quot;);
-    alert(x);
-}
-</code></pre><p>上述代码在严格模式下会抛出ReferenceError，因为x未被定义。  </p>
-<p>可以在eval()中声明变量和函数，但这些变量或函数只能被求值的特殊作用域中有效，随后就会被销毁。  </p>
-<pre><code>&quot;use strict&quot;;
-var result = eval(&quot;var x=10, y = 11; x+y&quot;);
-console.log(result);  // 21
-</code></pre><p>上述代码是有效的。  </p>
-<h2 id="eval和arguments"><a href="#eval和arguments" class="headerlink" title="eval和arguments"></a>eval和arguments</h2><p>严格模式已经明确禁止使用eval和arguments作为标识符，也不允许读写它们的值。<br>而在非严格模式下是可以重写eval，也可以给arguments赋值。  </p>
-<h2 id="抑制this"><a href="#抑制this" class="headerlink" title="抑制this"></a>抑制this</h2><p>在非严格模式下使用函数的apply()和call()方法时，null或undefined值会被转换为全局对象。  </p>
-<p>而在严格模式下，函数的this值始终是指定的值，无论指定的是什么值。  </p>
-<pre><code>var color = &quot;red&quot;;
-
-function displayColor() {
-    console.log(this.color);
-}
-
-displayColor.call(null);
-</code></pre><p>非严格模式下输出red，this是全局对象<br>严格模式下报错，this是null，对null操作报错  </p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>抛弃了with语句——使用会导致语法错误</li>
-<li>去掉了JavaScript中的八进制字面量</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/18/JavaScript严格模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-人工智能笔记之人工智能概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/02/人工智能笔记之人工智能概念/">人工智能笔记之人工智能概念</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/02/人工智能笔记之人工智能概念/" class="archive-article-date">
-  	<time datetime="2018-01-02T12:04:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="人工智能分类"><a href="#人工智能分类" class="headerlink" title="人工智能分类"></a>人工智能分类</h4><p>| 像人一样思考 | 合理地（理性）思考 |<br>| 像人一样行动 | 合理地（理性）行动 |</p>
-<p><strong>像人一样行动：图灵测试</strong><br>自然语言处理，知识表示，自动推理，机器学习，计算机视觉，机器人学  </p>
-<p><strong>像人一样思考：认知建模</strong><br>神经生理学实验，心理学实验，认知模型    </p>
-<p><strong>理性地思考：思维法则</strong><br>逻辑学  </p>
-<p><strong>理性地行动：理性智能体</strong>  </p>
-<ul>
-<li>理性行动：做正确的事  </li>
-<li>正确的事：在当前已有知识和前提条件下，能获得最佳期望结果的决定或行动  </li>
-<li>智能体是能感知和行动的实体</li>
-</ul>
-<h4 id="理性智能体"><a href="#理性智能体" class="headerlink" title="理性智能体"></a>理性智能体</h4><p>智能体：指任何能通过传感器感知环境和通过执行器作用于环境的实体  </p>
-<p>理性智能体：对于每种可能的感知系列，理性智能体应该选择一个这样的动作来执行，此动作能在它所具有执行和感知序列提供的证据条件下，使得它的性能度量期望最大化。  </p>
-<p>理性有别于无所不知  </p>
-<h4 id="智能体的设计"><a href="#智能体的设计" class="headerlink" title="智能体的设计"></a>智能体的设计</h4><p>在设计智能体时须首先明确的四大要素，简称PEAS  </p>
-<ul>
-<li>性能度量（Performance measure）</li>
-<li>环境（Environment）</li>
-<li>执行器（Actuators）</li>
-<li>传感器（Sensors）</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/02/人工智能笔记之人工智能概念/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jQuery插件Datatables的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/19/jQuery插件Datatables的使用/">jQuery插件Datatables的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/19/jQuery插件Datatables的使用/" class="archive-article-date">
-  	<time datetime="2017-12-19T06:51:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Datatables介绍"><a href="#Datatables介绍" class="headerlink" title="Datatables介绍"></a>Datatables介绍</h4><p>Datatables是一款jquery表格插件，他是一个高度灵活的工具，可以将任何HTML表格添加高机的交互功能。<br>特性：</p>
-<ul>
-<li>分页，即时搜索和排序</li>
-<li>几乎支持任何数据源：DOM，javascript，Ajax和服务器处理</li>
-<li>支持不同的主题DataTables，JQuery UI，Bootstrap，Foundation</li>
-<li>各式各样的扩展：Editor，TableTools，FixedColumns……</li>
-<li>丰富多样的option和强大的API</li>
-<li>免费开源(MIT license)</li>
-</ul>
-<h4 id="Datatables的使用"><a href="#Datatables的使用" class="headerlink" title="Datatables的使用"></a>Datatables的使用</h4><p>Datatables的使用十分简单，只需要引入其提供给我们的css文件和js文件，我们就可以使用它了。<br>这两个文件，你可以到官网上去<a href="https://www.datatables.net/download/index" target="_blank" rel="noopener">下载</a>，也可以直接使用它给我们提供的CDN<br>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css</span><br></pre></td></tr></table></figure></p>
-<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>当直接使用上述CDN时，一定需要开服务器，在服务器下运行html程序，否则不能正确定位到CDN<br>如果不想开服务器，就想直接运行，请在css和js的CDN地址前加上一个<code>http:</code></p>
-</blockquote>
-<p>然后我们就可以尝试一下这个插件了！<br>在html中写一个表格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;demo&quot;&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;column one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;column two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;column three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;line one one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line one two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line one three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;line two one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line two two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line two three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;line three one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line three two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line three three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
-<p>效果如下：<br><img src="/2017/12/19/jQuery插件Datatables的使用/protoTable.png" title="proto table">  </p>
-<p>使用Datatables<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#demo&quot;).DataTable();</span><br></pre></td></tr></table></figure></p>
-<p>效果如下：<br><img src="/2017/12/19/jQuery插件Datatables的使用/noParamInit.png" title="no parameter to init table"></p>
-<p>可以看到，Datatables这个插件自动帮我们加上了css样式，以及分页，搜索，排序等功能。  </p>
-<blockquote>
-<p>在使用Datatables的使用，一定要注意需要引入jquery，因为Datatables是基于jquery开发的。  </p>
-</blockquote>
-<h4 id="使用Datatables加载数据"><a href="#使用Datatables加载数据" class="headerlink" title="使用Datatables加载数据"></a>使用Datatables加载数据</h4><p>在上述的例子中，我们是写好一个table，然后使用Datatables将他进行样式添加，功能添加的。但是如果每次都需要我们在HTML中手动添加数据，就会令人感觉十分繁琐，能不能有一种简单的方式来加载数据呢，实现数据与HTML分离，这样当数据进行变更时也方便修改。  </p>
-<p>答案是肯定的。Datatables能够自动加载数据，然后帮助我们生成dom元素填充到html中。<br>使用这个功能时，html就只需要这么一行代码就OK了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;demo&quot;&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>在javascript中使用数组存储数据源</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var dataSet = [</span><br><span class="line">    [&quot;line one one&quot;, &quot;line one two&quot;, &quot;line one three&quot;],</span><br><span class="line">    [&quot;line two one&quot;, &quot;line two two&quot;, &quot;line two three&quot;],</span><br><span class="line">    [&quot;line three one&quot;, &quot;line three two&quot;, &quot;line three three&quot;]</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
-<p>然后将其作为参数传入到Datatables的参数中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#demo&quot;).DataTable(&#123;</span><br><span class="line">    data: dataSet,</span><br><span class="line">    columns: [ // 定义每个列的标题</span><br><span class="line">        &#123;title: &quot;column one&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column two&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column three&quot;&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>通过Ajax加载数据</strong><br>使用json格式将数据独立存储在文件中<br>dataSet.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;data&quot;: [</span><br><span class="line">    [</span><br><span class="line">		&quot;line one one&quot;,</span><br><span class="line">		&quot;line one two&quot;,</span><br><span class="line">		&quot;line one three&quot;</span><br><span class="line">	],</span><br><span class="line">    [</span><br><span class="line">		&quot;line two one&quot;, </span><br><span class="line">		&quot;line two two&quot;, </span><br><span class="line">		&quot;line two three&quot;</span><br><span class="line">	],</span><br><span class="line">    [</span><br><span class="line">		&quot;line three one&quot;, </span><br><span class="line">		&quot;line three two&quot;, </span><br><span class="line">		&quot;line three three&quot;</span><br><span class="line">	]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>一定要注意，在使用json格式的数据，需要有一个名为data的key，这个key的value才是你要存放的数据数组</p>
-</blockquote>
-<p>然后将其作为参数传入到Datatables的参数中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#demo&quot;).DataTable(&#123;</span><br><span class="line">    ajax: &apos;dataSet.json&apos;,</span><br><span class="line">    columns: [ // 定义每个列的标题</span><br><span class="line">        &#123;title: &quot;column one&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column two&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column three&quot;&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>使用ajax的方式，一定得将html脚本运行在服务器上，否则不能成功加载  </p>
-</blockquote>
-<p>这个应该是应用得很广，在进行前后台交互的时候，我们可以直接使用这个功能，将后台传来的符合格式的数据直接通过Datatables加载到html页面上。  </p>
-<h4 id="表格美化"><a href="#表格美化" class="headerlink" title="表格美化"></a>表格美化</h4><p>虽然面讲述了datatable的强大的功能，但是那界面未免令人不敢恭维。<br>别担心，Datatables自知有这个缺点，索性它人品不错，和很多美工大师关系很好，我们能够直接以它的名义邀请他的朋友来帮忙。<br>在这里，我们就直接邀请其非常有名的朋友，bootstrap来助我们一臂之力。  </p>
-<p>首先，我们得先引入bootstarp以及Datatables提供的和bootstrap一起工作的文件<br>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css</span><br><span class="line">https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css</span><br></pre></td></tr></table></figure></p>
-<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js</span><br></pre></td></tr></table></figure></p>
-<p>然后，只需要改变html，给他加一个bootstrap提供的类名就行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;demo&quot; class=&quot;table table-striped table-bordered&quot;&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
-<p>效果如下<br><img src="/2017/12/19/jQuery插件Datatables的使用/tableWithBootstrap.png" title="use bootstrap to init table"><br>是不是好看了很多呢：）  </p>
-<p>至此，jQuery插件Datables的基本功能的使用已经介绍完了，Datatables还有很多其他的高级功能，后续博客，敬请期待！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">javascript plugins</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/19/jQuery插件Datatables的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-XML介绍与实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/18/XML介绍与实例/">XML介绍与实例</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/18/XML介绍与实例/" class="archive-article-date">
-  	<time datetime="2017-12-18T12:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="XML是什么"><a href="#XML是什么" class="headerlink" title="XML是什么"></a>XML是什么</h4><p>XML 是Extensible Markup Language的缩写，意思是可扩展标记语言。<br>XML 是一个十分类似于HTML的语言。<br>XML 是被设计来存储和传输数据的语言。<br>XML 是一款自描述语言。  </p>
-<h4 id="XML和HTML的差别"><a href="#XML和HTML的差别" class="headerlink" title="XML和HTML的差别"></a>XML和HTML的差别</h4><p>XML和HTML是出于不同的目的而被设计出来的： </p>
-<ul>
-<li>XML被设计出来存储和传输数据——其专注于数据的内容</li>
-<li>HTML被设计出来展示数据——其专注于数据的外观</li>
-<li>XML标签是没有被预定义的，HTML标签是被预定义的</li>
-</ul>
-<blockquote>
-<p>预定义就是提前设计好了，规定好了，你必须使用他设计好的标签，而不能使用别的<br>没有预定义就是你可以随便自己定义标签，只要你觉得这个标签能描述出你所要描述的东西  </p>
-</blockquote>
-<h4 id="XML仅仅是纯文本"><a href="#XML仅仅是纯文本" class="headerlink" title="XML仅仅是纯文本"></a>XML仅仅是纯文本</h4><p>XML仅仅是携带数据的纯文本，有能力处理纯文本的软件都可以处理XML。  </p>
-<h4 id="XML标签"><a href="#XML标签" class="headerlink" title="XML标签"></a>XML标签</h4><p>XML允许作者定义自己的标签和文档结构。  </p>
-<h2 id="XML能干什么"><a href="#XML能干什么" class="headerlink" title="XML能干什么"></a>XML能干什么</h2><h4 id="从HTML中分离数据"><a href="#从HTML中分离数据" class="headerlink" title="从HTML中分离数据"></a>从HTML中分离数据</h4><p>当用HTML展示数据的时候，当数据改变时，你不一定非得修改HTML文件，你可以使用XML存储数据形成一个单独的文件，然后使用几行JavaScript代码从XML文件中读取数据填充到HTML中。当数据更新时，只需要修改XML文件即可，HTML文件的数据也会同步跟新。</p>
-<blockquote>
-<p>HTML文件往往都很复杂，因为其中不仅仅只是包含数据，还包含一些动画，图片等需要复杂HTML标签才能展示的效果。在这些标签中寻找数据，往往十分困难。</p>
-</blockquote>
-<h4 id="简化数据共享"><a href="#简化数据共享" class="headerlink" title="简化数据共享"></a>简化数据共享</h4><p>XML 数据以纯文本格式进行存储，因此提供了一种独立于软件和硬件的数据存储方法。这让创建不同应用程序可以共享的数据变得更加容易。</p>
-<h4 id="简化数据传输"><a href="#简化数据传输" class="headerlink" title="简化数据传输"></a>简化数据传输</h4><p>因为任何系统都能够读取纯文本数据，因此通过XML可以在不兼容的系统之间轻松地交换数据。</p>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>关于XML的一些语法，我就不多加赘述了，如果大家感兴趣的话，可以去<a href="http://www.w3school.com.cn/xml/" target="_blank" rel="noopener">W3School</a>上去学习。  </p>
-<p>下面，我们就使用代码来介绍一下如何使用XML进行数据的存储，应用于HTML程序。  </p>
-<p>首先，我们先使用XML存储我们想要显示的数据。<br>例如，我想写一封邮件给我的同学，那么我就使用XML来存储关键的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; </span><br><span class="line">&lt;email&gt;  </span><br><span class="line">	&lt;from&gt;lyk&lt;/from&gt;  </span><br><span class="line">	&lt;to&gt;my friend&lt;/to&gt;  </span><br><span class="line">	&lt;title&gt;Thanks For Your Help&lt;/title&gt;  </span><br><span class="line">	&lt;content&gt;Yesterday, I forgot my pen in English test. You borrowed your pen to me. Thank your very much&lt;/content&gt;  </span><br><span class="line">&lt;email&gt;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>这里的所有标签都是我自己自己定义的</p>
-</blockquote>
-<p>然后，我们就使用HTML来写一个网页来展示这些数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Email&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;title&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;subtitle&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>最后，我们使用JavaScript将XML中的数据填充到HTML页面中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/18/XML介绍与实例/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-github-hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/09/github-hexo搭建个人博客/">github+hexo搭建个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/09/github-hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2017-12-08T16:29:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="步骤概览"><a href="#步骤概览" class="headerlink" title="步骤概览"></a>步骤概览</h2><ul>
-<li>注册一个github账号以及配置</li>
-<li>在本地下载git，nodejs</li>
-<li>下载hexo</li>
-<li>在本地建立博客仓库</li>
-<li>关联github page</li>
-<li>选用主题</li>
-<li>撰写博客</li>
-</ul>
-<h2 id="注册一个github账号以及配置"><a href="#注册一个github账号以及配置" class="headerlink" title="注册一个github账号以及配置"></a>注册一个github账号以及配置</h2><p>我们的博客是由github+hexo搭建而成的，所以github必定是基础中的基础，前提中的前提。  </p>
-<p>什么是github？<br>github是一个面向开元及私有软件项目的管理平台，因为只支持git作为唯一的版本库格式进行托管，故名github。  </p>
-<h4 id="Step-One"><a href="#Step-One" class="headerlink" title="Step One"></a>Step One</h4><p>首先，我们得去<a href="https://github.com/" target="_blank" rel="noopener">github</a>去注册一个账号。<br><img src="/2017/12/09/github-hexo搭建个人博客/github_register.png" title="register for github account">  </p>
-<blockquote>
-<p>sign up 是注册， sign in 是登录</p>
-</blockquote>
-<h4 id="Step-Two"><a href="#Step-Two" class="headerlink" title="Step Two"></a>Step Two</h4><p>新建一个代码库，点击右上角的加号，点击New repository<br><img src="/2017/12/09/github-hexo搭建个人博客/add_repository.png" title="create a new repository"><br>命名你要创建的代码库，这里需要注意，你代码库的名字一定得是yourname.github.io<br><img src="/2017/12/09/github-hexo搭建个人博客/name_repository.png" title="name for repository"><br>这里的yourname是你的账户名<br>至于description，你可写可不写，然后点击最下方的create repository绿色按钮就OK了  </p>
-<h4 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h4><p>设置代码库，开启gh-pages功能，这个功能是我们能够利用github搭建个人博客的重要功能。<br>代码库创建成功之后，我们会进入如下界面：<br><img src="/2017/12/09/github-hexo搭建个人博客/repo_success.png" title="create repository successful"><br>然后点击图片上部菜单末尾的settings属性，下滑到Github Pages设置这块<br><img src="/2017/12/09/github-hexo搭建个人博客/github_pages.png" title="github pages configuration"><br>由他的描述可知，github pages被设计为从Github库中托管您的个人、组织或项目页面。我们也获知其现在是无效的，需要我们往其中添加内容。<br>我们可以点击下方的choose a theme按钮，然后选择你喜爱的风格：<br><img src="/2017/12/09/github-hexo搭建个人博客/choose_theme.png" title="choose theme"><br>点击select theme按钮，它默认给你创建了一个issue，填充好了内容，然后你只需点击commit changes按钮即可<br><img src="/2017/12/09/github-hexo搭建个人博客/commit_content.png" title="commit changes">  </p>
-<p>如果您完成了上述的工作，name恭喜你，你已经完成了第一部分的内容。<br>然后您可以在浏览器的地址栏输入<a href="https://yourname.github.io查看您的项目页面。" target="_blank" rel="noopener">https://yourname.github.io查看您的项目页面。</a><br>  </p>
-<h2 id="在本地下载git，nodejs"><a href="#在本地下载git，nodejs" class="headerlink" title="在本地下载git，nodejs"></a>在本地下载git，nodejs</h2><p>为甚我们需要下载git和nodejs呢？<br>因为我们选用的hexo框架依赖于git和nodejs。    </p>
-<p>我们可以去<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git官网</a>上去下载git。<br><img src="/2017/12/09/github-hexo搭建个人博客/git_download.png" title="git download"><br>下载完成之后，双击安装即可。<br><img src="/2017/12/09/github-hexo搭建个人博客/git_install_1.png" title="git download"><br><img src="/2017/12/09/github-hexo搭建个人博客/git_install_2.png" title="git download">  </p>
-<blockquote>
-<p>强烈建议不要将其安装到C盘</p>
-</blockquote>
-<p>然后一直next，知道finish  </p>
-<p>然后在桌面空白处点击右键，就会发现右键菜单中多出了Git GUI Here 和 Git Bash Here这两个选项  </p>
-<p>然后安装nodejs，<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">官网网址</a><br><img src="/2017/12/09/github-hexo搭建个人博客/node_download.png" title="git download"><br>点击.msi文件或是.zip文件均可，然后下载安装或解压。  </p>
-<blockquote>
-<p>要注意，需要配置环境变量<br>在 <code>控制面板 &gt; 系统和安全 &gt; 系统 &gt; 高级系统设置 &gt; 环境变量 &gt; 系统变量中的path &gt; 编辑 &gt; 新建 &gt; 将你安装node的文件路径复制</code><br>然后一直点击确认即可</p>
-</blockquote>
-<img src="/2017/12/09/github-hexo搭建个人博客/envo_1.png" title="git download">  
-<img src="/2017/12/09/github-hexo搭建个人博客/envo_2.png" title="git download">  
-<img src="/2017/12/09/github-hexo搭建个人博客/envo_3.png" title="git download">  
-<h2 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h2><p>什么是Hexo？<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。  </p>
-<p>安装hexo，打开命令行，执行如下命令  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-<p>安装成功，可以执行<code>hexo -v</code>查看安装的版本<br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_install.png" title="git download">  </p>
-<h4 id="建立博客代码库"><a href="#建立博客代码库" class="headerlink" title="建立博客代码库"></a>建立博客代码库</h4><p>新建一个文件夹，cmd运行进入到该目录下，使用<code>hexo init</code>命令初始化代码库<br>然后使用如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
-<p>安装所需的一些依赖包<br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_init.png" title="git download"><br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_npm_install.png" title="git download">  </p>
-<h4 id="运行博客"><a href="#运行博客" class="headerlink" title="运行博客"></a>运行博客</h4><ol>
-<li><p>清除缓存文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成静态文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate 或 hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
+        <p>链接，在Linux文件系统中，可以视其为档案的别名。  </p>
+<h2 id="链接的分类"><a href="#链接的分类" class="headerlink" title="链接的分类"></a>链接的分类</h2><ul>
+<li>硬链接<ol>
+<li>以文件的副本的形式存在，但不占用实际空间</li>
+<li>不允许给目录创建硬链接</li>
+<li>只有在同一个文件系统中才能创建</li>
 </ol>
-<p>执行完上述命令，打开浏览器，输入<a href="http://localhost:4000，即可看到稍微满意的结果" target="_blank" rel="noopener">http://localhost:4000，即可看到稍微满意的结果</a><br><img src="/2017/12/09/github-hexo搭建个人博客/hexo_default_page.png" title="git download">  </p>
-<h2 id="关联github-page"><a href="#关联github-page" class="headerlink" title="关联github page"></a>关联github page</h2><h4 id="配置git个人信息"><a href="#配置git个人信息" class="headerlink" title="配置git个人信息"></a>配置git个人信息</h4><p>打开git bash，输入如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;  </span><br><span class="line">git config --global user.emal &quot;xxx@xxx.xxx&quot;</span><br></pre></td></tr></table></figure></p>
-<p>将其中的xxx替换成您自己的信息  </p>
-<p>然后使用如下命令生成秘钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your email&quot;</span><br></pre></td></tr></table></figure></p>
-<p>请将your email替换成您自己的邮箱  </p>
-<p>执行完毕，就会在C盘的用户目录下生成一个.ssh文件夹，其中会有id_rsa和id_rsa.pub这两个文件，分别是私钥和公钥  </p>
-<p>添加生成的秘钥到到ssh-agent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eval `ssh-agent -s`  # 启动ssh-agent  </span><br><span class="line">ssh-add  # 添加秘钥</span><br></pre></td></tr></table></figure></p>
-<p>将公钥复制，进入github settings中的Deploy Keys选项，点击Add Deploy Key按钮<br><img src="/2017/12/09/github-hexo搭建个人博客/github_deploy_keys.png" title="git download"><br>将公钥复制到Key文本栏中，title栏可以任意填<br><img src="/2017/12/09/github-hexo搭建个人博客/github_add_keys.png" title="git download"><br>点击 Add Key即可  </p>
-<blockquote>
-<p>这是为了避免您每次想github推送您更新的博客时，都需要输入您的用户名和密码，配置公钥私钥能够让git自动帮您进行认证  </p>
-</blockquote>
-<h4 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h4><p>在您博客代码库的根目录下有一个_config.yml文件，这是您网站的配置文件。<br>您需要进行一些修改以匹配您的git page<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	type: git  </span><br><span class="line">	repo: git@github.com:Ison-Laihus/Ison-Laihus.github.io.git  </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
-<p>请进行相应的替换  </p>
-<p>在_config.yml文件中还有其他一些参数可以配置<br>例如： 修改博客站点信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Ison Blog  </span><br><span class="line">subtitle: happy to have a blog  </span><br><span class="line">description:</span><br><span class="line">author: Ison  </span><br><span class="line">language:</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure></p>
-<h4 id="将本地博客部署到github-pages"><a href="#将本地博客部署到github-pages" class="headerlink" title="将本地博客部署到github pages"></a>将本地博客部署到github pages</h4><p>部署命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy 或 hexo d</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>但是需要注意，在部署之前，需要先进行清除缓存和生成静态文件的命令  </p>
-</blockquote>
-<p>然后再浏览器中输入URL: <a href="https://yourname.gihub.io，就会发现已经将本地博客部署到github上了" target="_blank" rel="noopener">https://yourname.gihub.io，就会发现已经将本地博客部署到github上了</a>  </p>
-<h2 id="选用主题"><a href="#选用主题" class="headerlink" title="选用主题"></a>选用主题</h2><p>在github上，有许许多多github的主题，您可以在github上进行搜索<br><img src="/2017/12/09/github-hexo搭建个人博客/theme_search.png" title="git download">  </p>
-<p>您可以选择您喜爱的主题，然后下载到本地博客代码仓库themes文件夹下  </p>
-<p>例如，我们选择hexo-theme-even这个主题，然后使用git bash从github上克隆下来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-scss --save  # 首先安装依赖的包  </span><br><span class="line">git clone git@github.com:ahonn/hexo-theme-even.git themes/even</span><br></pre></td></tr></table></figure></p>
-<p>后面的themes/even请根据您的自身情况进行修改  </p>
-<p>然后修改_config.yml文件中的theme字段，因为我们将下载的主题命名为even，所以我们将这个字段设置为even  </p>
-<p>然后清除缓存，生成静态文件，部署<br>在浏览器输入URL: <a href="https://yourname.gihub.io，发现博客主题已经被更改，但是却很糟糕" target="_blank" rel="noopener">https://yourname.gihub.io，发现博客主题已经被更改，但是却很糟糕</a>  </p>
-<p>这里不知道是不是作者写错了还是怎么，不过我们可以做一些修改：  </p>
-<p>进入主题even的文件夹中，进入layout/_partial文件夹下，打开head.swig文件，将如下两行代码做些修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;&#123;&#123; url_for(theme.favicon) &#125;&#125;?v=&#123;&#123; theme.version &#125;&#125;&quot; /&gt;  </span><br><span class="line">···  </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&#123;&#123; url_for(&apos;css/style.css&apos;) &#125;&#125;?v=&#123;&#123; theme.version &#125;&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<p>修改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;&#123;&#123; url_for(theme.favicon) &#125;&#125;&quot; /&gt;  </span><br><span class="line">···  </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&#123;&#123; url_for(&apos;css/style.css&apos;) &#125;&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<p>然后执行必备的三步，即可看到炫酷的效果<br><img src="/2017/12/09/github-hexo搭建个人博客/even_theme_page.png" title="git download">  </p>
-<p>是不是很酷炫呢:)  </p>
-<h2 id="撰写博客"><a href="#撰写博客" class="headerlink" title="撰写博客"></a>撰写博客</h2><p>终于到了我们最后一个模块了——撰写博客  </p>
-<p>hexo有一个新建博客文章的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
-<p>该命令会自动在source/_post文件夹下生成一个markdown文件，然后我们可以使用Markown编辑器打开这个文件进行编辑，撰写我们的博客。  </p>
-<p>这似乎很简单，但是这并不是我所要说的重点。  </p>
-<p>我所说的重点是，如何在我们的博客代码仓库存储我们的数据文件，例如，如果有一张图片，我们该怎么保存在我们的图片呢？  </p>
-<p>不要着急，hexo给我们提供了这个功能。 </p>
-<p>我们只需要在根目录下的_config.yml中修改post_asset_folder的字段设置为true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure></p>
-<p>然后当我们使用新建博客文章的命令的同时，会在source/_post目录下生成一个与你博客文章同名的文件夹，你可以将你的数据文件放入这个文件夹中，然后使用如下命令进行引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure></p>
-<p>asset_img是不能更改的，example.jpg根据您的图片名称进行修改，This is an example是描述语句，可以任意更改。  </p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>至此，使用github+hexo搭建个人博客已经完成，如果有误，希望指正。<br>更多内容，请参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官方文档</a></p>
+</li>
+<li>软链接<ol>
+<li>以路径的形式存在，类似于Windows操作系统中的快捷方式</li>
+<li>可以跨文件系统</li>
+<li>可以对一个不存在的文件名进行链接</li>
+<li>可以对目录进行链接</li>
+</ol>
+</li>
+</ul>
+<h2 id="创建链接的命令"><a href="#创建链接的命令" class="headerlink" title="创建链接的命令"></a>创建链接的命令</h2><p><strong>命令格式</strong>  </p>
+<pre><code>ln [参数] [源文件或目录] [目标文件或目录]
+</code></pre><p><strong>命令参数</strong><br>必要参数 </p>
+<pre><code>-b    删除，覆盖以前建立的链接
+-d    允许超级用户制作目录的硬链接
+-f    强制执行
+-i    交互模式，文件存在则提示用户是否覆盖
+-n    把符号链接视为一般目录
+-s    软链接（符号链接）
+-v    显示详细的处理过程
+</code></pre><p>选择参数  </p>
+<pre><code>-S    &quot;-S&lt;字尾备份字符串&gt;&quot; 或 &quot;--suffix=&lt;字尾备份字符串&gt;&quot;
+-V    &quot;-V&lt;备份方式&gt;&quot; 或 &quot;--version-control=&lt;备份方式&gt;&quot;
+--version    显示版本信息
+</code></pre><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>ln命令会保持每一处链接文件的同步性，也就是说，不论你改动了哪一处，其他文件都会发生相同的变化  </li>
+<li>软链接只会在选定的位置上生成一个文件的镜像，不会占用磁盘空间</li>
+<li>硬链接会在选定的位置上生成一个和源文件相同大小的文件</li>
+<li>无论是硬链接还是软链接，文件都保持同步变化</li>
+<li>ln指令用在链接文件或目录，如果同时指定两个以上的文件或目录，则最后的目的地是一个已存在的目录（把前面指定的所有文件或目录复制到该目录中），否则会报错</li>
+</ol>
 
       
 
@@ -1264,7 +1202,7 @@ displayColor.call(null);
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">部署</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -1274,7 +1212,100 @@ displayColor.call(null);
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/09/github-hexo搭建个人博客/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/26/Linux-下建立链接/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Ubuntu-下找不到动态链接库的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">Ubuntu 下找不到动态链接库的原因</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/" class="archive-article-date">
+  	<time datetime="2018-03-22T09:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="情况描述"><a href="#情况描述" class="headerlink" title="情况描述"></a>情况描述</h4><p>Linux下编程，下载所需要的安装包，解压，然后编译安装，通常命令：  </p>
+<pre><code>./configure
+make
+sudo make install # 需要创建文件
+</code></pre><p>当我们编译安装之后，到 <code>/usr/local/lib</code> 里和 <code>/usr/local/include</code> 里分别查看安装的库文件和头文件，然后我们欣喜的看到我们所安装的文件已经被放入到这里两个文件中，于是我们就去欣喜的写代码去了  </p>
+<pre><code>...
+coding
+...
+</code></pre><p>当我们的代码写好了之后，编译链接，然后运行，发下，它竟然提示:  </p>
+<pre><code>找不到shared libraries ?!!  
+</code></pre><p>然后我们又反复的去 <code>/usr/local/lib</code> 中去查找，发现的确已经存在了。  </p>
+<p>于是我们思考是否是 <code>/usr/local/lib</code> 没有加入到 共享链接库的配置文件中。  </p>
+<p>于是我们打开 <code>/etc/ld.so.conf</code> 进行查看，发现：  </p>
+<pre><code>include /etc/ld.so.conf.d/*.conf
+/usr/local/lib
+</code></pre><p>已经将 <code>/usr/local/lib</code> 包含进去了  </p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>执行下列命令  </p>
+<pre><code>sudo ldconfig
+</code></pre><p>重新加载一下所有的共享库文件，因为我们在安装好所需要的包之后，并没有给系统足够的时间来反应你所添加的内容，所以我们需要告诉系统应该重新加载一下。  </p>
+<p>之后再运行代码，OK了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux  Ubuntu  C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">展开全文 >></a>
         </p>
       
 
@@ -1306,7 +1337,7 @@ displayColor.call(null);
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1397,6 +1428,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -1413,15 +1448,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1441,6 +1476,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
@@ -1454,6 +1493,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
             
             <div class="clearfix"></div>
