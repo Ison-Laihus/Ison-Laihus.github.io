@@ -139,6 +139,147 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-网络、群体与市场笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/11/网络、群体与市场笔记/">网络、群体与市场笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/11/网络、群体与市场笔记/" class="archive-article-date">
+  	<time datetime="2018-04-11T10:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><p><strong>路径</strong>  </p>
+<pre><code>一个节点序列的集合，序列中任意两个相邻节点间都有一条边相连。  
+</code></pre><p><strong>连通图</strong>  </p>
+<pre><code>若一个图中任两点间有路相通，称此图为联通图。  
+</code></pre><p><strong>联通分量</strong>  </p>
+<pre><code>1. 子集中任意两个节点间均有路径相连
+2. 该自己不是其他任何满足条件1的子集的一部分
+</code></pre><h4 id="小世界现象"><a href="#小世界现象" class="headerlink" title="小世界现象"></a>小世界现象</h4><pre><code>你和朋友间的路径不仅可延伸至世界相当比例的人群，这些路径实际上都惊人的短。  
+</code></pre><h2 id="强联系和弱联系"><a href="#强联系和弱联系" class="headerlink" title="强联系和弱联系"></a>强联系和弱联系</h2><p>基本的社交网络概念引申的三个问题：  </p>
+<ol>
+<li>信息如何通过社交网络传播</li>
+<li>不同的节点如何在这一进程中发挥独特作用</li>
+<li>这些结构性因素怎样印象网络本身的演化</li>
+</ol>
+<h4 id="三元闭包"><a href="#三元闭包" class="headerlink" title="三元闭包"></a>三元闭包</h4><pre><code>在一个社交圈内，若两个人有一个共同的朋友，则这两人在未来成为朋友的可能性就会提高。  
+</code></pre><p><strong>聚集系数</strong> </p>
+<pre><code>节点A的聚集系数定义为A的任意两个朋友彼此也是朋友的概率。  
+</code></pre><blockquote>
+<p>通常，一个节点的聚集系数范围在0和1之间，且该节点附近的的三元闭包过程越强，其聚集系数就倾向于越大</p>
+</blockquote>
+<h4 id="弱联系"><a href="#弱联系" class="headerlink" title="弱联系"></a>弱联系</h4><p><strong>桥</strong>  </p>
+<pre><code>已知A和B相连，若去掉连接A和B的扁会导致A和B分属不同的联通分量，则该边称为桥。  
+</code></pre><p><strong>捷径</strong>  </p>
+<pre><code>若边A-B的端点A和B没有共同的朋友，则称边A-B为捷径。  
+</code></pre><p><strong>捷径的跨度</strong>  </p>
+<pre><code>我们定义捷径的跨度为该边两端点在没有该边情况下的实际距离。  
+</code></pre><blockquote>
+<p>捷径与三元闭包在概念上隐含着一种对立：一条边若是捷径，则不可能是三元闭包关系中的任意一边。  </p>
+</blockquote>
+<p><strong>强三元闭包性质</strong>  </p>
+<pre><code>若节点A与节点B和C的关系均为强联系，且B和C之间无任何连接（强或弱），则称节点A违反了强三元闭包性质，否则，称节点A满足强三元闭包性质。  
+</code></pre><p><strong>捷径与弱联系</strong>  </p>
+<pre><code>社交网络中，若节点A满足强三元闭包性质，并有至少两个强联系边与之相连，则其与其相连的任何捷径均为弱关系。  
+</code></pre><h4 id="弱联系与捷径概念的推广"><a href="#弱联系与捷径概念的推广" class="headerlink" title="弱联系与捷径概念的推广"></a>弱联系与捷径概念的推广</h4><p>邻里重叠度 = （与A、B均为邻居的节点数） / （与A、B中至少一个为邻居的节点数）</p>
+<h4 id="闭包、结构洞和社会资本"><a href="#闭包、结构洞和社会资本" class="headerlink" title="闭包、结构洞和社会资本"></a>闭包、结构洞和社会资本</h4><p>社会网络是用弱联系链接起来的若干紧密群体。  </p>
+<p><strong>边的嵌入性</strong>  </p>
+<pre><code>定义网络中一条边的嵌入性为其两个端点共同的邻居的数量。  
+</code></pre><p><strong>结构洞</strong>  </p>
+<h2 id="网络及其存在的环境"><a href="#网络及其存在的环境" class="headerlink" title="网络及其存在的环境"></a>网络及其存在的环境</h2><h4 id="同质现象"><a href="#同质现象" class="headerlink" title="同质现象"></a>同质现象</h4><p>影响社交网络结构最基本的概念之一是同质性，即我们和自己的朋友间往往会有相同的特性。  </p>
+<p><strong>同质性测试</strong>  </p>
+<pre><code>如果跨性别边所占的比例显著低于2pq，则就有同质现象。  
+
+前提：社交网络的节点被二分为两个属性A，B。  
+p = A / (A + B)  
+q = B / (A + B)
+</code></pre><h4 id="同质现象背后的机制：选择与社会影响"><a href="#同质现象背后的机制：选择与社会影响" class="headerlink" title="同质现象背后的机制：选择与社会影响"></a>同质现象背后的机制：选择与社会影响</h4><p>一个人的属性当他出生的时候即被选定，且在他/她以后的人生中，建立社会联系发挥一定的作用。  </p>
+<p>社会化和社会影响： 人们会因为需要和朋友们保持一致而改变自己的行为。  </p>
+<p>社会影响可以看成是和选择相反的观念：在选择中，个体的特征主导网络连接的形成，但在社会影响过程中，已存在的社会网络连接将会改变人们（可变）的特征。  </p>
+<h4 id="归属"><a href="#归属" class="headerlink" title="归属"></a>归属</h4><p><strong>归属网络</strong>  </p>
+<pre><code>用图来表示一群人参与一组社会焦点的情况。  
+</code></pre><blockquote>
+<p>归属网络是所谓的二部图</p>
+</blockquote>
+<p><strong>社会网络与归属网络的协同演化</strong>  </p>
+<pre><code>第一类关系连接是在社会网络中：连接两个个体，表明两者之间的友谊关系。  
+
+第二类关系连接是在归属网络中：连接个体和社团活动，表明这个个体参与其中。（我们称此网络是社会归属网络）  
+</code></pre><h2 id="正关系与负关系"><a href="#正关系与负关系" class="headerlink" title="正关系与负关系"></a>正关系与负关系</h2><p><strong>平衡定理</strong>  </p>
+<pre><code>如果一个标记的完全图是平衡的，则要么它的所有节点两两都是朋友，要么它的节点可以被分为两个组X和Y，其中X组内的节点两两都是朋友，Y组内的节点两两也都是朋友，而X组中的每个节点都是Y组中每个节点的敌人。  
+</code></pre><p><strong>弱结构平衡性质</strong>  </p>
+<pre><code>任意三个节点，均不存在两个正关系边和一个负关系边的连接模式。
+</code></pre><blockquote>
+<p>这里所言，三个负关系也是平衡的，只不过是弱平衡</p>
+</blockquote>
+<p><strong>弱平衡网络的特性</strong>  </p>
+<pre><code>如果一个标记的完全图是弱平衡的，则它的节点可分成不同的组，并且满足同一组中任意两个节点互为朋友，不同组之间任意两个节点互为敌人。
+</code></pre><h2 id="博弈"><a href="#博弈" class="headerlink" title="博弈"></a>博弈</h2><p><strong>纳什均衡</strong>  </p>
+<pre><code>即使不存在占优策略，我们也可以通过参与人彼此策略的最佳应对，来预测参与人的策略选择行为。  
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/网络、群体与市场笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-浅谈微服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1242,99 +1383,6 @@ b    xmlrpc_c::value_boolean
 
 
   
-    <article id="post-Ubuntu-下找不到动态链接库的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">Ubuntu 下找不到动态链接库的原因</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/" class="archive-article-date">
-  	<time datetime="2018-03-22T09:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="情况描述"><a href="#情况描述" class="headerlink" title="情况描述"></a>情况描述</h4><p>Linux下编程，下载所需要的安装包，解压，然后编译安装，通常命令：  </p>
-<pre><code>./configure
-make
-sudo make install # 需要创建文件
-</code></pre><p>当我们编译安装之后，到 <code>/usr/local/lib</code> 里和 <code>/usr/local/include</code> 里分别查看安装的库文件和头文件，然后我们欣喜的看到我们所安装的文件已经被放入到这里两个文件中，于是我们就去欣喜的写代码去了  </p>
-<pre><code>...
-coding
-...
-</code></pre><p>当我们的代码写好了之后，编译链接，然后运行，发下，它竟然提示:  </p>
-<pre><code>找不到shared libraries ?!!  
-</code></pre><p>然后我们又反复的去 <code>/usr/local/lib</code> 中去查找，发现的确已经存在了。  </p>
-<p>于是我们思考是否是 <code>/usr/local/lib</code> 没有加入到 共享链接库的配置文件中。  </p>
-<p>于是我们打开 <code>/etc/ld.so.conf</code> 进行查看，发现：  </p>
-<pre><code>include /etc/ld.so.conf.d/*.conf
-/usr/local/lib
-</code></pre><p>已经将 <code>/usr/local/lib</code> 包含进去了  </p>
-<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>执行下列命令  </p>
-<pre><code>sudo ldconfig
-</code></pre><p>重新加载一下所有的共享库文件，因为我们在安装好所需要的包之后，并没有给系统足够的时间来反应你所添加的内容，所以我们需要告诉系统应该重新加载一下。  </p>
-<p>之后再运行代码，OK了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux  Ubuntu  C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1428,6 +1476,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
@@ -1444,7 +1496,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux MySQL C++</a>
+                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1452,15 +1504,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux MySQL C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1468,15 +1516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+                <a href="javascript:void(0)" class="js-tag color3">部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1484,7 +1524,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1492,11 +1548,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
