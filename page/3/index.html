@@ -139,6 +139,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux-下安装libmysqlclient-dev找不到链接库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">Linux 下安装libmysqlclient-dev找不到链接库</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/" class="archive-article-date">
+  	<time datetime="2018-03-26T10:19:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想用C++在Linux环境下操作MySQL数据库。  </p>
+<p><strong>环境</strong><br>Ubuntu16.04<br>MySQL5.7<br>gcc 5.4.0  </p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>安装mysql  </p>
+<pre><code>sudo apt-get install mysql-server mysql-client
+</code></pre><p>安装libmysqlclient-dev  </p>
+<pre><code>sudo apt-get install libmysqlclient-dev
+</code></pre><blockquote>
+<p>libmysqlclient-dev这个库中有着操作mysql数据库的一些头文件和链接库</p>
+</blockquote>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 <code>/usr/include</code> 中可以找到mysql文件夹，其中有一些操作mysql的头文件<br><strong>但是</strong><br>在 <code>/usr/lib</code> 中找不到链接库 <code>libmysqlclient.so</code>  </p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在安装 <code>libmysqlclient-dev</code> 的时候，将 <code>libmysqlclient.so</code> 链接库文件放置在了 <code>/usr/lib/x86_64-linux-gnu</code> 这个文件夹中。  </p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在 <code>/usr/lib</code> 中增加 <code>libmysqlclient.so</code> 的链接：  </p>
+<pre><code>ln -s /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/libmysqlclient.so
+</code></pre><p>这样一来，问题就解决了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux MySQL C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux-下建立链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1183,99 +1270,6 @@ displayColor.call(null);
 
 
   
-    <article id="post-人工智能笔记之人工智能概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/02/人工智能笔记之人工智能概念/">人工智能笔记之人工智能概念</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/02/人工智能笔记之人工智能概念/" class="archive-article-date">
-  	<time datetime="2018-01-02T12:04:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="人工智能分类"><a href="#人工智能分类" class="headerlink" title="人工智能分类"></a>人工智能分类</h4><p>| 像人一样思考 | 合理地（理性）思考 |<br>| 像人一样行动 | 合理地（理性）行动 |</p>
-<p><strong>像人一样行动：图灵测试</strong><br>自然语言处理，知识表示，自动推理，机器学习，计算机视觉，机器人学  </p>
-<p><strong>像人一样思考：认知建模</strong><br>神经生理学实验，心理学实验，认知模型    </p>
-<p><strong>理性地思考：思维法则</strong><br>逻辑学  </p>
-<p><strong>理性地行动：理性智能体</strong>  </p>
-<ul>
-<li>理性行动：做正确的事  </li>
-<li>正确的事：在当前已有知识和前提条件下，能获得最佳期望结果的决定或行动  </li>
-<li>智能体是能感知和行动的实体</li>
-</ul>
-<h4 id="理性智能体"><a href="#理性智能体" class="headerlink" title="理性智能体"></a>理性智能体</h4><p>智能体：指任何能通过传感器感知环境和通过执行器作用于环境的实体  </p>
-<p>理性智能体：对于每种可能的感知系列，理性智能体应该选择一个这样的动作来执行，此动作能在它所具有执行和感知序列提供的证据条件下，使得它的性能度量期望最大化。  </p>
-<p>理性有别于无所不知  </p>
-<h4 id="智能体的设计"><a href="#智能体的设计" class="headerlink" title="智能体的设计"></a>智能体的设计</h4><p>在设计智能体时须首先明确的四大要素，简称PEAS  </p>
-<ul>
-<li>性能度量（Performance measure）</li>
-<li>环境（Environment）</li>
-<li>执行器（Actuators）</li>
-<li>传感器（Sensors）</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/02/人工智能笔记之人工智能概念/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1397,11 +1391,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1409,11 +1403,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1425,7 +1423,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">

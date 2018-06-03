@@ -139,6 +139,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux-下备份和恢复技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/13/Linux-下备份和恢复技术/">Linux 下备份和恢复技术</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/13/Linux-下备份和恢复技术/" class="archive-article-date">
+  	<time datetime="2018-04-13T13:10:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>数据有丢失的风险，因此文件的备份十分重要。</p>
+<p>在Linux下，一般来说，一下目录是需要备份的：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc	：	包含所有核心配置文件。</span><br><span class="line">/var	：	包含系统守护进程（服务）所使用的信息，包括DNS配置，DHCP租期、邮件缓冲文件、HTTP服务器文件、db2实例配置等。</span><br><span class="line">/home	：	包含所有用户的默认用户主目录。</span><br><span class="line">/root	：	是超级用户（root）的主目录。</span><br><span class="line">/opt	：	是安装许多非文件系统的地方。</span><br></pre></td></tr></table></figure>
+<p>而有些目录应该考虑不备份的：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/proc	：	它不是一个真实的文件系统，而是运行内核和环境的虚拟化视图。应该永远不要备份这个目录。  </span><br><span class="line">/dev	：	包含硬件设备的文件表示。如果计划还原到一个空白的系统，那就可以备份 /dev。然而，如果计划还原到一个已安装的 Linux 系统，那么备份 /dev 是没有必要的。</span><br><span class="line">其他目录	：	其他目录包含系统文件和已经安装的包。在服务器环境中，这其中的许多信息都不是自定义的。大多数自定义都发生在 /etc 和/home 目录中。</span><br></pre></td></tr></table></figure>
+<h2 id="备份技术"><a href="#备份技术" class="headerlink" title="备份技术"></a>备份技术</h2><pre><code>tar [主选项+辅选项] 文件或者目录
+</code></pre><p><strong>主选项</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c	：	创建新的档案文件</span><br><span class="line">x	：	从档案文件中释放文件</span><br><span class="line">t	：	列出档案文件的内容，查看已经备份了哪些文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述三个参数 <code>c/x/t</code> 仅能存在一个，不能同时存在，因为不可能同时压缩和解压缩。  </p>
+</blockquote>
+<p><strong>辅助选项</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-z	：	是否需要用gzip压缩或解压，一般格式为xxx.tar.gz或xx.tgz</span><br><span class="line">-j	：	是否需要用bzip2压缩或解压，一般格式为xx.tar.bz2</span><br><span class="line">-v	：	压缩的过程中显示文件</span><br><span class="line">--exclude FILE	：	在压缩的过程中，不要将FILE打包</span><br></pre></td></tr></table></figure>
+<p><strong>打包压缩示例</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># tar -cvf /tmp/etc.tar /etc		# 仅打包</span><br><span class="line"># tar -zcvf /tmp/etc.tar.gz /etc	# 打包后，以gzip压缩</span><br><span class="line"># tar -jcvf /tmp/etc.tar.bz2 /etc	# 打包后，以bzig2压缩</span><br><span class="line"># tar --exclude /home/user001 -zcvf myfile.tar.gz /home/* /etc	# 备份/home目录下除user001的所由文件目录和/etc目录</span><br></pre></td></tr></table></figure>
+<p><strong>解压示例</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># tar -ztvf /tmp/etc.tar.gz</span><br><span class="line"># tar -jtvf /tmp/etc.tar.bz2</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/13/Linux-下备份和恢复技术/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-static详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1248,93 +1338,6 @@ b    xmlrpc_c::value_boolean
 
 
   
-    <article id="post-Linux-下安装libmysqlclient-dev找不到链接库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">Linux 下安装libmysqlclient-dev找不到链接库</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/" class="archive-article-date">
-  	<time datetime="2018-03-26T10:19:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想用C++在Linux环境下操作MySQL数据库。  </p>
-<p><strong>环境</strong><br>Ubuntu16.04<br>MySQL5.7<br>gcc 5.4.0  </p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>安装mysql  </p>
-<pre><code>sudo apt-get install mysql-server mysql-client
-</code></pre><p>安装libmysqlclient-dev  </p>
-<pre><code>sudo apt-get install libmysqlclient-dev
-</code></pre><blockquote>
-<p>libmysqlclient-dev这个库中有着操作mysql数据库的一些头文件和链接库</p>
-</blockquote>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 <code>/usr/include</code> 中可以找到mysql文件夹，其中有一些操作mysql的头文件<br><strong>但是</strong><br>在 <code>/usr/lib</code> 中找不到链接库 <code>libmysqlclient.so</code>  </p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在安装 <code>libmysqlclient-dev</code> 的时候，将 <code>libmysqlclient.so</code> 链接库文件放置在了 <code>/usr/lib/x86_64-linux-gnu</code> 这个文件夹中。  </p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在 <code>/usr/lib</code> 中增加 <code>libmysqlclient.so</code> 的链接：  </p>
-<pre><code>ln -s /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/libmysqlclient.so
-</code></pre><p>这样一来，问题就解决了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux MySQL C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/Linux-下安装libmysqlclient-dev找不到链接库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1456,11 +1459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1468,11 +1471,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1484,7 +1491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">

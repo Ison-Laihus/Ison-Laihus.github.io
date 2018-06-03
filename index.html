@@ -139,6 +139,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-使用atom-latex-Tex-Live搭建latex环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/03/使用atom-latex-Tex-Live搭建latex环境/">使用atom + latex + Tex Live搭建latex环境</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/03/使用atom-latex-Tex-Live搭建latex环境/" class="archive-article-date">
+  	<time datetime="2018-06-03T08:02:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="TeX-介绍"><a href="#TeX-介绍" class="headerlink" title="TeX 介绍"></a>TeX 介绍</h2><p>TeX是基于低级语言的电子排版系统，利用TeX能够对文章进行精美的排版</p>
+<p>TeX系统是工人的数学公式排版得最好的系统</p>
+<h2 id="LaTeX-介绍"><a href="#LaTeX-介绍" class="headerlink" title="LaTeX 介绍"></a>LaTeX 介绍</h2><p>LaTeX是当今世界上最流行和使用最广泛的TeX宏集</p>
+<p>使用LaTex，即使你并不是很了解TeX，也可以在短短的时间内生成高质量的文档</p>
+<p>对于生成复杂的数学公式，LaTeX表现的更为出色</p>
+<h2 id="LaTeX-和-TeX-的关系"><a href="#LaTeX-和-TeX-的关系" class="headerlink" title="LaTeX 和 TeX 的关系"></a>LaTeX 和 TeX 的关系</h2><p>LaTeX是建立在TeX基础上的宏语言</p>
+<h2 id="TeX-Live-介绍"><a href="#TeX-Live-介绍" class="headerlink" title="TeX Live 介绍"></a>TeX Live 介绍</h2><p>TeX Live是由国际TeX用户组整理和发布的TeX软件发行套装，包含TeX系统相关的各种程序、编辑和查看工具、常用的宏包及文档、常用字体及多国语言支持。  </p>
+<p>TeX Live能够跨平台，在这里，我们使用的是Linux系统（Debian发行版）</p>
+<h2 id="搭建LaTeX环境"><a href="#搭建LaTeX环境" class="headerlink" title="搭建LaTeX环境"></a>搭建LaTeX环境</h2><p>在这里，我使用的是Atom + latex（atom插件） + Tex Live来进行环境搭建的</p>
+<h4 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h4><p>Linux Debian 发行版</p>
+<h4 id="安装-TeX-Live"><a href="#安装-TeX-Live" class="headerlink" title="安装 TeX Live"></a>安装 TeX Live</h4><p>第一步： 安装依赖包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libdigest-perl-md5-perl perl-tk</span><br></pre></td></tr></table></figure></p>
+<p>第二步： 下载 TeX Live<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c  http://mirrors.ctan.org/systems/texlive/Images/texlive2018.iso</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这里使用的是wget的断点续传，因为 TeX Live太大，这样可以方便分时下载</p>
+</blockquote>
+<p>第三步： 挂载ISO镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">mount -o loop texlive2018.iso /mnt</span><br><span class="line">cd /mnt</span><br><span class="line">./install-tl</span><br></pre></td></tr></table></figure></p>
+<p>出现选项后，选择<code>I</code><br>安装完成退出root账户</p>
+<p>第四步： 修改环境变量<br>如果你使用的是默认的bash，则在～/.bashrc中加入如下语句，如果使用的是zsh（像我），就在~/.zshrc中加入如下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2018</span><br><span class="line">export MANPATH=$&#123;MANPATH&#125;:/usr/local/texlive/2018/texmf-dist/doc/man</span><br><span class="line">export INFOPATH=$&#123;INFOPATH&#125;:/usr/local/texlive/2018/texmf-dist/doc/info</span><br><span class="line">export PATH=$&#123;PATH&#125;:/usr/local/texlive/2018/bin/x86_64-linux</span><br></pre></td></tr></table></figure></p>
+<p>第五步： 卸载ISO镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .. # 退出/mnt目录</span><br><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure></p>
+<p>此操作步骤参考<a href="https://blog.seisman.info/texlive-install/" target="_blank" rel="noopener">https://blog.seisman.info/texlive-install/</a></p>
+<h4 id="Atom环境搭建"><a href="#Atom环境搭建" class="headerlink" title="Atom环境搭建"></a>Atom环境搭建</h4><p>第一步： 安装Atom，不赘述</p>
+<p>第二步： 安装latex插件<br>在Atom中，打开setting（<code>Ctrl + Alt + P</code>， 输入 setting，选中第一个），点击 install，搜索 <code>latex</code> 和 <code>language-latex</code> 进行安装</p>
+<p>第三步： 安装pdf-view，方便查看生成的pdf文件<br>打开setting，搜索<code>pdf-view</code>进行安装，安装后，搜索latex，点击settings，找到Opener，设置为pdf-view，那么编译生成pdf文件就会自动双栏展示</p>
+<img src="/2018/06/03/使用atom-latex-Tex-Live搭建latex环境/opener.png" title="pdf-view picture">
+<p>第四步： 配置latex的 TeX Path<br>之前我们安装了TeX Path，在Atom中编译生成PDF文件就需要用到TeX Live，因此需要在Atom的Latex插件中配置Tex Path<br>打开setting，点击packages，搜索latex，点击settings，下滑可以看到Tex Path的一栏，写入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/texlive/2018/bin/x86_64-linux</span><br></pre></td></tr></table></figure></p>
+<img src="/2018/06/03/使用atom-latex-Tex-Live搭建latex环境/texpath.png" title="texpath picture">
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>在Atom中编写好.tex文件后，快捷键<code>Ctrl + Alt + B</code>即可编译运行生成pdf文件，并且pdf会在右栏展示</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">latex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/03/使用atom-latex-Tex-Live搭建latex环境/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1273,96 +1373,6 @@ init 6 # 将系统运行级切换到6，也就是重启系统
 
 
   
-    <article id="post-Linux-下备份和恢复技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/13/Linux-下备份和恢复技术/">Linux 下备份和恢复技术</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/13/Linux-下备份和恢复技术/" class="archive-article-date">
-  	<time datetime="2018-04-13T13:10:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>数据有丢失的风险，因此文件的备份十分重要。</p>
-<p>在Linux下，一般来说，一下目录是需要备份的：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc	：	包含所有核心配置文件。</span><br><span class="line">/var	：	包含系统守护进程（服务）所使用的信息，包括DNS配置，DHCP租期、邮件缓冲文件、HTTP服务器文件、db2实例配置等。</span><br><span class="line">/home	：	包含所有用户的默认用户主目录。</span><br><span class="line">/root	：	是超级用户（root）的主目录。</span><br><span class="line">/opt	：	是安装许多非文件系统的地方。</span><br></pre></td></tr></table></figure>
-<p>而有些目录应该考虑不备份的：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/proc	：	它不是一个真实的文件系统，而是运行内核和环境的虚拟化视图。应该永远不要备份这个目录。  </span><br><span class="line">/dev	：	包含硬件设备的文件表示。如果计划还原到一个空白的系统，那就可以备份 /dev。然而，如果计划还原到一个已安装的 Linux 系统，那么备份 /dev 是没有必要的。</span><br><span class="line">其他目录	：	其他目录包含系统文件和已经安装的包。在服务器环境中，这其中的许多信息都不是自定义的。大多数自定义都发生在 /etc 和/home 目录中。</span><br></pre></td></tr></table></figure>
-<h2 id="备份技术"><a href="#备份技术" class="headerlink" title="备份技术"></a>备份技术</h2><pre><code>tar [主选项+辅选项] 文件或者目录
-</code></pre><p><strong>主选项</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c	：	创建新的档案文件</span><br><span class="line">x	：	从档案文件中释放文件</span><br><span class="line">t	：	列出档案文件的内容，查看已经备份了哪些文件</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上述三个参数 <code>c/x/t</code> 仅能存在一个，不能同时存在，因为不可能同时压缩和解压缩。  </p>
-</blockquote>
-<p><strong>辅助选项</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-z	：	是否需要用gzip压缩或解压，一般格式为xxx.tar.gz或xx.tgz</span><br><span class="line">-j	：	是否需要用bzip2压缩或解压，一般格式为xx.tar.bz2</span><br><span class="line">-v	：	压缩的过程中显示文件</span><br><span class="line">--exclude FILE	：	在压缩的过程中，不要将FILE打包</span><br></pre></td></tr></table></figure>
-<p><strong>打包压缩示例</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># tar -cvf /tmp/etc.tar /etc		# 仅打包</span><br><span class="line"># tar -zcvf /tmp/etc.tar.gz /etc	# 打包后，以gzip压缩</span><br><span class="line"># tar -jcvf /tmp/etc.tar.bz2 /etc	# 打包后，以bzig2压缩</span><br><span class="line"># tar --exclude /home/user001 -zcvf myfile.tar.gz /home/* /etc	# 备份/home目录下除user001的所由文件目录和/etc目录</span><br></pre></td></tr></table></figure>
-<p><strong>解压示例</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># tar -ztvf /tmp/etc.tar.gz</span><br><span class="line"># tar -jtvf /tmp/etc.tar.bz2</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/13/Linux-下备份和恢复技术/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1484,11 +1494,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1496,11 +1506,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1512,7 +1526,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
