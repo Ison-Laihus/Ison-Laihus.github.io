@@ -139,6 +139,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jQuery插件Datatables的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/19/jQuery插件Datatables的使用/">jQuery插件Datatables的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/19/jQuery插件Datatables的使用/" class="archive-article-date">
+  	<time datetime="2017-12-19T06:51:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Datatables介绍"><a href="#Datatables介绍" class="headerlink" title="Datatables介绍"></a>Datatables介绍</h4><p>Datatables是一款jquery表格插件，他是一个高度灵活的工具，可以将任何HTML表格添加高机的交互功能。<br>特性：</p>
+<ul>
+<li>分页，即时搜索和排序</li>
+<li>几乎支持任何数据源：DOM，javascript，Ajax和服务器处理</li>
+<li>支持不同的主题DataTables，JQuery UI，Bootstrap，Foundation</li>
+<li>各式各样的扩展：Editor，TableTools，FixedColumns……</li>
+<li>丰富多样的option和强大的API</li>
+<li>免费开源(MIT license)</li>
+</ul>
+<h4 id="Datatables的使用"><a href="#Datatables的使用" class="headerlink" title="Datatables的使用"></a>Datatables的使用</h4><p>Datatables的使用十分简单，只需要引入其提供给我们的css文件和js文件，我们就可以使用它了。<br>这两个文件，你可以到官网上去<a href="https://www.datatables.net/download/index" target="_blank" rel="noopener">下载</a>，也可以直接使用它给我们提供的CDN<br>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>当直接使用上述CDN时，一定需要开服务器，在服务器下运行html程序，否则不能正确定位到CDN<br>如果不想开服务器，就想直接运行，请在css和js的CDN地址前加上一个<code>http:</code></p>
+</blockquote>
+<p>然后我们就可以尝试一下这个插件了！<br>在html中写一个表格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;demo&quot;&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;column one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;column two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;column three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;line one one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line one two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line one three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;line two one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line two two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line two three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;line three one&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line three two&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;line three three&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<p>效果如下：<br><img src="/2017/12/19/jQuery插件Datatables的使用/protoTable.png" title="proto table">  </p>
+<p>使用Datatables<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#demo&quot;).DataTable();</span><br></pre></td></tr></table></figure></p>
+<p>效果如下：<br><img src="/2017/12/19/jQuery插件Datatables的使用/noParamInit.png" title="no parameter to init table"></p>
+<p>可以看到，Datatables这个插件自动帮我们加上了css样式，以及分页，搜索，排序等功能。  </p>
+<blockquote>
+<p>在使用Datatables的使用，一定要注意需要引入jquery，因为Datatables是基于jquery开发的。  </p>
+</blockquote>
+<h4 id="使用Datatables加载数据"><a href="#使用Datatables加载数据" class="headerlink" title="使用Datatables加载数据"></a>使用Datatables加载数据</h4><p>在上述的例子中，我们是写好一个table，然后使用Datatables将他进行样式添加，功能添加的。但是如果每次都需要我们在HTML中手动添加数据，就会令人感觉十分繁琐，能不能有一种简单的方式来加载数据呢，实现数据与HTML分离，这样当数据进行变更时也方便修改。  </p>
+<p>答案是肯定的。Datatables能够自动加载数据，然后帮助我们生成dom元素填充到html中。<br>使用这个功能时，html就只需要这么一行代码就OK了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;demo&quot;&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>在javascript中使用数组存储数据源</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var dataSet = [</span><br><span class="line">    [&quot;line one one&quot;, &quot;line one two&quot;, &quot;line one three&quot;],</span><br><span class="line">    [&quot;line two one&quot;, &quot;line two two&quot;, &quot;line two three&quot;],</span><br><span class="line">    [&quot;line three one&quot;, &quot;line three two&quot;, &quot;line three three&quot;]</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>然后将其作为参数传入到Datatables的参数中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#demo&quot;).DataTable(&#123;</span><br><span class="line">    data: dataSet,</span><br><span class="line">    columns: [ // 定义每个列的标题</span><br><span class="line">        &#123;title: &quot;column one&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column two&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column three&quot;&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>通过Ajax加载数据</strong><br>使用json格式将数据独立存储在文件中<br>dataSet.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;data&quot;: [</span><br><span class="line">    [</span><br><span class="line">		&quot;line one one&quot;,</span><br><span class="line">		&quot;line one two&quot;,</span><br><span class="line">		&quot;line one three&quot;</span><br><span class="line">	],</span><br><span class="line">    [</span><br><span class="line">		&quot;line two one&quot;, </span><br><span class="line">		&quot;line two two&quot;, </span><br><span class="line">		&quot;line two three&quot;</span><br><span class="line">	],</span><br><span class="line">    [</span><br><span class="line">		&quot;line three one&quot;, </span><br><span class="line">		&quot;line three two&quot;, </span><br><span class="line">		&quot;line three three&quot;</span><br><span class="line">	]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>一定要注意，在使用json格式的数据，需要有一个名为data的key，这个key的value才是你要存放的数据数组</p>
+</blockquote>
+<p>然后将其作为参数传入到Datatables的参数中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#demo&quot;).DataTable(&#123;</span><br><span class="line">    ajax: &apos;dataSet.json&apos;,</span><br><span class="line">    columns: [ // 定义每个列的标题</span><br><span class="line">        &#123;title: &quot;column one&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column two&quot;&#125;,</span><br><span class="line">        &#123;title: &quot;column three&quot;&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>使用ajax的方式，一定得将html脚本运行在服务器上，否则不能成功加载  </p>
+</blockquote>
+<p>这个应该是应用得很广，在进行前后台交互的时候，我们可以直接使用这个功能，将后台传来的符合格式的数据直接通过Datatables加载到html页面上。  </p>
+<h4 id="表格美化"><a href="#表格美化" class="headerlink" title="表格美化"></a>表格美化</h4><p>虽然面讲述了datatable的强大的功能，但是那界面未免令人不敢恭维。<br>别担心，Datatables自知有这个缺点，索性它人品不错，和很多美工大师关系很好，我们能够直接以它的名义邀请他的朋友来帮忙。<br>在这里，我们就直接邀请其非常有名的朋友，bootstrap来助我们一臂之力。  </p>
+<p>首先，我们得先引入bootstarp以及Datatables提供的和bootstrap一起工作的文件<br>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css</span><br><span class="line">https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js</span><br></pre></td></tr></table></figure></p>
+<p>然后，只需要改变html，给他加一个bootstrap提供的类名就行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;demo&quot; class=&quot;table table-striped table-bordered&quot;&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<p>效果如下<br><img src="/2017/12/19/jQuery插件Datatables的使用/tableWithBootstrap.png" title="use bootstrap to init table"><br>是不是好看了很多呢：）  </p>
+<p>至此，jQuery插件Datables的基本功能的使用已经介绍完了，Datatables还有很多其他的高级功能，后续博客，敬请期待！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">javascript plugins</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/19/jQuery插件Datatables的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-XML介绍与实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -389,77 +503,6 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/07/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/07/hello-world/" class="archive-article-date">
-  	<time datetime="2017-12-07T12:53:43.641Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/07/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
@@ -553,19 +596,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,15 +624,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">部署</a>
+                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,11 +648,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,6 +669,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">部署</a>
               </li>
             
             <div class="clearfix"></div>

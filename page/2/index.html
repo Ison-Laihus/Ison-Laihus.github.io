@@ -139,6 +139,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-static详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/13/C-static详解/">C++ static详解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/13/C-static详解/" class="archive-article-date">
+  	<time datetime="2018-04-13T12:58:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/13/C-static详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网络、群体与市场笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1273,116 +1335,6 @@ b    xmlrpc_c::value_boolean
 
 
   
-    <article id="post-Linux-下建立链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/Linux-下建立链接/">Linux 下建立链接</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/26/Linux-下建立链接/" class="archive-article-date">
-  	<time datetime="2018-03-26T09:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>链接，在Linux文件系统中，可以视其为档案的别名。  </p>
-<h2 id="链接的分类"><a href="#链接的分类" class="headerlink" title="链接的分类"></a>链接的分类</h2><ul>
-<li>硬链接<ol>
-<li>以文件的副本的形式存在，但不占用实际空间</li>
-<li>不允许给目录创建硬链接</li>
-<li>只有在同一个文件系统中才能创建</li>
-</ol>
-</li>
-<li>软链接<ol>
-<li>以路径的形式存在，类似于Windows操作系统中的快捷方式</li>
-<li>可以跨文件系统</li>
-<li>可以对一个不存在的文件名进行链接</li>
-<li>可以对目录进行链接</li>
-</ol>
-</li>
-</ul>
-<h2 id="创建链接的命令"><a href="#创建链接的命令" class="headerlink" title="创建链接的命令"></a>创建链接的命令</h2><p><strong>命令格式</strong>  </p>
-<pre><code>ln [参数] [源文件或目录] [目标文件或目录]
-</code></pre><p><strong>命令参数</strong><br>必要参数 </p>
-<pre><code>-b    删除，覆盖以前建立的链接
--d    允许超级用户制作目录的硬链接
--f    强制执行
--i    交互模式，文件存在则提示用户是否覆盖
--n    把符号链接视为一般目录
--s    软链接（符号链接）
--v    显示详细的处理过程
-</code></pre><p>选择参数  </p>
-<pre><code>-S    &quot;-S&lt;字尾备份字符串&gt;&quot; 或 &quot;--suffix=&lt;字尾备份字符串&gt;&quot;
--V    &quot;-V&lt;备份方式&gt;&quot; 或 &quot;--version-control=&lt;备份方式&gt;&quot;
---version    显示版本信息
-</code></pre><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
-<li>ln命令会保持每一处链接文件的同步性，也就是说，不论你改动了哪一处，其他文件都会发生相同的变化  </li>
-<li>软链接只会在选定的位置上生成一个文件的镜像，不会占用磁盘空间</li>
-<li>硬链接会在选定的位置上生成一个和源文件相同大小的文件</li>
-<li>无论是硬链接还是软链接，文件都保持同步变化</li>
-<li>ln指令用在链接文件或目录，如果同时指定两个以上的文件或目录，则最后的目的地是一个已存在的目录（把前面指定的所有文件或目录复制到该目录中），否则会报错</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/Linux-下建立链接/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1476,19 +1428,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1504,15 +1456,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">部署</a>
+                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1532,11 +1480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1553,6 +1501,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">部署</a>
               </li>
             
             <div class="clearfix"></div>
