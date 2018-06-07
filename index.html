@@ -139,6 +139,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-linux下webstorm建立npm运行配置运行失败解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/07/linux下webstorm建立npm运行配置运行失败解决方案/">linux下webstorm建立npm运行配置运行失败解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/07/linux下webstorm建立npm运行配置运行失败解决方案/" class="archive-article-date">
+  	<time datetime="2018-06-07T06:26:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在linux下下载了webstorm<br>写了一个项目，每次运行都在webstorm中打开终端运行，十分不方便<br>于是就想使用webstorm的运行配置的方法，来配置运行</p>
+<p>{asset_img configure.png set configures picture}</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当运行之后，出现如下的错误：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm WARN lifecycle npm is using [xxx] but there is no node binary in the current PATH. Use the `--scripts-prepend-node-path` option to include the path for the node binary npm was executed with.</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>执行如下命令即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set scripts-prepend-node-path true</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/07/linux下webstorm建立npm运行配置运行失败解决方案/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-使用atom-latex-Tex-Live搭建latex环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -160,7 +239,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="TeX-介绍"><a href="#TeX-介绍" class="headerlink" title="TeX 介绍"></a>TeX 介绍</h2><p>TeX是基于低级语言的电子排版系统，利用TeX能够对文章进行精美的排版</p>
-<p>TeX系统是工人的数学公式排版得最好的系统</p>
+<p>TeX系统是公认的数学公式排版得最好的系统</p>
 <h2 id="LaTeX-介绍"><a href="#LaTeX-介绍" class="headerlink" title="LaTeX 介绍"></a>LaTeX 介绍</h2><p>LaTeX是当今世界上最流行和使用最广泛的TeX宏集</p>
 <p>使用LaTex，即使你并不是很了解TeX，也可以在短短的时间内生成高质量的文档</p>
 <p>对于生成复杂的数学公式，LaTeX表现的更为出色</p>
@@ -186,6 +265,7 @@
 <p>第四步： 配置latex的 TeX Path<br>之前我们安装了TeX Path，在Atom中编译生成PDF文件就需要用到TeX Live，因此需要在Atom的Latex插件中配置Tex Path<br>打开setting，点击packages，搜索latex，点击settings，下滑可以看到Tex Path的一栏，写入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/texlive/2018/bin/x86_64-linux</span><br></pre></td></tr></table></figure></p>
 <img src="/2018/06/03/使用atom-latex-Tex-Live搭建latex环境/texpath.png" title="texpath picture">
 <h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>在Atom中编写好.tex文件后，快捷键<code>Ctrl + Alt + B</code>即可编译运行生成pdf文件，并且pdf会在右栏展示</p>
+<img src="/2018/06/03/使用atom-latex-Tex-Live搭建latex环境/show.png" title="pdf-view picture">
 
       
 
@@ -1236,143 +1316,6 @@ init 6 # 将系统运行级切换到6，也就是重启系统
 
 
   
-    <article id="post-node-package-json-语法笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/16/node-package-json-语法笔记/">node package.json 语法笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/16/node-package-json-语法笔记/" class="archive-article-date">
-  	<time datetime="2018-04-16T11:47:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="npm简介"><a href="#npm简介" class="headerlink" title="npm简介"></a>npm简介</h2><p>npm，全称：Node Package Manager，即包管理工具。<br>其是Node.js默认的，以JavaScript编写的软件包管理系统。  </p>
-<h2 id="package-json介绍"><a href="#package-json介绍" class="headerlink" title="package.json介绍"></a>package.json介绍</h2><p>npm进行包管理，需要有一些已经写好的规则，npm会读取这个规则文件，然后进行包的安装。<br>而这个规则文件，就是pacakge.json。  </p>
-<p>举个例子：npm 和 package.json的关系就像是 Make 和 Makefile之间的关系。  </p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>在package.json中，有一些字段，这些字段十分重要，就是这些字段告知npm该要做什么。  </p>
-<p>package.json中，<code>name</code> 和 <code>version</code> 字段是必须字段，没有这两个字段，npm是不可能工作的。  </p>
-<blockquote>
-<p>这些字段忽略大小写</p>
-</blockquote>
-<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>标志你的项目名称。    </p>
-<p>一些规则：  </p>
-<ul>
-<li>名字必须不大于214个字符，这个限定包括项目包含的包的名称</li>
-<li>名字不能以 <code>.</code> 或 <code>_</code> 开始</li>
-<li>新包的名称中不能有大写字母</li>
-<li>该名称最终会在成为URL的一部分，命令行参数 和 文件夹名称，因此，其不能包含任何非URL安全字符</li>
-</ul>
-<p>一些提示：  </p>
-<ul>
-<li>别将项目名称命名为与Node核心模块同样的名称</li>
-<li>别把 <code>js</code> 或 <code>node</code> 放在名字中</li>
-<li>项目名称会被作为 <code>require()</code> 的一个参数，所以它应该尽量短且有说明性</li>
-</ul>
-<h4 id="version"><a href="#version" class="headerlink" title="version"></a>version</h4><p>标志项目的版本。<br>和那么一起唯一标志一个项目。  </p>
-<blockquote>
-<p>name 和 version 一起 标志了一个项目，就像是一个项目的ID，不存在任何项目的 name 和 version完全相同。  </p>
-</blockquote>
-<h4 id="description"><a href="#description" class="headerlink" title="description"></a>description</h4><p>用来描述这个项目，其是一个字符串。<br>它可以帮助人们发些它，当我们在npm官网上搜索项目或使用 <code>npm search</code> 时，会匹配description。  </p>
-<h4 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h4><p>项目关键字。<br>同description一般，帮助人们发现这个项目。  </p>
-<h4 id="homepage"><a href="#homepage" class="headerlink" title="homepage"></a>homepage</h4><p>项目主页的URL。  </p>
-<h4 id="bugs"><a href="#bugs" class="headerlink" title="bugs"></a>bugs</h4><p>他的值是一个对象，这个对象中有两个字段，<code>url</code> 和 <code>email</code>，其含义是人们发现这个项目的问题的时候，可以去访问这个url或是联系这个email。  </p>
-<p>示例：    </p>
-<pre><code>{
-    &quot;url&quot;: &quot;http://github.com/owner/project/issues&quot;,
-    &quot;email&quot;: &quot;project@hostname.com&quot;
-}
-</code></pre><h4 id="license"><a href="#license" class="headerlink" title="license"></a>license</h4><p>标志这个项目的使用权限。  </p>
-<p>如 BSD-2，MIT，SPDX等。  </p>
-<h4 id="author"><a href="#author" class="headerlink" title="author"></a>author</h4><p>author是标志一个人的名字，表示项目的作者。  </p>
-<h4 id="contributors"><a href="#contributors" class="headerlink" title="contributors"></a>contributors</h4><p>contributors是一组人的名字，是一个数组，表示项目的作者。  </p>
-<h4 id="files"><a href="#files" class="headerlink" title="files"></a>files</h4><p>可选字段，是一个文件模式的数组， 它描述当你的项目作为一个依赖包被安装时所需包含的条目。  </p>
-<p>你可以写一个.npmignore的文件来告诉npm不应该包含哪些文件或目录，但当项目中有.gitignore时，就以.gitignore为准。  </p>
-<p>但是，得注意，.npmignore和.gitignore不会将package.json中files字段所设置的文件或目录，即使他们中有写，也会被忽略。  </p>
-<p>有一些文件是无论如何设置都会被包含的：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">README</span><br><span class="line">CHANGES/CHANGELOG/HISTORY</span><br><span class="line">LICENSE/LICENCE</span><br><span class="line">NOTICE</span><br><span class="line">main字段标志的文件</span><br></pre></td></tr></table></figure>
-<p>有一些文件是无论如何设置，都会被忽略的：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.git</span><br><span class="line">CVS</span><br><span class="line">.svn</span><br><span class="line">.hg</span><br><span class="line">.lock-wscript</span><br><span class="line">.wafpickle-N</span><br><span class="line">.*.swp</span><br><span class="line">.DS_Store</span><br><span class="line">._*</span><br><span class="line">npm-debug.log</span><br><span class="line">.npmrc</span><br><span class="line">node_modules</span><br><span class="line">config.gypi</span><br><span class="line">*.orig</span><br><span class="line">package-lock.json</span><br></pre></td></tr></table></figure>
-<h4 id="main"><a href="#main" class="headerlink" title="main"></a>main</h4><p>其标志了这个项目的主要入口文件。  </p>
-<h4 id="browser"><a href="#browser" class="headerlink" title="browser"></a>browser</h4><p>如果你的项目是客户端项目，那么这个browser字段就应该替换掉main字段。  </p>
-<h4 id="repository"><a href="#repository" class="headerlink" title="repository"></a>repository</h4><p>指定代码所在的位置。  </p>
-<p>示例：  </p>
-<pre><code>&quot;repository&quot;: {
-    &quot;type&quot;: &quot;git&quot;,
-    &quot;url&quot;, &quot;https://github.com/npm/npm.git&quot;
-}
-</code></pre><p>对于github，github gist，bitbucket，gitlab，可以对repository的值进行缩写：  </p>
-<pre><code>&quot;repository&quot;: &quot;github:user/repo&quot;
-&quot;repository&quot;: &quot;gist:11081aaa281&quot;
-&quot;repository&quot;: &quot;bitbucket:user/repo&quot;
-&quot;repository&quot;: &quot;gitlab:user/repo&quot;
-</code></pre><h4 id="srcipts"><a href="#srcipts" class="headerlink" title="srcipts"></a>srcipts</h4><p>其是一个包含脚本命令的字典，它在您的包的生命周期中的不同时间运行。  </p>
-<h4 id="dependencies"><a href="#dependencies" class="headerlink" title="dependencies"></a>dependencies</h4><p>其用一个简单的对象来将包映射到一个版本范围。  </p>
-<p>版本范围语法：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">version:	精确匹配</span><br><span class="line">&gt;version:	大于该版本 </span><br><span class="line">&gt;=version:	大于等于该版本</span><br><span class="line">&lt;version:	</span><br><span class="line">&lt;=version:</span><br><span class="line">~version:	大约相当于该版本</span><br><span class="line">^version:	兼容该版本</span><br><span class="line">1.2.x:		</span><br><span class="line">*:			所有版本均可</span><br><span class="line">&quot;&quot;(空):		和*一样</span><br><span class="line">version1 - version2:	version1和version2之间</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>更多详细信息，请查阅官方文档<a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="noopener">https://docs.npmjs.com/files/package.json</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">node npm pakage.json</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/16/node-package-json-语法笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1490,7 +1433,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1498,7 +1441,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1506,19 +1449,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1530,15 +1473,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">

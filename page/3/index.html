@@ -139,6 +139,136 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-开发web服务（库：xmlrpc-c）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/">C++开发web服务（库：xmlrpc-c）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/" class="archive-article-date">
+  	<time datetime="2018-03-26T15:48:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>Ubuntu16.04<br>gcc 5.4.0<br>xmlrpc-c 1.39.12  </p>
+<h2 id="xmlrpc-c介绍"><a href="#xmlrpc-c介绍" class="headerlink" title="xmlrpc-c介绍"></a>xmlrpc-c介绍</h2><p>xmlrpc-c是一个对XML-RPC协议的一个C/C++的实现。<br>其包含了很多必须的库，在编译服务端和客户端的时候都需要使用其进行链接编译。  </p>
+<p><a href="https://sourceforge.net/projects/xmlrpc-c/" target="_blank" rel="noopener">下载地址</a>  |  <a href="http://xmlrpc-c.sourceforge.net/doc/#clibraries" target="_blank" rel="noopener">文档</a>  </p>
+<h5 id="编译安装xmlrpc-c"><a href="#编译安装xmlrpc-c" class="headerlink" title="编译安装xmlrpc-c"></a>编译安装xmlrpc-c</h5><p>下载xmlrpc-c压缩文件之后，解压，进入其目录下，使用如下命令进行安装：  </p>
+<pre><code>./configure
+make
+sudo make install
+</code></pre><h5 id="编译链接客户端和服务端"><a href="#编译链接客户端和服务端" class="headerlink" title="编译链接客户端和服务端"></a>编译链接客户端和服务端</h5><p>这里，我们只介绍最简单的服务模式（即源文件examples/cpp中的xmlrpc_sample_add_server 和 xmlrpc_sample_add_client所示例的模式）。  </p>
+<p>在源文件examples/cpp文件夹下，xmlrpc-c的开发者已经为我们写好了Makefile文件，我们只需要执行make命令即可将cpp目录下的所有文件都编译完成。  </p>
+<p>但是，其Makefile文件很晦涩难懂，在我们开发服务的时候，如何编译代码文件呢？  </p>
+<p><strong>客户端</strong><br>客户端的编译需要链接如下的库：  </p>
+<pre><code>xmlrpc_client++
+xmlrpc++ 
+xmlrpc_util++
+</code></pre><p>所以，我们编译客户端的命令如下：  </p>
+<pre><code>g++ 源文件 -o 可执行文件 -lxmlrpc_client++ -lxmlrpc++ -lxmlrpc_util++
+</code></pre><p><strong>服务端</strong><br>服务端的编译需要链接如下的库：  </p>
+<pre><code>xmlrpc_server++
+xmlrpc++
+xmlrpc_server_abyss++
+xmlrpc_util++
+</code></pre><p>所以，我们编译服务端的命令如下：  </p>
+<pre><code>g++ 源文件 -o 可执行文件 -lxmlrpc_server++ -lxmlrpc++ -lxmlrpc_server_abyss++ -lxmlrpc_util++
+</code></pre><p>知晓了这些，我们就可以将examples/cpp目录下的示例文件<code>xmlrpc_sample_add_server.cpp</code> 和 <code>xmlrpc_sample_add_client.cpp</code> 拷贝出来单独编译。  </p>
+<h5 id="客户端调用服务端的参数模型"><a href="#客户端调用服务端的参数模型" class="headerlink" title="客户端调用服务端的参数模型"></a>客户端调用服务端的参数模型</h5><p>调用示例：  </p>
+<pre><code>string const serverUrl(&quot;http://localhost:8080/RPC2&quot;);
+string const methodName(&quot;sample.add&quot;);
+xmlrpc_c::clientSimple myClient;
+xmlrpc_c::value result;
+myClient.call(serverUrl, methodName, &quot;ii&quot;, &amp;result, 5, 7);
+</code></pre><p>那么就让我来介绍一下myClient.call中的第三个参数 <code>&quot;ii&quot;</code> 代表的含义。</p>
+<p>在xmlrpc-c中定义了很多类型：  </p>
+<pre><code>xmlrpc_c::value_boolean
+xmlrpc_c::value_int
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+xmlrpc_c::value_boolean
+</code></pre><p>在客户端调用服务端的时候，myClient.call中的第三个参数代表着formatChar，即对应的输入类型符，其与上述的类型的映射关系如下：  </p>
+<pre><code>i    xmlrpc_c::value_int
+b    xmlrpc_c::value_boolean
+d    xmlrpc_c::value_double
+s    xmlrpc_c::value_string
+w    xmlrpc_c::value_boolean
+t    xmlrpc_c::value_boolean
+8    xmlrpc_c::value_boolean
+6    xmlrpc_c::value_boolean
+n    xmlrpc_c::value_boolean
+I    xmlrpc_c::value_boolean
+p    xmlrpc_c::value_boolean
+A    xmlrpc_c::value_boolean
+S    xmlrpc_c::value_boolean
+V    xmlrpc_c::value_boolean
+b    xmlrpc_c::value_boolean
+</code></pre><p>xmlrpc_build.c文件中</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++ Linux xmlrpc-c</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/26/C-开发web服务（库：xmlrpc-c）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux-下安装libmysqlclient-dev找不到链接库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1135,141 +1265,6 @@ var obj = object(person);
 
 
   
-    <article id="post-JavaScript严格模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/JavaScript严格模式/">&#39;JavaScript严格模式&#39;</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/18/JavaScript严格模式/" class="archive-article-date">
-  	<time datetime="2018-03-18T07:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ECMAScript5最早引入了“严格模式”（strict mode）的概念。通过严格模式，可以在函数内部选择进行较为严格的全局或局部的错误条件检测。  </p>
-<p>使用严格模式的好处：可以提早知道代码中存在的错误，即使捕获一些可能导致编程错误的ECMAScript行为。  </p>
-<h2 id="选择使用"><a href="#选择使用" class="headerlink" title="选择使用"></a>选择使用</h2><p>选择进入严格模式，需使用严格模式的编译指示：  </p>
-<pre><code>&quot;use strict&quot;;
-</code></pre><p>其其实是一个为负值的字符串字面量，支持严格模式的引擎会启动严格模式，不支持的就会忽略。  </p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>严格模式下，什么时候创建变量以及怎么创建变量都是有限制的。  </p>
-<h6 id="不允许意外创建全局变量"><a href="#不允许意外创建全局变量" class="headerlink" title="不允许意外创建全局变量"></a>不允许意外创建全局变量</h6><pre><code>message = &quot;Hello&quot;;
-</code></pre><p>这行代码在严格模式下是错误的。<br>在严格模式下，如果给一个没有声明的变量复制，那代码在执行时就会抛出ReferenceError  </p>
-<h6 id="不能对变量调用delete操作符"><a href="#不能对变量调用delete操作符" class="headerlink" title="不能对变量调用delete操作符"></a>不能对变量调用delete操作符</h6><pre><code>var clolor = &quot;red&quot;;
-delete color;
-</code></pre><p>在严格模式下上述代码会出错。<br>虽在非严格模式下允许这样做，但是会静默失败（返回false）  </p>
-<h6 id="严格模式下对变量有限制"><a href="#严格模式下对变量有限制" class="headerlink" title="严格模式下对变量有限制"></a>严格模式下对变量有限制</h6><p>不能使用implements, interface, let, package, private, protected, public, static, yield作为变量名，这些都是保留字，将来的ECMAScript版本中可能会用到它们。  </p>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>在严格模式下操作对象比在非严格模式下更容易导致错误。<br>一般来说，在非严格模式下回静默失败的情形，在严格模式下回抛出错误。  </p>
-<p>在下列情形下操作对象的属性会导致错误：  </p>
-<ul>
-<li>为只读属性赋值——抛出TypeError</li>
-<li>对不可配置的属性使用delete操作符——抛出TypeError</li>
-<li>对不可扩展的对象添加属性——抛出TypeError</li>
-</ul>
-<h6 id="使用对象字面量时，属性名必须唯一"><a href="#使用对象字面量时，属性名必须唯一" class="headerlink" title="使用对象字面量时，属性名必须唯一"></a>使用对象字面量时，属性名必须唯一</h6><pre><code>var person = {
-    name: &quot;xiaoming&quot;,
-    name: &quot;honghong&quot;
-}
-</code></pre><p>严格模式下报错，非严格模式下取第二个。  </p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h6 id="严格模式下的函数命名必须唯一。"><a href="#严格模式下的函数命名必须唯一。" class="headerlink" title="严格模式下的函数命名必须唯一。"></a>严格模式下的函数命名必须唯一。</h6><p>不能出现两个命名一样的函数，JavaScript中没有像C++中的函数重载。  </p>
-<h6 id="严格模式下，arguments对象的行为也有所不同"><a href="#严格模式下，arguments对象的行为也有所不同" class="headerlink" title="严格模式下，arguments对象的行为也有所不同"></a>严格模式下，arguments对象的行为也有所不同</h6><ul>
-<li>非严格模式：arguments对象和命名参数双向绑定，改动任何一个，另一个的值也会随之改变</li>
-<li>严格模式：arguments对象和命名参数无双向绑定</li>
-</ul>
-<h6 id="淘汰了arguments-callee-和-arguments-caller"><a href="#淘汰了arguments-callee-和-arguments-caller" class="headerlink" title="淘汰了arguments.callee 和 arguments.caller"></a>淘汰了arguments.callee 和 arguments.caller</h6><p>在非严格模式下，这两个属性一个引用函数本身，一个引用调用函数。<br>在严格模式下，访问哪个属性都会抛出TypeError。  </p>
-<h6 id="函数名不能使用保留字"><a href="#函数名不能使用保留字" class="headerlink" title="函数名不能使用保留字"></a>函数名不能使用保留字</h6><h6 id="只能在脚本的顶级和在函数内部声明函数"><a href="#只能在脚本的顶级和在函数内部声明函数" class="headerlink" title="只能在脚本的顶级和在函数内部声明函数"></a>只能在脚本的顶级和在函数内部声明函数</h6><pre><code>if (true) {
-    function doSomething() {
-        // ...
-    }
-}
-</code></pre><p>严格模式下，会导致语法错误。  </p>
-<h2 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h2><p>严格模式下，eval()在包含上下文中不再创建变量和函数。  </p>
-<pre><code>function doSomething() {
-    eval(&quot;var x = 10&quot;);
-    alert(x);
-}
-</code></pre><p>上述代码在严格模式下会抛出ReferenceError，因为x未被定义。  </p>
-<p>可以在eval()中声明变量和函数，但这些变量或函数只能被求值的特殊作用域中有效，随后就会被销毁。  </p>
-<pre><code>&quot;use strict&quot;;
-var result = eval(&quot;var x=10, y = 11; x+y&quot;);
-console.log(result);  // 21
-</code></pre><p>上述代码是有效的。  </p>
-<h2 id="eval和arguments"><a href="#eval和arguments" class="headerlink" title="eval和arguments"></a>eval和arguments</h2><p>严格模式已经明确禁止使用eval和arguments作为标识符，也不允许读写它们的值。<br>而在非严格模式下是可以重写eval，也可以给arguments赋值。  </p>
-<h2 id="抑制this"><a href="#抑制this" class="headerlink" title="抑制this"></a>抑制this</h2><p>在非严格模式下使用函数的apply()和call()方法时，null或undefined值会被转换为全局对象。  </p>
-<p>而在严格模式下，函数的this值始终是指定的值，无论指定的是什么值。  </p>
-<pre><code>var color = &quot;red&quot;;
-
-function displayColor() {
-    console.log(this.color);
-}
-
-displayColor.call(null);
-</code></pre><p>非严格模式下输出red，this是全局对象<br>严格模式下报错，this是null，对null操作报错  </p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>抛弃了with语句——使用会导致语法错误</li>
-<li>去掉了JavaScript中的八进制字面量</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/18/JavaScript严格模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1387,7 +1382,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1395,7 +1390,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1403,19 +1398,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1427,15 +1422,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
