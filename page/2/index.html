@@ -139,6 +139,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux-初始化服务init的配置文件inittab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/Linux-初始化服务init的配置文件inittab/">Linux 初始化服务init的配置文件inittab</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/Linux-初始化服务init的配置文件inittab/" class="archive-article-date">
+  	<time datetime="2018-04-18T15:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux操作系统系统启动流程"><a href="#Linux操作系统系统启动流程" class="headerlink" title="Linux操作系统系统启动流程"></a>Linux操作系统系统启动流程</h2><ul>
+<li>加电开机</li>
+<li>硬件自检</li>
+<li>配置基本设备</li>
+<li>装载内核引导镜像</li>
+<li>配置其他设备</li>
+<li>初始化服务init（/etc/inittab）</li>
+</ul>
+<img src="/2018/04/18/Linux-初始化服务init的配置文件inittab/linux_start_process.jpg" title="linux start process">
+<p>linux在完成核内引导以后，就开始运行init程序。<br>init程序进程号是1，是所有进程的起点。  </p>
+<h2 id="inittab文件中值的格式"><a href="#inittab文件中值的格式" class="headerlink" title="inittab文件中值的格式"></a>inittab文件中值的格式</h2><pre><code>label:runlevel:action:process
+</code></pre><h4 id="label"><a href="#label" class="headerlink" title="label"></a>label</h4><p>label一般是1-2个字符标签，用来标示输入的值。  </p>
+<p>常用的值如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">id: 用来定义缺省的init运行的级别</span><br><span class="line">si: 是系统初始化的进程</span><br><span class="line">ln: 其中n是从1~6，指明该进程可以使用的runlevel的级别</span><br><span class="line">ca: 指明当按下Ctrl+Alt+Del时运行的进程</span><br><span class="line">pf: 指“当UPS表明断电”时运行的进程</span><br><span class="line">pr: 是在系统真正关闭之前，UPS发出电源回复信号时需要运行的进程</span><br><span class="line">x: 是将系统转入X终端时需要运行的进程</span><br></pre></td></tr></table></figure>
+<h4 id="action"><a href="#action" class="headerlink" title="action"></a>action</h4><p>action字段定义了该进程应该运行在何种状态下。  </p>
+<p>其常见的取值和含义如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">boot: 在系统启动时运行忽略runlevel</span><br><span class="line">bootwait: 在系统启动时运行，init等待进程完成。忽略runlevel</span><br><span class="line">ctrlaltdel: 当Ctrl+Alt+Del三个键同时按下时运行，把SIGINT信号发送给init</span><br><span class="line">initdefault: 不要执行这个进程，它用于设置默认runlevel</span><br><span class="line">off: 禁止进入，因此该进程不运行</span><br><span class="line">once: 运行一次</span><br><span class="line">respawn: 不管何时终止都重新启动进程</span><br><span class="line">sysinit: 在运行boot或bootwait进程之前运行</span><br><span class="line">wait: 需等待其运行完毕再运行其他项</span><br></pre></td></tr></table></figure>
+<h4 id="process"><a href="#process" class="headerlink" title="process"></a>process</h4><p>process字段包含init执行的进程，该进程采用的格式与在命令行下运行该进程的格式一样。  </p>
+<p>因此process字段都以该进程的名字开头，紧跟着是运行时要传递给该进程的参数。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/Linux-初始化服务init的配置文件inittab/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-node-package-json-语法笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1235,116 +1327,6 @@ $(substr ee,EE,feet on the street) # 将feet on the street 替换成 fEEt on the
 
 
   
-    <article id="post-Linux下设置输出字符的颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/27/Linux下设置输出字符的颜色/">Linux下设置输出字符的颜色</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/27/Linux下设置输出字符的颜色/" class="archive-article-date">
-  	<time datetime="2018-03-27T07:10:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre><code>\033[显示方式;前景色;背景色;m输出字符串\033[0m
-或
-\e[显示方式;前景色;背景色;m输出字符串\e[0m
-</code></pre><p><code>\033[</code> 或 <code>\e[</code> 引导转义序列，<code>m</code> 表示设置属性并结束转义序列，<code>\033[0m</code> 或 <code>\e[0m</code> 用于恢复默认的终端输出属性。  </p>
-<h5 id="转义序列"><a href="#转义序列" class="headerlink" title="转义序列"></a>转义序列</h5><p>转义序列以控制字符<code>ESC</code>开头，该字符的ASCII码十进制为27，十六进制为0x1B，八进制表示为033。<br>由于转义序列多数超过两个字符，所以通常以 <code>ESC</code> 和左括号 <code>[</code> 开头，该起始序列（<code>\033[</code> 和 <code>\e[</code>）称为控制序列引导符。</p>
-<h5 id="显示方式-amp-前景色-amp-背景色"><a href="#显示方式-amp-前景色-amp-背景色" class="headerlink" title="显示方式 &amp; 前景色 &amp; 背景色"></a>显示方式 &amp; 前景色 &amp; 背景色</h5><p>这三个属性是用来设置输出字符串的三个属性。  </p>
-<blockquote>
-<p>这三个属性并没有顺序的限制，因为表示他们的值范围不同</p>
-</blockquote>
-<p><strong>颜色</strong>  </p>
-<pre><code>0 - 黑
-1 - 红
-2 - 绿
-3 - 黄
-4 - 蓝
-5 - 洋红
-6 - 青
-7 - 白
-</code></pre><blockquote>
-<p>字体颜色范围 30-37<br>背景颜色返回 40-47 </p>
-</blockquote>
-<p><strong>显示</strong>  </p>
-<pre><code>0    -    默认
-1    -    粗体/高亮
-22    -    非粗体
-4    -    单条下划线
-24    -     无下划线
-5    -    闪烁
-25    -    无闪烁
-7    -    反显、翻转前景色和背景色
-</code></pre><h2 id="Linux终端下的测试"><a href="#Linux终端下的测试" class="headerlink" title="Linux终端下的测试"></a>Linux终端下的测试</h2><p>在Linux的终端下，我们可以使用如下命令来输出彩色字或彩色背景  </p>
-<pre><code>echo -e &quot;\033[显示方式;前景色;背景色;m输出字符串\033[0m&quot;
-</code></pre><img src="/2018/03/27/Linux下设置输出字符的颜色/demo.png" title="test in Linux terminal"> 
-<blockquote>
-<p>双引号是必须的，因为其实bash分辨词素的标记</p>
-</blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/clover-toeic/p/4031618.html" target="_blank" rel="noopener">https://www.cnblogs.com/clover-toeic/p/4031618.html</a><br><a href="https://blog.csdn.net/exlsunshine/article/details/28440889" target="_blank" rel="noopener">https://blog.csdn.net/exlsunshine/article/details/28440889</a><br><a href="https://blog.csdn.net/hejinjing_tom_com/article/details/12162491" target="_blank" rel="noopener">https://blog.csdn.net/hejinjing_tom_com/article/details/12162491</a>  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/27/Linux下设置输出字符的颜色/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1434,15 +1416,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1454,15 +1440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux MySQL C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1470,7 +1452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">Linux  Ubuntu  C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1482,6 +1464,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -1490,19 +1480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1510,11 +1492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
