@@ -139,6 +139,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux-下关机命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/Linux-下关机命令/">Linux 下关机命令</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/Linux-下关机命令/" class="archive-article-date">
+  	<time datetime="2018-04-18T15:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令列表"><a href="#命令列表" class="headerlink" title="命令列表"></a>命令列表</h2><ul>
+<li>shutdown</li>
+<li>halt</li>
+<li>reboot</li>
+<li>init</li>
+</ul>
+<h2 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h2><p>shutdown命令通常必须由超级用户才能执行。  </p>
+<p>shutdown命令执行后，会以广播的形式通知正在系统中工作的所有用户，系统将在指定的时间内关闭,请用户保存文件，停止作业，注销用户。此时login指令被冻结，新的用户不能登录。  </p>
+<p><strong>语法：</strong>  </p>
+<pre><code>shutdown [-fFhknc(参数名称)] [-t描述] 时间 [警告信息]
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-f: 重启系统时不执行fsck</span><br><span class="line">-F: 重启是执行fsck</span><br><span class="line">-h: 将系统关闭，相当于halt命令</span><br><span class="line">-k: 只是送出信息给所有用户，但不会真正关机</span><br><span class="line">-n: 不调用init程序关机，而是由shutdown自己进行，使用此类参数将加快关机速度，但是不建议用户使用此种关机方式</span><br><span class="line">-r: shutdown之后重新启动系统</span><br><span class="line">-c: 取消一个shutdown命令</span><br><span class="line">-t&lt;秒数&gt;: 送出警告信息和关机信号之间要延迟多少秒</span><br><span class="line">[警告信息]: 要传送给所有登录用户的信息</span><br></pre></td></tr></table></figure>
+<p>示例：  </p>
+<pre><code>shutdown 16:50 # 在16:50执行shutdown关机
+shutdown -r now # 立即 重启系统
+shutdown -h now # 立即 关机
+shutdown +5 &quot;system will shutdown after 5 minutes&quot; # 设定5分钟后关机，同时发出警告信息给登录用户
+</code></pre><h2 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h2><p>halt是最简单的关机命令，相当于“shutdown -h”组合。  </p>
+<p>halt’执行时，将杀死所有应用程序，然后调用系统指令sync。sync将所有内存信息通过文件系统写入硬盘，然后停止内核。  </p>
+<p><strong>语法：</strong>  </p>
+<pre><code>halt [-finp]
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-f: 不管当前系统处于何种运行级别，不调用shutdown而强制关机。</span><br><span class="line">-i: 关机之前，关掉所有的网络接口。</span><br><span class="line">-n: halt执行时，不调用系统指令sync。</span><br><span class="line">-p: 关机时调用poweroff，也就是关机时同时关闭电源。此选项为缺省选项。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>halt指令在执行时，会首先检测系统的运行级别，如果运行级为0或6，则立即关闭系统，否则调用shutdown来关闭系统。  </p>
+</blockquote>
+<h2 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a>reboot</h2><p>reboot命令的执行过程与halt基本类似，不同的是halt是用于关机，而reboot是关机后引发系统重启。  </p>
+<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p>init程序主要用于系统不用运行级之间的切换。  </p>
+<p>示例：  </p>
+<pre><code>init 0 # 将系统运行级切换到0，也就是关机
+init 6 # 将系统运行级切换到6，也就是重启系统
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/Linux-下关机命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux-初始化服务init的配置文件inittab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1133,200 +1235,6 @@ alter table [tablename] change [columnNameBeforeChange] [columnNameBeforeChange]
 
 
   
-    <article id="post-制作Makefile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/制作Makefile/">制作Makefile</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/制作Makefile/" class="archive-article-date">
-  	<time datetime="2018-03-31T09:06:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是Makefile"><a href="#什么是Makefile" class="headerlink" title="什么是Makefile"></a>什么是Makefile</h2><p>Makefile文件，是供给make（一个工具程序）进行自动化构建的规则文件。  </p>
-<p>make，是一种转换文件形式的的工具，转换的目标称为“target”，与此同时，它也检查文件的依赖关系，如果需要的话，它会调用一些外部软件来完成任务。  </p>
-<p>它使用“Makefile”的文件来确定一个target文件的依赖关系，然后把生成这个target的相关命令传给shell去执行。  </p>
-<blockquote>
-<p>大多数情况下，它被用来编译源代码，生成结果代码， 然后把结果代码连接起来生成可执行文件或者库文件。  </p>
-</blockquote>
-<h2 id="Makefile文件的格式"><a href="#Makefile文件的格式" class="headerlink" title="Makefile文件的格式"></a>Makefile文件的格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;target&gt; : &lt;prerequisites&gt;  </span><br><span class="line">	&lt;commands&gt;</span><br></pre></td></tr></table></figure>
-<p>上面第一行冒号前面的部分，叫做”目标”（target），冒号后面的部分叫做”前置条件”（prerequisites）；第二行必须由一个tab键起首，后面跟着”命令”（commands）。  </p>
-<p>“目标”是必需的，不可省略；”前置条件”和”命令”都是可选的，但是两者之中必须至少存在一个。  </p>
-<p>每条规则就明确两件事：构建目标的前置条件是什么，以及如何构建。下面就详细讲解，每条规则的这三个组成部分。  </p>
-<h4 id="目标（target）"><a href="#目标（target）" class="headerlink" title="目标（target）"></a>目标（target）</h4><p>目标可以是文件名，也可以是操作名。  </p>
-<p>当其为文件名时，指的是Make命令所要构建的对象。其也可以是多个文件名。  </p>
-<p>当其为操作名时，被称为“伪目标”（phony target）。但是，如果当前目录有和伪目标重名的文件时，操作不会被执行。他会将操作名看成是目标文件名。为避免这种情况，可以明确声明操作时“伪目标”。  </p>
-<pre><code>.PHONY: clean
-clean:
-    rm *.o temp
-</code></pre><p>明确声明了clean是“伪目标”。  </p>
-<blockquote>
-<p>若Make运行时不指明目标，则默认执行规则构建文件中的第一个目标。  </p>
-</blockquote>
-<h4 id="前置条件（prerequisite）"><a href="#前置条件（prerequisite）" class="headerlink" title="前置条件（prerequisite）"></a>前置条件（prerequisite）</h4><p>前置条件通常是一组文件名，之间用空格分隔。它指定了”目标”是否重新构建的判断标准：只要有一个前置文件不存在，或者有过更新（前置文件的last-modification时间戳比目标的时间戳新），”目标”就需要重新构建。  </p>
-<h4 id="命令（commands）"><a href="#命令（commands）" class="headerlink" title="命令（commands）"></a>命令（commands）</h4><p>命令（commands）表示如何更新目标文件，由一行或多行的Shell命令组成。它是构建”目标”的具体指令，它的运行结果通常就是生成目标文件。  </p>
-<p>每行命令之前必须有一个tab键。如果想用其他键，可以用内置变量 <code>.RECIPEPREFIX</code> 声明。  </p>
-<pre><code>.RECIPEPREFIX = &gt;
-clean:
-&gt; rm *.o temp
-</code></pre><blockquote>
-<p>每行命令在一个单独的shell中执行。这些Shell之间没有继承关系。<br>也就是说，一行shell命令不能使用其他行shell命令的变量和结果。</p>
-</blockquote>
-<p>要使得他们在一个shell进程中执行，有三种方法：  </p>
-<ul>
-<li>所有shell命令写在一行</li>
-</ul>
-<pre><code>clean:
-    export end=finish; echo $end
-</code></pre><ul>
-<li>行尾使用反斜杠</li>
-</ul>
-<pre><code>clean:
-    export end=finish; \
-    echo $end
-</code></pre><ul>
-<li>我们可以使用<code>.ONESHELL</code>命令来标志一个target中的所有shell命令都在一个shell进程中执行。</li>
-</ul>
-<pre><code>.ONESHELL
-clean:
-    export end=finish
-    echo $end     
-</code></pre><h2 id="Makefile文件语法"><a href="#Makefile文件语法" class="headerlink" title="Makefile文件语法"></a>Makefile文件语法</h2><h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p><code>#</code>号开头代表注释一行。  </p>
-<h4 id="回声（echoing）"><a href="#回声（echoing）" class="headerlink" title="回声（echoing）"></a>回声（echoing）</h4><p>正常情况下，make会打印每条命令，然后再执行，这就叫做回声（echoing）。  </p>
-<blockquote>
-<p>在命令的前面加上@，就可以关闭回声</p>
-</blockquote>
-<h4 id="通配符（wildcard）"><a href="#通配符（wildcard）" class="headerlink" title="通配符（wildcard）"></a>通配符（wildcard）</h4><p>用来指定一组符合条件的文件名。与Bash的通配符一致</p>
-<h4 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h4><pre><code>%.o: %.c
-</code></pre><p>等同于</p>
-<pre><code>f1.o: f1.c
-f2.o: f2.c
-</code></pre><p>使用匹配符%，可以将大量同类型的文件，只用一条规则就能完成构建。  </p>
-<h4 id="变量和赋值符"><a href="#变量和赋值符" class="headerlink" title="变量和赋值符"></a>变量和赋值符</h4><ul>
-<li>变量可以随意定义，但是定义时需要有初始值</li>
-<li>变量的使用，必须使用 <code>$()</code> 符进行变量的调用</li>
-</ul>
-<pre><code>txt=Hello
-test:
-    @echo $(txt)  
-</code></pre><p>调用shell变量时，需要在shell变量前再加上一个 <code>$</code> 符  </p>
-<p>赋值符分为四类：  </p>
-<ul>
-<li><code>=</code>：在执行时扩展，允许递归扩展</li>
-<li><code>:=</code>：在定义时扩展</li>
-<li><code>?=</code>：只有在该变量为空时才设置值</li>
-<li><code>+=</code>：将值追加到变量的尾端</li>
-</ul>
-<h4 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AR: 归档程序，默认为&apos;ar&apos;</span><br><span class="line">CC: C语言代码编译程序，默认为&apos;cc&apos;</span><br><span class="line">CXX: C++代码编译程序，默认为&apos;g++&apos;</span><br><span class="line">CPP: 运行C代码预处理的程序，从标准输出输出结果，默认为&apos;$(CC) -E&apos;</span><br><span class="line">CFLAGS: 给C编译器的额外标志</span><br><span class="line">CXXFLAGS: 给C++编译器的额外标志</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>内置变量在shell命令中使用时，需要使用 <code>$()</code> 进行调用</p>
-</blockquote>
-<h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><p><strong>1. $@</strong><br>指代当前目标，就是Make命令当前构建的目标。  </p>
-<p><strong>2. $&lt;</strong><br>指代第一个前置条件。  </p>
-<p><strong>3. $?</strong><br>指代比目标更新的所有前置条件，之间以空格分隔。  </p>
-<p><strong>4. $^</strong><br>指代所有前置条件，之间以空格分隔。  </p>
-<p><strong>5. $*</strong><br>指代匹配符%匹配的部分。  </p>
-<p><strong>6. $(@D) &amp; $(@F)</strong><br>分别指向$@的目录名和文件名。  </p>
-<p><strong>7. $(&lt;D) &amp; $(&lt;F)</strong><br>分别指向$&lt;的目录名和文件名。  </p>
-<h4 id="判断和循环"><a href="#判断和循环" class="headerlink" title="判断和循环"></a>判断和循环</h4><p>Makefile使用Bash语法，完成判断和循环。  </p>
-<p>Bash语法，见<a href="http://www.runoob.com/linux/linux-shell.html" target="_blank" rel="noopener">此教程</a>  </p>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><pre><code>$(function arguments)
-或
-$(function arguments)
-</code></pre><p>Makefile提供了很多内置的函数，可供调用，如下：  </p>
-<ol>
-<li>shell函数</li>
-</ol>
-<p>用来执行shell命令  </p>
-<pre><code>srcfiles := $(shell echo src/{00..99}.txt)
-</code></pre><ol>
-<li>wildcard函数</li>
-</ol>
-<p>用来在Makfile中替换Bash通配符  </p>
-<pre><code>srcfiles := $(wildcard src/*.txt)
-</code></pre><ol>
-<li>subst函数</li>
-</ol>
-<p>用来文本替换  </p>
-<pre><code>$(subst from,to,text)
-例如
-$(substr ee,EE,feet on the street) # 将feet on the street 替换成 fEEt on the street
-</code></pre><ol>
-<li>patsubst函数</li>
-</ol>
-<p>用于模式匹配的替换  </p>
-<pre><code>$(patsubst pattern,replacement,text)
-</code></pre><ol>
-<li>替换后缀名</li>
-</ol>
-<p>写法： 变量名 + 冒号 + 后缀名替换规则。  </p>
-<p>其实际上是patsubst函数的一种简写。  </p>
-<pre><code>min: $(OUTPUT:.js=.min.js)
-# 将变量OUTPUT的后缀名 `.js` 全部替换成 `.min.js`
-</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.ruanyifeng.com/blog/2015/02/make.html" target="_blank" rel="noopener">阮一峰的Make命令教程</a><br><a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="noopener">GUN make官方教程</a><br><a href="https://gist.github.com/isaacs/62a2d1825d04437c6f08" target="_blank" rel="noopener">Makefile文件教程</a>  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Linux make makefile</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/制作Makefile/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1420,11 +1328,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1444,11 +1352,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1464,7 +1372,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">python pyenv 工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1480,6 +1388,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
@@ -1488,11 +1400,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1500,7 +1412,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
               </li>
              
               <li class="article-tag-list-item">
