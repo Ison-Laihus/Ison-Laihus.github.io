@@ -139,6 +139,132 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql-常用操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/03/mysql-常用操作/">mysql 常用操作</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/03/mysql-常用操作/" class="archive-article-date">
+  	<time datetime="2018-04-03T11:26:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据的导入导出"><a href="#数据的导入导出" class="headerlink" title="数据的导入导出"></a>数据的导入导出</h2><p><strong>导入sql文件</strong>  </p>
+<pre><code>source [/path/to/sql/file]
+</code></pre><p><strong>导入纯数据文件</strong>  </p>
+<pre><code>load data local infile &apos;[/path/of/data/file]&apos; into table [tablename] fields terminated by &apos;[seperator]&apos; lines terminated by &apos;[seperator]&apos;;
+</code></pre><p><strong>导出数据</strong></p>
+<pre><code>mysqldump -h[hostname] -u[username] -p[password] [databasename] [tablename] &gt; [/path/to/store/sql/file]
+</code></pre><blockquote>
+<p>建议在输入上述命令，输入密码那个参数中，只需要输入 <code>-p</code> 即可，无须在其后跟上password，而是在输入这行命令之后再由系统指导进行输入，一般Linux不允许上述命令，因为密码以明文输出不安全</p>
+</blockquote>
+<p><strong>导出一部分数据</strong>  </p>
+<pre><code>SELECT ... INTO OUTFILE &apos;[file/path]&apos;;
+</code></pre><h2 id="列操作"><a href="#列操作" class="headerlink" title="列操作"></a>列操作</h2><p><strong>修改列名</strong>  </p>
+<pre><code>alter table [tablenamme] change column [columnNameBeforeChange] [columnNameAfterChange] char(40)
+</code></pre><p><strong>添加列名</strong>  </p>
+<pre><code>alter table [tablename] add column [columnName] varchar(40);
+</code></pre><p><strong>删除列名</strong>  </p>
+<pre><code>alter table [tablenam]e drop column [columnName];
+</code></pre><p><strong>修改列类型</strong>  </p>
+<pre><code>alter table [tablename] modify [columnName] char(40);
+或
+alter table [tablename] change [columnNameBeforeChange] [columnNameBeforeChange] char(40);
+</code></pre><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h6 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h6><p><strong>查看数据库编码</strong>  </p>
+<pre><code>show create database [db_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/database_charset.jpg" title="database charset">
+<p><strong>修改数据库编码</strong>  </p>
+<pre><code>alter database [db_name] default character set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/database_charset_changed.jpg" title="database charset after change">
+<h6 id="数据表"><a href="#数据表" class="headerlink" title="数据表"></a>数据表</h6><p><strong>查看数据表编码</strong></p>
+<pre><code>show create table [table_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/table_charset.jpg" title="table charset">
+<p><strong>修改数据表编码</strong>  </p>
+<pre><code>alter table [table_name] default character set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/table_charset_changed.jpg" title="table charset after change">
+<h6 id="数据表列字段"><a href="#数据表列字段" class="headerlink" title="数据表列字段"></a>数据表列字段</h6><p><strong>查看数据表列字段编码</strong></p>
+<pre><code>show full columns from [table_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset.jpg" title="column charset">
+<p><strong>修改数据表列字段编码</strong>  </p>
+<pre><code>alter table [table_name] change [column_name_before] [column_name_after] [column_type] character set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset_changed.jpg" title="column charset after change">
+<p>或</p>
+<pre><code>alter table [table_name] modify [column_name] [column_type] charset set [character_name];
+</code></pre><img src="/2018/04/03/mysql-常用操作/column_charset_changed2.jpg" title="column charset after change 2">
+<h6 id="查看mysql数据库所有的编码"><a href="#查看mysql数据库所有的编码" class="headerlink" title="查看mysql数据库所有的编码"></a>查看mysql数据库所有的编码</h6><pre><code>show variables like &apos;%char%&apos;;
+</code></pre><img src="/2018/04/03/mysql-常用操作/all_character_set.jpg" title="all character set">
+<h6 id="查看mysql数据库所有排序规则"><a href="#查看mysql数据库所有排序规则" class="headerlink" title="查看mysql数据库所有排序规则"></a>查看mysql数据库所有排序规则</h6><pre><code>show variables like &apos;%collation_%&apos;;
+</code></pre><img src="/2018/04/03/mysql-常用操作/all_collation_set.jpg" title="all character set">
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_	:	匹配任何单个字符</span><br><span class="line">%	:	匹配0或任意多个字符</span><br></pre></td></tr></table></figure>
+<p>这两个通配符需要使用 LIKE 或 NOT LIKE</p>
+<blockquote>
+<p>不能使用 = 或 !=</p>
+</blockquote>
+<h4 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.	:	匹配单个字符</span><br><span class="line">*	:	匹配0个或任意多个字符</span><br><span class="line">^	:	开头</span><br><span class="line">$	:	结尾</span><br><span class="line">[]	:	某一个（括号中的字符）</span><br><span class="line">&#123;n&#125;	:	重复n次</span><br></pre></td></tr></table></figure>
+<p>使用 REGEXP 或 NOT REGEXP</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/03/mysql-常用操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-制作Makefile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1232,98 +1358,6 @@ sudo make install # 注意需要root权限，因为需要创建文件
 
 
   
-    <article id="post-Linux-cURL命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/20/Linux-cURL命令记录/">Linux cURL命令记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/20/Linux-cURL命令记录/" class="archive-article-date">
-  	<time datetime="2018-03-20T12:07:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是cURL"><a href="#什么是cURL" class="headerlink" title="什么是cURL"></a>什么是cURL</h2><p>cURL，是linux中一个利用URL规则在命令行下工作的文件传输工具，是一款很强大的http命令行工具。<br><strong>语法</strong></p>
-<pre><code>curl [option] [url]
-</code></pre><p><strong>常见参数</strong>  </p>
-<pre><code>-A/--user-agent &lt;string&gt;        设置用户代理发送给服务器
--b/--cookie &lt;name=string/file&gt;    cookie字符串或文件读取位置
--c/--cookie-jar &lt;file&gt;            操作结束后把cookie写入到这个文件中
--C/--continue-at &lt;offset&gt;        断点续转
--D/--dump-header &lt;file&gt;            把header信息写入到该文件中
--e/--referer                    来源网址
--f/--fail                        链接失败时不显示http错误
--o/--output                        把输出写到该文件中
--O/--remote-name                把输出写到该文件中，保留远程文件的文件名
--r/--range &lt;range&gt;                检索来自HTTP/1.1或FTP服务器字节范围
--s/--slient                        静音模式，不输出任何东西
--T/--upload-file &lt;file&gt;            上传文件
--u/--user &lt;user[:password]&gt;        设置服务器的用户和秘密
--w/--write-out [format]            什么输出完成后
--x/--proxy &lt;host[:port]&gt;        在给定的端口上使用HTTP代理
--#/--progress-bar                进度条显示当前的传送状态
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/20/Linux-cURL命令记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1413,19 +1447,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1437,15 +1467,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux MySQL C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color5">PHP Regex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1457,19 +1491,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">python pyenv 工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python pyenv 工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1489,7 +1523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
+                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1497,15 +1531,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linux make makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">python pyenv tkinter</a>
               </li>
              
               <li class="article-tag-list-item">
