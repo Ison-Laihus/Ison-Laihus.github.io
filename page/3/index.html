@@ -139,6 +139,493 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-网络、群体与市场笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/11/网络、群体与市场笔记/">网络、群体与市场笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/11/网络、群体与市场笔记/" class="archive-article-date">
+  	<time datetime="2018-04-11T10:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><p><strong>路径</strong>  </p>
+<pre><code>一个节点序列的集合，序列中任意两个相邻节点间都有一条边相连。  
+</code></pre><p><strong>连通图</strong>  </p>
+<pre><code>若一个图中任两点间有路相通，称此图为联通图。  
+</code></pre><p><strong>联通分量</strong>  </p>
+<pre><code>1. 子集中任意两个节点间均有路径相连
+2. 该自己不是其他任何满足条件1的子集的一部分
+</code></pre><h4 id="小世界现象"><a href="#小世界现象" class="headerlink" title="小世界现象"></a>小世界现象</h4><pre><code>你和朋友间的路径不仅可延伸至世界相当比例的人群，这些路径实际上都惊人的短。  
+</code></pre><h2 id="强联系和弱联系"><a href="#强联系和弱联系" class="headerlink" title="强联系和弱联系"></a>强联系和弱联系</h2><p>基本的社交网络概念引申的三个问题：  </p>
+<ol>
+<li>信息如何通过社交网络传播</li>
+<li>不同的节点如何在这一进程中发挥独特作用</li>
+<li>这些结构性因素怎样印象网络本身的演化</li>
+</ol>
+<h4 id="三元闭包"><a href="#三元闭包" class="headerlink" title="三元闭包"></a>三元闭包</h4><pre><code>在一个社交圈内，若两个人有一个共同的朋友，则这两人在未来成为朋友的可能性就会提高。  
+</code></pre><p><strong>聚集系数</strong> </p>
+<pre><code>节点A的聚集系数定义为A的任意两个朋友彼此也是朋友的概率。  
+</code></pre><blockquote>
+<p>通常，一个节点的聚集系数范围在0和1之间，且该节点附近的的三元闭包过程越强，其聚集系数就倾向于越大</p>
+</blockquote>
+<h4 id="弱联系"><a href="#弱联系" class="headerlink" title="弱联系"></a>弱联系</h4><p><strong>桥</strong>  </p>
+<pre><code>已知A和B相连，若去掉连接A和B的扁会导致A和B分属不同的联通分量，则该边称为桥。  
+</code></pre><p><strong>捷径</strong>  </p>
+<pre><code>若边A-B的端点A和B没有共同的朋友，则称边A-B为捷径。  
+</code></pre><p><strong>捷径的跨度</strong>  </p>
+<pre><code>我们定义捷径的跨度为该边两端点在没有该边情况下的实际距离。  
+</code></pre><blockquote>
+<p>捷径与三元闭包在概念上隐含着一种对立：一条边若是捷径，则不可能是三元闭包关系中的任意一边。  </p>
+</blockquote>
+<p><strong>强三元闭包性质</strong>  </p>
+<pre><code>若节点A与节点B和C的关系均为强联系，且B和C之间无任何连接（强或弱），则称节点A违反了强三元闭包性质，否则，称节点A满足强三元闭包性质。  
+</code></pre><p><strong>捷径与弱联系</strong>  </p>
+<pre><code>社交网络中，若节点A满足强三元闭包性质，并有至少两个强联系边与之相连，则其与其相连的任何捷径均为弱关系。  
+</code></pre><h4 id="弱联系与捷径概念的推广"><a href="#弱联系与捷径概念的推广" class="headerlink" title="弱联系与捷径概念的推广"></a>弱联系与捷径概念的推广</h4><p>邻里重叠度 = （与A、B均为邻居的节点数） / （与A、B中至少一个为邻居的节点数）</p>
+<h4 id="闭包、结构洞和社会资本"><a href="#闭包、结构洞和社会资本" class="headerlink" title="闭包、结构洞和社会资本"></a>闭包、结构洞和社会资本</h4><p>社会网络是用弱联系链接起来的若干紧密群体。  </p>
+<p><strong>边的嵌入性</strong>  </p>
+<pre><code>定义网络中一条边的嵌入性为其两个端点共同的邻居的数量。  
+</code></pre><p><strong>结构洞</strong>  </p>
+<h2 id="网络及其存在的环境"><a href="#网络及其存在的环境" class="headerlink" title="网络及其存在的环境"></a>网络及其存在的环境</h2><h4 id="同质现象"><a href="#同质现象" class="headerlink" title="同质现象"></a>同质现象</h4><p>影响社交网络结构最基本的概念之一是同质性，即我们和自己的朋友间往往会有相同的特性。  </p>
+<p><strong>同质性测试</strong>  </p>
+<pre><code>如果跨性别边所占的比例显著低于2pq，则就有同质现象。  
+
+前提：社交网络的节点被二分为两个属性A，B。  
+p = A / (A + B)  
+q = B / (A + B)
+</code></pre><h4 id="同质现象背后的机制：选择与社会影响"><a href="#同质现象背后的机制：选择与社会影响" class="headerlink" title="同质现象背后的机制：选择与社会影响"></a>同质现象背后的机制：选择与社会影响</h4><p>一个人的属性当他出生的时候即被选定，且在他/她以后的人生中，建立社会联系发挥一定的作用。  </p>
+<p>社会化和社会影响： 人们会因为需要和朋友们保持一致而改变自己的行为。  </p>
+<p>社会影响可以看成是和选择相反的观念：在选择中，个体的特征主导网络连接的形成，但在社会影响过程中，已存在的社会网络连接将会改变人们（可变）的特征。  </p>
+<h4 id="归属"><a href="#归属" class="headerlink" title="归属"></a>归属</h4><p><strong>归属网络</strong>  </p>
+<pre><code>用图来表示一群人参与一组社会焦点的情况。  
+</code></pre><blockquote>
+<p>归属网络是所谓的二部图</p>
+</blockquote>
+<p><strong>社会网络与归属网络的协同演化</strong>  </p>
+<pre><code>第一类关系连接是在社会网络中：连接两个个体，表明两者之间的友谊关系。  
+
+第二类关系连接是在归属网络中：连接个体和社团活动，表明这个个体参与其中。（我们称此网络是社会归属网络）  
+</code></pre><h2 id="正关系与负关系"><a href="#正关系与负关系" class="headerlink" title="正关系与负关系"></a>正关系与负关系</h2><p><strong>平衡定理</strong>  </p>
+<pre><code>如果一个标记的完全图是平衡的，则要么它的所有节点两两都是朋友，要么它的节点可以被分为两个组X和Y，其中X组内的节点两两都是朋友，Y组内的节点两两也都是朋友，而X组中的每个节点都是Y组中每个节点的敌人。  
+</code></pre><p><strong>弱结构平衡性质</strong>  </p>
+<pre><code>任意三个节点，均不存在两个正关系边和一个负关系边的连接模式。
+</code></pre><blockquote>
+<p>这里所言，三个负关系也是平衡的，只不过是弱平衡</p>
+</blockquote>
+<p><strong>弱平衡网络的特性</strong>  </p>
+<pre><code>如果一个标记的完全图是弱平衡的，则它的节点可分成不同的组，并且满足同一组中任意两个节点互为朋友，不同组之间任意两个节点互为敌人。
+</code></pre><h2 id="博弈"><a href="#博弈" class="headerlink" title="博弈"></a>博弈</h2><p><strong>纳什均衡</strong>  </p>
+<pre><code>即使不存在占优策略，我们也可以通过参与人彼此策略的最佳应对，来预测参与人的策略选择行为。  
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/网络、群体与市场笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浅谈微服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/11/浅谈微服务/">浅谈微服务</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/11/浅谈微服务/" class="archive-article-date">
+  	<time datetime="2018-04-11T09:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>首先，我们从服务开始说起。  </p>
+<p>何为服务？在我看来，服务就是一个能够提供一些功能的开放功能体。  </p>
+<p>之所以说其开放，是由于其能够被供以其他服务进行调用。  </p>
+<p>通常我们所说的服务，一般都只那些大而却的系统。其层次较深，逻辑复杂，结构混乱，牵一发而动全身，模块间的高内聚、低耦合似乎并不容易做到。  </p>
+<p>人都喜欢精简轻巧的东西。俗话说，简单即是美，于是微服务就应运而生。  </p>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>微服务，顾名思义，就是小型的服务。  </p>
+<p>其就是将产品的功能细分，每个细分之后的模块都单独做成一个服务（即微服务），然后这些服务之间通过网络通信进行协同工作。  </p>
+<p>将模块微服务化，就形成了一种架构风格——微服务架构。  </p>
+<p>其网络通信的方式有很多，但通常都是HTTP RESTful API的方式。  </p>
+<p>但是，在对产品进行功能细分的时候，我们不能盲目的划分到最细。毕竟，服务间的通信也是影响性能的重要指标之一。  </p>
+<p>尽管微服务架构会有通信的开销，但是它有很多好处，使得人们对其趋之若鹜。  </p>
+<ol>
+<li><p>容易被替换和升级</p>
+<p> 由于项目是若干个微服务的组合，在需要替换或升级的时候，只需要一次针对一个微服务。做好之后，替换掉相应的微服务，相同的接口使其能够完美实现替换。能够使得产品很平滑地过渡而不影响使用。  </p>
+</li>
+<li><p>微服务可选择最适合自己的技术方案</p>
+<p> 不同服务之间除了功能调用之外没有任何的联系。所以，每个服务都可以选用独立的开发语言和环境，不需要依赖于其他任何服务。这样就很灵活。</p>
+</li>
+<li><p>能够去中心化管理</p>
+<p> 自行其是, 自我管理, 不必在局限在一个系统里, 围绕着一个中心。不光是在功能上，在数据管理方面也是一样。各人自扫门前雪, 自己管理和维护自己的数据, 各自之间互不直接访问彼此的数据, 只通过 API 来存取数据。</p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/39c1e4ec0d63" target="_blank" rel="noopener">什么是微服务</a><br><a href="https://www.ibm.com/developerworks/community/blogs/3302cc3b-074e-44da-90b1-5055f1dc0d9c/entry/%E8%A7%A3%E6%9E%90%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84_%E4%B8%80_%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1?lang=en" target="_blank" rel="noopener">解析微服务架构(一)：什么是微服务</a><br><a href="https://www.ibm.com/developerworks/community/blogs/3302cc3b-074e-44da-90b1-5055f1dc0d9c/entry/%E8%A7%A3%E6%9E%90%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84_%E4%BA%8C_%E8%9E%8D%E5%85%A5%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BC%81%E4%B8%9A%E9%9B%86%E6%88%90%E6%9E%B6%E6%9E%84?lang=zh" target="_blank" rel="noopener">解析微服务架构(二)：融入微服务的企业集成架构</a><br><a href="https://www.ibm.com/developerworks/community/blogs/3302cc3b-074e-44da-90b1-5055f1dc0d9c/entry/%E8%A7%A3%E6%9E%90%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84_%E4%B8%89_%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%87%8D%E6%9E%84%E5%BA%94%E7%94%A8%E5%8F%8AIBM%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88?lang=zh" target="_blank" rel="noopener">解析微服务架构(三)：微服务重构应用及IBM解决方案</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">架构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/浅谈微服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql之char、varchar、text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/10/mysql之char、varchar、text/">mysql之char、varchar、text</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/10/mysql之char、varchar、text/" class="archive-article-date">
+  	<time datetime="2018-04-10T15:09:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在mysql之中，定义了很多数据类型作为存储的字段的类型。  </p>
+<p>这里只是对char、varchar和text这三个类型进行区别介绍。  </p>
+<h4 id="char"><a href="#char" class="headerlink" title="char"></a>char</h4><ul>
+<li>存储固定长度字符</li>
+<li>上限为255字节</li>
+<li>char(n)中的n代表字符的个数，而不是字节个数</li>
+<li>超过char的n设置，会被截断</li>
+<li>速度快</li>
+<li>存在空间浪费，无论实际上存储了多少字符，但其所占空间是 n*(字符字节长度)，多余的空间使用空格填充</li>
+</ul>
+<blockquote>
+<h4 id="varchar"><a href="#varchar" class="headerlink" title="varchar"></a>varchar</h4><ul>
+<li>存储可变长度字符</li>
+<li>上限为65535字节，但实际可以存储的最大长度为65532字节</li>
+<li>varchar(n)代表可以存储n个字符，但是其最大的实际存储空间应该是n+1</li>
+<li>超过varchar的n设置，会被截断</li>
+<li>速度慢</li>
+<li>不存在空间浪费，有<strong>部分字节</strong>被用来记录数据长度，达到可变长的效果。  </li>
+</ul>
+</blockquote>
+<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><ul>
+<li>存储可变长度大数据</li>
+<li>上限为65535字节，实际存储的最大长度仍为65535字节，其使用的是额外的空间存放数据长度</li>
+<li>速度慢</li>
+<li>不存在空间浪费，有<strong>额外字节</strong>被用来记录数据长度，达到可变长的效果。</li>
+</ul>
+<p>text不以字符数来表明存储大小，其有几个相关的类型，并规定了最大的存储字节。  </p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Maximum length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tiny</td>
+<td>255 bytes</td>
+</tr>
+<tr>
+<td>text</td>
+<td>65,535 bytes = 64KiB</td>
+</tr>
+<tr>
+<td>mediumtext</td>
+<td>16,777,215 bytes = 16MiB</td>
+</tr>
+<tr>
+<td>longtext</td>
+<td>4,294,967,295 bytes = 4GiB</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/10/mysql之char、varchar、text/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP-PCRE模式正则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/03/PHP-PCRE模式正则/">PHP PCRE模式正则</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/03/PHP-PCRE模式正则/" class="archive-article-date">
+  	<time datetime="2018-04-03T13:51:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PCRE"><a href="#PCRE" class="headerlink" title="PCRE"></a>PCRE</h2><p>什么是PCRE，其全名为Perl Compatible Regular Expressions，中文解释为“兼容Perl的正则表达式”。  </p>
+<h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><p>当使用PCRE函数的时候，模式需要由<strong>分隔符</strong>闭合包裹。<br>分隔符可以是任意非字母数字、非反斜线、非空白字符。  </p>
+<p>经常使用的分隔符是正斜线(/)、has符号(#)、取反符号(~)。  </p>
+<blockquote>
+<p>如果分隔符需要在模式内进行匹配，它必须使用反斜线进行转义。  </p>
+</blockquote>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><p>这里不进行赘述，基础语法可以参见<a href="https://wizardforcel.gitbooks.io/w3school-regex/content/" target="_blank" rel="noopener">W3School正则表达式教程</a></p>
+<h2 id="模式修饰符"><a href="#模式修饰符" class="headerlink" title="模式修饰符"></a>模式修饰符</h2><ol>
+<li>大小写不敏感匹配</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i(PCRE_CLAELESS)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>“行首”(^)和“行末”($)匹配目标字符串中任何换行符之前或之后</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m(PCRE_MULTILINE)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式中的点号元字符匹配所有字符，包括换行符</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s(PCRE_DOTALL)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式中没有经过转义的或不在字符类中的空白数据字符总会被忽略，并且位于一个未转义的字符类外部的#字符和下一个换行符之间的字符也被忽略</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x(PCRE_EXTENDED)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式被强制为“锚定”模式，也就是说约束匹配使其仅从 目标字符串的开始位置搜索</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A(PCRE_ANCHORED)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式中的元字符美元符号仅仅匹配目标字符串的末尾。如果这个修饰符 没有设置，当字符串以一个换行符结尾时， 美元符号还会匹配该换行符(但不会匹配之前的任何换行符)。 如果设置了修饰符m，这个修饰符被忽略.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D(PCRE_DOLLAR_ENDONLY)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>当一个模式需要多次使用的时候，为了得到匹配速度的提升，值得花费一些时间 对其进行一些额外的分析。如果设置了这个修饰符，这个额外的分析就会执行。当前， 这种对一个模式的分析仅仅适用于非锚定模式的匹配(即没有单独的固定开始字符)。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S</span><br></pre></td></tr></table></figure>
+<ol>
+<li>这个修饰符逆转了量词的”贪婪”模式。 使量词默认为非贪婪的，通过量词后紧跟? 的方式可以使其成为贪婪的。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">U(PCRE_UNGEEDY)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>模式和目标字符串都被认为是 utf-8 的。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u(PCRE_UTF8)</span><br></pre></td></tr></table></figure>
+<h2 id="中文匹配"><a href="#中文匹配" class="headerlink" title="中文匹配"></a>中文匹配</h2><p>这里，重点讲的是进行中文的匹配。  </p>
+<p>在其他的一些语言中，使用<code>\w</code>是可以匹配得上中文字符的。但是在PHP的PCRE模式中，并不能匹配上。  </p>
+<p>这时，我们就得用到模式修饰符<code>u</code>  </p>
+<p>基本汉字Unicode编码范围为 <code>4E00-9FA5</code><br>我们可以这样编写正则模式：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$pattern = &apos;/[\x&#123;4E00&#125;-\x&#123;9FA5&#125;]+/u&apos;</span><br></pre></td></tr></table></figure>
+<p>但是这样并不能匹配所有的汉字，所有汉字的Unicode编码范围见<a href="http://www.qqxiuzi.cn/zh/hanzi-unicode-bianma.php" target="_blank" rel="noopener">详情</a>  </p>
+<p>由于英文字符所占的Unicode编码范围为 <code>00-FF</code>，若在只有中文和英文字符的情况下，我们可以取巧，使用如下的模式进行匹配：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$pattern = &apos;/[^\x&#123;00&#125;-\x&#123;ff&#125;]+/u&apos;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PHP Regex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/03/PHP-PCRE模式正则/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql-常用操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -896,471 +1383,9 @@ b    xmlrpc_c::value_boolean
 
 
   
-    <article id="post-Ubuntu-下找不到动态链接库的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">Ubuntu 下找不到动态链接库的原因</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/" class="archive-article-date">
-  	<time datetime="2018-03-22T09:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="情况描述"><a href="#情况描述" class="headerlink" title="情况描述"></a>情况描述</h4><p>Linux下编程，下载所需要的安装包，解压，然后编译安装，通常命令：  </p>
-<pre><code>./configure
-make
-sudo make install # 需要创建文件
-</code></pre><p>当我们编译安装之后，到 <code>/usr/local/lib</code> 里和 <code>/usr/local/include</code> 里分别查看安装的库文件和头文件，然后我们欣喜的看到我们所安装的文件已经被放入到这里两个文件中，于是我们就去欣喜的写代码去了  </p>
-<pre><code>...
-coding
-...
-</code></pre><p>当我们的代码写好了之后，编译链接，然后运行，发下，它竟然提示:  </p>
-<pre><code>找不到shared libraries ?!!  
-</code></pre><p>然后我们又反复的去 <code>/usr/local/lib</code> 中去查找，发现的确已经存在了。  </p>
-<p>于是我们思考是否是 <code>/usr/local/lib</code> 没有加入到 共享链接库的配置文件中。  </p>
-<p>于是我们打开 <code>/etc/ld.so.conf</code> 进行查看，发现：  </p>
-<pre><code>include /etc/ld.so.conf.d/*.conf
-/usr/local/lib
-</code></pre><p>已经将 <code>/usr/local/lib</code> 包含进去了  </p>
-<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>执行下列命令  </p>
-<pre><code>sudo ldconfig
-</code></pre><p>重新加载一下所有的共享库文件，因为我们在安装好所需要的包之后，并没有给系统足够的时间来反应你所添加的内容，所以我们需要告诉系统应该重新加载一下。  </p>
-<p>之后再运行代码，OK了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux  Ubuntu  C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/Ubuntu-下找不到动态链接库的原因/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gcc-命令详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/gcc-命令详解/">gcc 命令详解</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/gcc-命令详解/" class="archive-article-date">
-  	<time datetime="2018-03-22T07:27:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C-C-编译过程"><a href="#C-C-编译过程" class="headerlink" title="C/C++编译过程"></a>C/C++编译过程</h2><ol>
-<li>编译预处理</li>
-<li>编译、优化</li>
-<li>汇编</li>
-<li>链接</li>
-</ol>
-<h4 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h4><p>对宏定义指令、条件编译指令、头文件包含指令、特殊符号、预处理模块进行处理。  </p>
-<p>宏定义指令：  </p>
-<pre><code>#define Name TokenString
-#undef
-...
-</code></pre><p>条件编译指令：  </p>
-<pre><code>#ifdef
-#ifndef
-#else
-#elif
-#endif
-...
-</code></pre><p>头文件包含指令：  </p>
-<pre><code>#include &quot;FileName&quot; // 开发者自己编写的头文件
-#include &lt;FileName&gt; // 系统提供的头文件
-</code></pre><p>预处理模块：  </p>
-<pre><code>#progma    // 设定编译器的窗台或是只是编译器完成一些特定的动作
-</code></pre><h4 id="编译、优化"><a href="#编译、优化" class="headerlink" title="编译、优化"></a>编译、优化</h4><p>解释代码，生成汇编程序。  </p>
-<h4 id="汇编过程"><a href="#汇编过程" class="headerlink" title="汇编过程"></a>汇编过程</h4><p>把汇编语言代码翻译成目标机器指令。  </p>
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>由汇编程序生成的目标文件并不能立即被执行，其中可能还有许多没有解决的问题。<br>归纳起来，就是调用了其他文件中的内容。<br>这需要经过链接才能解决。  </p>
-<p>链接的主要工作就是讲有关的目标文件彼此相连，也即将在一个文件中引用的符号同该符号在另外一个文件中的定义连接起来，使得所有的这些目标文件成为一个能够被操作系统装入执行的统一整体。  </p>
-<p><strong>静态连接</strong><br>在这种链接方式下，函数的代码将从其所在地静态链接库中被拷贝到最终的可执行程序中。  </p>
-<p><strong>动态连接</strong><br>在此种方式下，函数的代码被放到称作是动态链接库或共享对象的某个目标文件中。  </p>
-<h2 id="常用编译命令"><a href="#常用编译命令" class="headerlink" title="常用编译命令"></a>常用编译命令</h2><h6 id="1-选项-E-（预处理）"><a href="#1-选项-E-（预处理）" class="headerlink" title="1. 选项 -E （预处理）"></a>1. 选项 -E （预处理）</h6><p>将带#的语句重新展开至指定文件中，比如 <code>#define</code>, <code>#include &quot;*.h&quot;</code> </p>
-<pre><code>gcc -E test.c -o test.i
-</code></pre><p>将test.c预处理输出test.i文件。 </p>
-<h6 id="2-选项-S-（编译）（比前一步多了编译这一步）"><a href="#2-选项-S-（编译）（比前一步多了编译这一步）" class="headerlink" title="2. 选项 -S （编译）（比前一步多了编译这一步）"></a>2. 选项 -S （编译）（比前一步多了编译这一步）</h6><p>将.c文件编译成汇编文件（.s文件）</p>
-<pre><code>gcc -S test.c -o test.s
-</code></pre><h6 id="3-选项-c-（汇编）（比前一步多了assemble这一步）"><a href="#3-选项-c-（汇编）（比前一步多了assemble这一步）" class="headerlink" title="3. 选项 -c （汇编）（比前一步多了assemble这一步）"></a>3. 选项 -c （汇编）（比前一步多了assemble这一步）</h6><p>将.c文件编译成汇编文件（.o文件）</p>
-<pre><code>gcc -c test.c -o test.o
-</code></pre><h6 id="4-无选项编译链接（比前一步多了链接这一步）"><a href="#4-无选项编译链接（比前一步多了链接这一步）" class="headerlink" title="4. 无选项编译链接（比前一步多了链接这一步）"></a>4. 无选项编译链接（比前一步多了链接这一步）</h6><pre><code>gcc test.c
-</code></pre><p>将test.c预处理、汇编、编译并链接形成可执行文件。<br>这里未指定输出文件，默认输出为a.out。  </p>
-<h6 id="5-无选项链接"><a href="#5-无选项链接" class="headerlink" title="5. 无选项链接"></a>5. 无选项链接</h6><pre><code>gcc test.o -o test
-</code></pre><p>将编译输出文件test.o链接成最终可执行文件test。  </p>
-<h6 id="6-选项-O"><a href="#6-选项-O" class="headerlink" title="6. 选项-O"></a>6. 选项-O</h6><pre><code>gcc -O1 test.c -o test
-</code></pre><p>使用编译优化级别1编译程序。级别为1~3，级别越大优化效果越好，但编译时间越长。  </p>
-<h6 id="7-选项-std"><a href="#7-选项-std" class="headerlink" title="7. 选项-std"></a>7. 选项-std</h6><p>指定使用哪个C/C++语言标准编译  </p>
-<pre><code>// 使用 C++11
-g++ -std=c++11 
-</code></pre><h6 id="8-选项-I"><a href="#8-选项-I" class="headerlink" title="8. 选项-I"></a>8. 选项-I</h6><p>指定使用的头文件的目录，默认为 <code>/usr/include</code> 和 <code>/usr/local/include</code>，这两个目录是GCC默认的头文件寻找目录。  </p>
-<pre><code>gcc -I . test.c -o test
-</code></pre><p>当在预处理test.c的时候，遇到引用头文件，会在当前目录下进行寻找</p>
-<h6 id="9-选项-L"><a href="#9-选项-L" class="headerlink" title="9. 选项-L"></a>9. 选项-L</h6><p>指定链接库的目录，默认为 <code>/usr/lib</code> 和 <code>/usr/local/lib</code>。  </p>
-<pre><code>gcc -L . test.c -o test -lpthread
-</code></pre><p>在当前目录下寻找pthread的链接库文件进行链接。  </p>
-<h6 id="10-选项-l"><a href="#10-选项-l" class="headerlink" title="10. 选项-l"></a>10. 选项-l</h6><p>指定某个链接库进行链接。  </p>
-<pre><code>gcc test.c -o test -lpthread
-</code></pre><p>将test.c的二进制文件与pthread链接库进行链接生成可执行文件。  </p>
-<h2 id="多源文件的编译方法"><a href="#多源文件的编译方法" class="headerlink" title="多源文件的编译方法"></a>多源文件的编译方法</h2><h6 id="1-多个文件一起编译"><a href="#1-多个文件一起编译" class="headerlink" title="1. 多个文件一起编译"></a>1. 多个文件一起编译</h6><pre><code>gcc testfun.c test.c -o test
-</code></pre><p>将testfun.c 和 test.c 分别变异后连接成test可执行文件  </p>
-<h6 id="2-分别编译各个源文件，之后对编译后输出的目标文件链接"><a href="#2-分别编译各个源文件，之后对编译后输出的目标文件链接" class="headerlink" title="2. 分别编译各个源文件，之后对编译后输出的目标文件链接"></a>2. 分别编译各个源文件，之后对编译后输出的目标文件链接</h6><pre><code>gcc -c testfun.c
-gcc -c test.c
-gcc testfunc.o test.o -o test
-</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/ibyte/p/5828445.html" target="_blank" rel="noopener">gcc编译命令</a>  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/gcc-命令详解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-了解cmake" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/21/了解cmake/">了解CMake</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/21/了解cmake/" class="archive-article-date">
-  	<time datetime="2018-03-21T08:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是CMake"><a href="#什么是CMake" class="headerlink" title="什么是CMake"></a>什么是CMake</h2><p>CMake允许开发者编写一种平台无关的CMakeList.txt文件来定制整个编译流程，然后在根据目标用户的平台进一步生成所需的本地化Makefile和工程文件。  </p>
-<p>其特点是： <code>Write once, run everywhere.</code></p>
-<h2 id="使用CMake生成Makefile并编译的流程"><a href="#使用CMake生成Makefile并编译的流程" class="headerlink" title="使用CMake生成Makefile并编译的流程"></a>使用CMake生成Makefile并编译的流程</h2><ol>
-<li>编写CMake配置文件CMakeLists.txt</li>
-<li>执行命令 <code>cmake PATH</code> 或者 <code>ccmake PATH</code> 生成 <code>Makefile</code>，其中 <code>PATH</code> 是CMakeLists.txt所在的目录。  </li>
-<li>使用make命令进行编译</li>
-</ol>
-<blockquote>
-<p><code>ccmake</code> 和 <code>cmake</code> 的区别在于前者提供了一个交互式的界面</p>
-</blockquote>
-<h2 id="CMakeLists-txt语法"><a href="#CMakeLists-txt语法" class="headerlink" title="CMakeLists.txt语法"></a>CMakeLists.txt语法</h2><p>其由命令、注释和空格组成，其中命令是不区分大小写的。<br>注释由 <code>#</code> 开头。<br>命令由命令名称、小括号和参数组成，参数之间使用空格进行间隔。  </p>
-<h2 id="CMakeLists-txt常见命令"><a href="#CMakeLists-txt常见命令" class="headerlink" title="CMakeLists.txt常见命令"></a>CMakeLists.txt常见命令</h2><h4 id="一层目录"><a href="#一层目录" class="headerlink" title="一层目录"></a>一层目录</h4><pre><code>cmake_minimum_required(VERSION 2.8)
-</code></pre><p>指定运行此配置文件所需的CMake的最低版本为2.8<br>一般项目的主CMakeLists.txt文件中一定有这个命令，子目录里不需要。  </p>
-<pre><code>project(TEST)
-</code></pre><p>表示项目的名称为TEST，主目录中的CMakeLists.txt文件中必须有，子目录中的CMakeLists.txt文件中不需要。  </p>
-<pre><code>add_executable(Test main.cc)
-</code></pre><p>将名为main.cc的源文件编译成一个名称为Test的可执行文件。<br>如果需要将多个源文件编译成一个可执行文件，则添加到main.cc 的后面。<br>更简便的方法如下：  </p>
-<pre><code>aux_source_direct(. DIR_SRCS)
-</code></pre><p>查找 <code>.</code> 目录下（也就是当前目录下）的所有源文件，并将名称保存到DIR_SRCS变量中。<br>编译时就可如下：  </p>
-<pre><code>add_executable(Test ${DIR_SRCS})
-</code></pre><h4 id="多层目录"><a href="#多层目录" class="headerlink" title="多层目录"></a>多层目录</h4><pre><code>add_subdirectory(sub)
-</code></pre><p>当一个项目中有多层目录时，需要在上层CMakeLists.txt文件中添加子目录，并且子目录下也应当有CMakeLists.txt文件。<br>这样一来，子目录下的CMakeLists.txt文件和源代码也会被处理。  </p>
-<pre><code>aux_source_directory(. DIR_LIB_SRCS)
-add_library(MathFunctions ${DIR_LIB_SRCS})
-</code></pre><p>上面是子目录中CMakeLists.txt文件中的内容，其将子目录下的所有源文件编译为静态链接库。  </p>
-<pre><code>set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
-target_link_libraries(Test ${EXTRA_LIBS})
-</code></pre><p>链接，当有子目录的时候，且子目录的代码是可执行文件的一部分而未被分离成另一个可执行文件，则需要链接它。  </p>
-<h4 id="自定义编译选项"><a href="#自定义编译选项" class="headerlink" title="自定义编译选项"></a>自定义编译选项</h4><p>Cmake允许为项目增加编译选项，从而可以根据用户的环境和需求选择最合适的编译方案。  </p>
-<pre><code>cinfigure_file(
-    &quot;${PROJECT_SOURCE_DIR}/config.h.in&quot;
-    &quot;${PROJECT_BINARY_DIR}/config.h&quot;
-)  
-</code></pre><p>该命令用于加入一个配置头文件config.h，这个文件有CMake从config.h.in生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成。  </p>
-<p>config.h.in文件中的内容如下：  </p>
-<pre><code>#cmakedefine USE_MYMATH  
-</code></pre><p>其定义了变量USE_MYMATH，以供CMakeLists.txt文件使用。  </p>
-<pre><code>option (USE_MYMATH
-        &quot;Use provded math implementation&quot; ON)
-</code></pre><p>option命令添加了一个USE_MYMATH选项，并且设置了默认值为ON，中间的参数是对USE_MYMATH参数的描述。  </p>
-<p>设置为ON，则生成的config.h文件中就会定义出在config.h.in中配置的变量；设置为OFF，则生成的config.h文件中的定义就会被注释掉。  </p>
-<h4 id="安装和测试"><a href="#安装和测试" class="headerlink" title="安装和测试"></a>安装和测试</h4><p>CMake可以指定安装规则，以及添加测试。<br>这两个功能分别可以通过产生Makefile后使用 <code>make install</code> 和 <code>make test</code> 来执行。  </p>
-<p><strong>定制安装规则</strong><br>在子目录下的CMakeLists.txt文件中添加如下两行  </p>
-<pre><code>install (TARGETS MathFunctions DESTINATION bin)
-install (FILES MathFunctions.h DESTINATION include)
-</code></pre><p>在项目根目录下的CMakeLists.txt文件总添加如下两行</p>
-<pre><code>install (TARGETS Test DESTINATION bin)
-install (FILES &quot;${PROJECT_BINARY_DIR}/config.h&quot; DESTINATION include)
-</code></pre><p>通过上面的定制，生成Test文件和MathFunctions函数库libMathFunctions.o文件将会被复制到 <code>/usr/local/bin</code> 中，而 MathFunctions.h和生成的config.h文件则会被复制到 <code>/usr/local/include</code> 中。  </p>
-<p><strong>为工程添加测试</strong><br>CMake提供了一个称谓CTest的测试工具。我们只要在项目的根目录的CMakeLists.txt文件总调用一系列的 <code>add_test</code> 命令。  </p>
-<pre><code>enable_testing() # 启用测试
-</code></pre><p>在CMakeLists.txt文件的开头，需要添加这一行。  </p>
-<p>语法：  </p>
-<pre><code>add_test(TEST_NAME executable_file params)
-# 示例
-add_test(test_run test 5, 2)
-</code></pre><p>add_test语法有两个以上的参数，第一个是自定义的测试命名，第二个是可执行文件名，其他的为可执行文件需要传入的参数。  </p>
-<pre><code>set_tests_properties(自定义的测试名 PROPERTIES PASS_REGULAR_EXPRESSION 被包含的字符串)
-</code></pre><p>这个语句是为了检测定义的测试的返回值中是否包含所给的字符串，<code>PASS_REGULAR_EXPRESSION</code>用来测试输出是否所给的字符串。  </p>
-<p><strong>简化测试用例——宏定义</strong>  </p>
-<pre><code>macro(do_test arg1 arg2 result)
-    add_test (test_${arg1}_${arg2} Test ${arg1} ${arg2})
-    set_tests_properties(test_${arg1}_${arg2} PROPERTIES PASS_REGULAR_EXPRESSION ${result})
-endmacro(do_test)
-
-do_test(5 2 &quot;is 25&quot;)
-do_test(5 2 &quot;is 25&quot;)
-do_test(5 2 &quot;is 25&quot;)
-do_test(5 2 &quot;is 25&quot;)
-</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.hahack.com/codes/cmake/#stq=&amp;stp=0" target="_blank" rel="noopener">CMake入门实战</a><br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/" target="_blank" rel="noopener">在linux下使用CMake构建应用程序</a><br><a href="https://www.jianshu.com/p/bbf68f9ddffa" target="_blank" rel="noopener">CMake简要教程</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具 C++ cmake</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/21/了解cmake/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/20/Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序/">Ubuntu16.04 + nginx + C++ + spawn-fcgi 开发web程序</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/20/Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序/" class="archive-article-date">
-  	<time datetime="2018-03-20T12:49:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>系统：Ubuntu16.04<br>nginx：1.13.9<br>spawn-fcgi：1.6.4<br>gcc：5.6  </p>
-<h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><p>nginx<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">下载</a>  </p>
-<ol>
-<li><p>解压后，进入nginx目录下，进行安装：  </p>
-<pre><code>./configure
-</code></pre><p>但是，在安装过程，可能会缺少一些安装包，例如<code>pcre</code>，<code>zlib</code>，<code>OpenSSL</code>，直接进行apt-get install 安装即可。  </p>
-</li>
-<li><p>install</p>
-<pre><code>make
-sudo make install # 注意需要root权限，因为需要创建文件
-</code></pre></li>
-</ol>
-<p>安装完成后，nginx放置在/usr/local/nginx目录下，主要的配置文件是其下的conf中的nginx.conf  </p>
-<h4 id="安装spawn-fcgi"><a href="#安装spawn-fcgi" class="headerlink" title="安装spawn-fcgi"></a>安装spawn-fcgi</h4><p>spawn-fcgi<a href="http://redmine.lighttpd.net/versions/21" target="_blank" rel="noopener">下载</a>  </p>
-<ol>
-<li><p>解压后，进入spawn-fcgi目录</p>
-<pre><code>./configure
-make
-</code></pre></li>
-<li>生成可执行文件之后，将其移动到nginx的sbin目录下  <pre><code>cp src/spaw-fcgi /usr/local/nginx/sbin
-</code></pre></li>
-</ol>
-<h4 id="安装fcgi库"><a href="#安装fcgi库" class="headerlink" title="安装fcgi库"></a>安装fcgi库</h4><p>fcgi库<a href="http://download.chinaunix.net/download.php?id=5447&amp;ResourceID=2941" target="_blank" rel="noopener">下载</a><br>需要修改 /include/fcgio.h，添加如下代码  </p>
-<pre><code>#include &lt;cstdio&gt;
-</code></pre><p>然后，进行安装  </p>
-<pre><code>./configure
-make
-sudo make install # 注意需要root权限，因为需要创建文件
-</code></pre><h4 id="nginx命令"><a href="#nginx命令" class="headerlink" title="nginx命令"></a>nginx命令</h4><p>启动服务  </p>
-<pre><code>/usr/local/nginx/sbin/nginx start
-</code></pre><p>关闭服务  </p>
-<h4 id="spawn-fcgi命令"><a href="#spawn-fcgi命令" class="headerlink" title="spawn-fcgi命令"></a>spawn-fcgi命令</h4>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/20/Ubuntu16-04-nginx-C-spawn-fcgi-开发web程序/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1447,10 +1472,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
@@ -1459,11 +1480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1471,7 +1492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux MySQL C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux 工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1503,11 +1532,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">python pyenv 工具</a>
+                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+                <a href="javascript:void(0)" class="js-tag color3">python numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python pyenv tkinter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python pyenv 工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,19 +1552,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linux shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1535,15 +1568,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">python pyenv tkinter</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">

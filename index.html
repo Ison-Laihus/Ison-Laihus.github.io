@@ -139,6 +139,481 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux-下安装离线词典" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/Linux-下安装离线词典/">Linux 下安装离线词典</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/22/Linux-下安装离线词典/" class="archive-article-date">
+  	<time datetime="2018-07-22T02:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如今社会，当需要翻译的时候，人们肯定会毫不犹豫地选择上网搜。<br>但是，也有很多情况下，是没有网络的。<br>所以，离线词典就派上了用场了。  </p>
+<h2 id="Step-1-：-下载starDict"><a href="#Step-1-：-下载starDict" class="headerlink" title="Step 1 ： 下载starDict"></a>Step 1 ： 下载starDict</h2><p>可以用命令行下载，也可以到网上下载安装包。<br>命令行下载如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install stardict</span><br></pre></td></tr></table></figure></p>
+<h2 id="Step-2-：-下载词库"><a href="#Step-2-：-下载词库" class="headerlink" title="Step 2 ： 下载词库"></a>Step 2 ： 下载词库</h2><p>下载地址：<a href="http://download.huzheng.org/" target="_blank" rel="noopener">http://download.huzheng.org/</a>  </p>
+<p>下载好了，解压放到<code>/usr/share/starDict/dic</code>目录下即可</p>
+<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h2><p>这样一来，离线词典就安装成功了，我们就可以像是在Windows下使用有道词典一样进行翻译了，是不是很简单：）  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux 工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/22/Linux-下安装离线词典/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-shell笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/11/shell笔记/">shell笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/11/shell笔记/" class="archive-article-date">
+  	<time datetime="2018-07-11T09:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="内建命令"><a href="#内建命令" class="headerlink" title="内建命令"></a>内建命令</h2><h4 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hash [-lr] [-p filename] [-dt] [name]</span><br></pre></td></tr></table></figure>
+<p>作用： 在环境变量PATH中搜索命令name的完整路径并记住它。  </p>
+<ul>
+<li><code>-r</code> 用于清空hash列表</li>
+<li><code>-p filename</code> 用于指定命令name的路径，路径filename是一个文件而非目录</li>
+<li><code>-d</code> 用于从hash列表中移除命令name对应的记录</li>
+<li><code>-t</code> 用于显示hash列表命令name的完整路径<br>成功执行时，hash命令的退出章台为0。  </li>
+</ul>
+<h4 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h4><ul>
+<li><code>-n</code> 不打印换行符</li>
+</ul>
+<h4 id="md5sum"><a href="#md5sum" class="headerlink" title="md5sum"></a>md5sum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5sum (选项) (参数)</span><br></pre></td></tr></table></figure>
+<p>作用： 采用MD5报文摘要算法（128位）计算和检查文件的校验和。<br>选项：  </p>
+<ul>
+<li><code>-b</code> 二进制模式读取文件</li>
+<li><code>-t</code> 或 <code>--text</code> 把输入的文件作为文本文件看待</li>
+<li><code>-c</code> 从指定文件中读取MD5校验和，并进行校验</li>
+<li><code>--status</code> 验证成功时不输出任何信息</li>
+<li><code>-w</code> 当校验不正确时给出警告信息<br>参数：</li>
+<li><code>文件名</code> 需要计算和检查的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># md5sum db.json </span><br><span class="line">e46f30a8b674feafc358ecf490335078  db.json</span><br><span class="line"># md5sum db.json &gt; db.json.md5</span><br><span class="line"># md5sum db.json -c db.json.md5 </span><br><span class="line">md5sum: db.json: no properly formatted MD5 checksum lines found</span><br><span class="line">db.json: OK</span><br><span class="line"># md5sum -c db.json.md5 </span><br><span class="line">db.json: OK</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Linux shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/11/shell笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/11/python学习笔记/">python学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/11/python学习笔记/" class="archive-article-date">
+  	<time datetime="2018-07-11T01:30:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python2-和-Python3-的区别"><a href="#Python2-和-Python3-的区别" class="headerlink" title="Python2 和 Python3 的区别"></a>Python2 和 Python3 的区别</h2><h4 id="xrange函数"><a href="#xrange函数" class="headerlink" title="xrange函数"></a>xrange函数</h4><p>xrange 函数在 Python2 中有, 而在 Python3 中去掉了. 在 Python3 中被修改成 range 函数.<br>即 Python3 中的 range 函数的结果就是一个生成器.  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/11/python学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-numpy学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/24/numpy学习笔记/">numpy学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/24/numpy学习笔记/" class="archive-article-date">
+  	<time datetime="2018-06-24T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是NumPy"><a href="#什么是NumPy" class="headerlink" title="什么是NumPy"></a>什么是NumPy</h1><p>NumPy是一个python包。它代表“Numeric Python”，是一个由多维数组对象和用于处理数组地例程集合组成的库。  </p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>表一</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool_</td>
+<td>存储为一个字节的布尔值</td>
+</tr>
+<tr>
+<td>int_</td>
+<td>默认整数，相当于C的long，通常为int32或int64</td>
+</tr>
+<tr>
+<td>intc</td>
+<td>相当于C的int，通常为int32或int64</td>
+</tr>
+<tr>
+<td>intp</td>
+<td>用于索引的整数，相当于C地size_t，通常为通常为int32或int64</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>1字节（-128 ～ 127）</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>16 位整数（-32768 ~ 32767）</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>32 位整数（-2147483648 ~ 2147483647）</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>64 位整数（-9223372036854775808 ~ 9223372036854775807）</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>8 位无符号整数（0 ~ 255）</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>16 位无符号整数（0 ~ 65535）</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>32 位无符号整数（0 ~ 4294967295）</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>64 位无符号整数（0 ~ 18446744073709551615）</td>
+</tr>
+<tr>
+<td>float_</td>
+<td>float64的简写</td>
+</tr>
+<tr>
+<td>float16</td>
+<td>半精度浮点：符号位，5 位指数，10 位尾数</td>
+</tr>
+<tr>
+<td>float32</td>
+<td>单精度浮点：符号位，8 位指数，23 位尾数</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>双精度浮点：符号位，11 位指数，52 位尾数</td>
+</tr>
+<tr>
+<td>complex_</td>
+<td>complex128的简写</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>复数，由两个 32 位浮点表示（实部和虚部）</td>
+</tr>
+<tr>
+<td>complex128</td>
+<td>复数，由两个 64 位浮点表示（实部和虚部）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="NumPy-Ndarray对象"><a href="#NumPy-Ndarray对象" class="headerlink" title="NumPy - Ndarray对象"></a>NumPy - Ndarray对象</h1><p>NumPy中定义的最重要的对象是称为ndarray的N维数组类型。它描述相同类型地元素集合。</p>
+<p>ndarray中的每个元素在内存中使用相同大小的块。 ndarray中的每个元素是数据类型对象的对象（称为 dtype）。</p>
+<p>ndarray类的实例可以通过不同的数组创建例程来构造。 基本的ndarray是使用 NumPy 中的数组函数创建的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.array(objec)</span><br></pre></td></tr></table></figure></p>
+<h1 id="NumPy-数组属性"><a href="#NumPy-数组属性" class="headerlink" title="NumPy - 数组属性"></a>NumPy - 数组属性</h1><p>表二</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ndarray.shape</td>
+<td>返回一个包含数组维度地元组，它可以用于调整数组的大小</td>
+</tr>
+<tr>
+<td>ndarray.ndim</td>
+<td>返回数组的维数</td>
+</tr>
+<tr>
+<td>ndarray.itemsize</td>
+<td>返回数组中每个元素字节单位长度</td>
+</tr>
+<tr>
+<td>ndarray.flags</td>
+<td>返回表3的当前值</td>
+</tr>
+</tbody>
+</table>
+<p>表三</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C_CONTIGUOUS</td>
+<td>数组位于单一的、C 风格的连续区段内</td>
+</tr>
+<tr>
+<td>F_CONTIGUOUS</td>
+<td>数组位于单一的、Fortran 风格的连续区段内</td>
+</tr>
+<tr>
+<td>OWNDATA</td>
+<td>数组的内存从其它对象处借用</td>
+</tr>
+<tr>
+<td>WRITEABLE</td>
+<td>据区域可写入。 将它设置为flase会锁定数据，使其只读</td>
+</tr>
+<tr>
+<td>ALIGNED</td>
+<td>数据和任何元素会为硬件适当对齐</td>
+</tr>
+<tr>
+<td>UPDATEIFCOPY</td>
+<td>这个数组是另一数组的副本。当这个数组释放时，源数组会由这个数组中的元素更新</td>
+</tr>
+</tbody>
+</table>
+<h1 id="数组创建例程"><a href="#数组创建例程" class="headerlink" title="数组创建例程"></a>数组创建例程</h1><p>numpy.arange(start, strop, step, )</p>
+<h1 id="NumPy-数组上的迭代"><a href="#NumPy-数组上的迭代" class="headerlink" title="NumPy - 数组上的迭代"></a>NumPy - 数组上的迭代</h1><p>NumPy 包包含一个迭代器对象numpy.nditer。 它是一个有效的多维迭代器对象，可以用于在数组上进行迭代。 数组的每个元素可使用 Python 的标准Iterator接口来访问。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">python numpy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/24/numpy学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pyenv安装python找不到-tkinter库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -638,648 +1113,9 @@
 
 
   
-    <article id="post-HTTP-状态码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/06/HTTP-状态码/">HTTP 状态码</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/06/HTTP-状态码/" class="archive-article-date">
-  	<time datetime="2018-05-06T06:49:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTTP状态码类型"><a href="#HTTP状态码类型" class="headerlink" title="HTTP状态码类型"></a>HTTP状态码类型</h2><ul>
-<li>信息类（1**）</li>
-<li>响应成功类（2**）</li>
-<li>重定向类（3**）</li>
-<li>客户端错误类（4**）</li>
-<li>服务端错误类（5**）</li>
-</ul>
-<h2 id="信息类（1-）"><a href="#信息类（1-）" class="headerlink" title="信息类（1**）"></a>信息类（1**）</h2><table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>100</td>
-<td>客户端必须继续发出请求</td>
-</tr>
-<tr>
-<td>101</td>
-<td>客户端要求服务器根据请求转换HTTP协议版本</td>
-</tr>
-<tr>
-<td>102</td>
-<td>处理将会被继续执行</td>
-</tr>
-</tbody>
-</table>
-<h2 id="响应成功类（2-）"><a href="#响应成功类（2-）" class="headerlink" title="响应成功类（2**）"></a>响应成功类（2**）</h2><table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>表明请求被成功完成，所请求的资源发送回客户端</td>
-</tr>
-<tr>
-<td>201</td>
-<td>请求已经被实现，而且有一个新的资源已经依据请求的需要而建立，且其 URI 已经随Location 头信息返回。</td>
-</tr>
-<tr>
-<td>202</td>
-<td>服务器已接受请求，但尚未处理。</td>
-</tr>
-<tr>
-<td>203</td>
-<td>服务器已成功处理了请求，但返回的实体头部元信息不是在原始服务器上有效的确定集合，而是来自本地或者第三方的拷贝。</td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/06/HTTP-状态码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript-数组的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/05/JavaScript-数组的方法/">JavaScript 数组的方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/05/JavaScript-数组的方法/" class="archive-article-date">
-  	<time datetime="2018-05-05T10:25:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>32个方法：<br>toString()、toLocaleString()、valueOf()、join()、push()、pop()、shift()、unshift()、reverse()、sort()、concat()、slice()、splice()、indexOf()、lastIndexOf()、reduce()、reduceRight()、map()、forEach()、filter()、some()、every()、Array.from()、Array.of()、copyEithin()、find()、findIndex()、fill()、entries()、keys()、values()、includes()</p>
-<h2 id="继承的方法"><a href="#继承的方法" class="headerlink" title="继承的方法"></a>继承的方法</h2><h5 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h5><p>返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。  </p>
-<h5 id="toLocaleString-NaN"><a href="#toLocaleString-NaN" class="headerlink" title="toLocaleString()"></a>toLocaleString()</h5><p>是toString()方法的本地化版本，它经常也会返回toString()方法相同的值。<br>但是在将Date对象转换为字符串的话，就会根据本地的时间进行转换。  </p>
-<blockquote>
-<p>undefined 和 null 在使用上述两种方法时会转换为 空字符串</p>
-</blockquote>
-<h5 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf"></a>valueOf</h5><p>返回数组对象本身</p>
-<h2 id="数组转换方法"><a href="#数组转换方法" class="headerlink" title="数组转换方法"></a>数组转换方法</h2><h5 id="join"><a href="#join" class="headerlink" title="join"></a>join</h5><p>Array.join()方法时Sting.split()方法的逆向操作，是将数组中的元素以一个连接符连接成一个字符串。<br>默认是 <code>,</code> ，也可以传入分隔符作为join的参数。<br>null 和 undefined 会被视为 空字符串。  </p>
-<h2 id="栈和队列方法"><a href="#栈和队列方法" class="headerlink" title="栈和队列方法"></a>栈和队列方法</h2><h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p>可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度。  </p>
-<p>使用apply方法可以合并两数组  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let a = [1, 2, 3]</span><br><span class="line">let b = [4, 5, 6]</span><br><span class="line">Array.prototype.push.apply(a, b) // [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
-<p>但是，使用call方法，却会将数组看成一个整体  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let a = [1, 2, 3]</span><br><span class="line">let b = [4, 5, 6]</span><br><span class="line">Array.prototype.push.call(a, b) // [1, 2, 3, [4, 5, 6] ]</span><br></pre></td></tr></table></figure>
-<h5 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h5><p>从数组末尾移除最后一项，减少数组的length值，然后返回移除的项。  </p>
-<blockquote>
-<p>对空数组使用pop()方法，不会报错，而是返回undefined</p>
-</blockquote>
-<h5 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h5><p>移除数组中的第一个项并返回该项，同时数组的长度减一。  </p>
-<blockquote>
-<p>对空数组使用shift()方法，不会报错，而是返回undefined</p>
-</blockquote>
-<h5 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h5><p>在数组前端添加任意个项，并返回新数组的长度。  </p>
-<blockquote>
-<p>当使用多个参数调用unshift()时，参数是一次性插入的而非一次一个地插入。这意味着最终的数组中插入的元素的顺序和它们在参数列表中的顺序一致</p>
-</blockquote>
-<h2 id="数组排序方法"><a href="#数组排序方法" class="headerlink" title="数组排序方法"></a>数组排序方法</h2><h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h5><p>用户反转数组的顺序，返回经过排序之后的数组，而且原数组顺序也会发生改变。  </p>
-<h5 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h5><p>按字符串升序排列数组项，sort方法会调用每个数组项的toString()方法，然后比较得到的字符串排序，返回经过排序之后的数组，而原数组顺序也发生改变。  </p>
-<blockquote>
-<p>如果数组中包含undefined元素，它们会被排到数组的尾部</p>
-</blockquote>
-<p>sort()方法可以接受一个比较函数作为参数，以便指定哪个值在哪个值的前面。比较函数接收两个参数，如果第一个参数应该位于第二个参数之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个参数之后则返回一个正数  </p>
-<blockquote>
-<p>如果对一个字符串数组执行不区分大小写的字母表排序，比较函数首先将参数转化为小写字符串再开始比较</p>
-</blockquote>
-<h2 id="数组拼接方法"><a href="#数组拼接方法" class="headerlink" title="数组拼接方法"></a>数组拼接方法</h2><h5 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h5><p>基于当前数组中的所有项创建一个新数组，先创建当前数组一个副本，然后将接收到的参数添加到这个副本的末尾，最后返回新构建的数组。所以concat()不影响原数组。  </p>
-<p>如果不给concat()方法传递参数时，它只是复制当前的数组；如果参数是一个或多个数组，则该方法会将这些数组中的每一项都添加到结果数组中；如果传递的值不是数组，这些值就会被简单地添加到结果数组的末尾。  </p>
-<p>如果不提供参数，concat()方法返回当前数组的一个浅拷贝。所谓“浅拷贝”，指的是如果数组成员包括复合类型的值（比如对象），则新数组拷贝的是该值的引用。  </p>
-<h2 id="创建子数组"><a href="#创建子数组" class="headerlink" title="创建子数组"></a>创建子数组</h2><h5 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h5><p>基于当前数组中的一个或多个项创建一个新数组，接受一个或两个参数，即要返回项的起始和结束位置，最后返回新数组，所以slice()不影响原数组。  </p>
-<p>slice(start,end)方法需要两个参数start和end，返回这个数组中从start位置到(但不包含)end位置的一个子数组；如果end为undefined或不存在，则返回从start位置到数组结尾的所有项。<br>　　<br>如果start是负数，则start = max(length + start,0)。  </p>
-<p>如果end是负数，则end = max(length + end,0)。</p>
-<p>如果没有参数，则返回原数组。  </p>
-<blockquote>
-<p>slice()方法涉及到Number()转型函数的隐式类型转换，当start被转换为NaN时，相当于start = 0；当end被转换为NaN时(end为undefined除外)，则输出空数组。</p>
-</blockquote>
-<h2 id="数组删改方法"><a href="#数组删改方法" class="headerlink" title="数组删改方法"></a>数组删改方法</h2><h5 id="splice-start-length-item1-…-itemX"><a href="#splice-start-length-item1-…-itemX" class="headerlink" title="splice(start, length, item1, …, itemX)"></a>splice(start, length, item1, …, itemX)</h5><p>用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，该方法会改变原数组。  </p>
-<p>不提供第二个参数的时候，默认到结尾。  </p>
-<p>item1,…,itemX 会用来替换被删除掉的数组项。  </p>
-<h2 id="数组位置方法"><a href="#数组位置方法" class="headerlink" title="数组位置方法"></a>数组位置方法</h2><h5 id="indexOf-search-start"><a href="#indexOf-search-start" class="headerlink" title="indexOf(search, start)"></a>indexOf(search, start)</h5><p>从start位置开始向后搜索search，返回search第一次出现的位置下标，没有则返回-1。  </p>
-<h5 id="lastIndexOf-search-start"><a href="#lastIndexOf-search-start" class="headerlink" title="lastIndexOf(search, start)"></a>lastIndexOf(search, start)</h5><p>从start位置开始向后搜索search，返回search最后一次出现的位置下标，没有则返回-1</p>
-<h2 id="数组归并方法"><a href="#数组归并方法" class="headerlink" title="数组归并方法"></a>数组归并方法</h2><h5 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h5><p>reduce()方法需要两个参数。  </p>
-<p>第一个是执行化简操作的函数。化简函数的任务就是用某种方法把两个值组合或化简为一个值，并返回化简后的值。<br>　　<br>化简函数接受四个参数，分别是：  </p>
-<ul>
-<li>初始变量，默认为数组的第一个元素值。函数第一次执行后的返回值作为函数第二次执行的初始变量，依次类推  </li>
-<li>当前变量，如果指定了第二个参数，则该变量为数组的第一个元素的值，否则，为第二个元素的值  </li>
-<li>当前变量对应的元素在数组中的索引(从0开始)  </li>
-<li>原数组对象  </li>
-</ul>
-<p>化简函数的这四个参数之中，只有前两个是必须的，后两个则是可选的。  </p>
-<p>第二个(可选)的参数是一个传递给函数的初始值。  </p>
-<h5 id="reduceRight"><a href="#reduceRight" class="headerlink" title="reduceRight"></a>reduceRight</h5><p>reduceRight()的工作原理和reduce()一样，不同的是它按照数组索引从高到低（从右到左）处理数组，而不是从低到高。  </p>
-<h2 id="数组迭代方法"><a href="#数组迭代方法" class="headerlink" title="数组迭代方法"></a>数组迭代方法</h2><h5 id="map"><a href="#map" class="headerlink" title="map"></a>map</h5><p>对数组的每一项运行给定函数，返回每次函数调用的结果组成的数组。  </p>
-<p>map()方法还可以接受第二个参数，表示回调函数执行时this所指向的对象。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;];</span><br><span class="line">[1,2].map(function(item,index,arr)&#123;return this[item]&#125;,arr);//[&apos;b&apos;,&apos;c&apos;]</span><br></pre></td></tr></table></figure>
-<p>forEach()方法除了接受一个必须的回调函数参数，第二个参数还可以接受一个可选的上下文参数(改变回调函数里面的this指向)。<br>第二个参数对于多层this非常有用，因为多层this通常指向是不一致的，可以使用forEach()方法的第二个参数固定this。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var out = [];</span><br><span class="line">[1, 2, 3].forEach(function(elem)&#123;</span><br><span class="line">this.push(elem * elem);</span><br><span class="line">&#125;, out);</span><br><span class="line">console.log(out);// [1, 4, 9]</span><br></pre></td></tr></table></figure>
-<h5 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h5><p>对数组中的每一项运行给定函数，这个方法没有返回值。本质上与for循环迭代数组一样。如果需要有返回值，一般使用map方法。  </p>
-<h5 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h5><p>对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组。该方法常用于查询符合条件的所有数组项。  </p>
-<p>filter()方法还可以接受第二个参数，指定测试函数所在的上下文对象(this对象)。  </p>
-<p>filter()会跳过稀疏数组中缺少的元素，它的返回数组总是稠密的，所以可以压缩稀疏数组的空缺。  </p>
-<h5 id="some"><a href="#some" class="headerlink" title="some"></a>some</h5><p>对数组中的每一项运行给定函数，如果该函数对任一项返回true，则返回true。并且当且仅当数值中的所有元素调用判定函数都返回false，它才返回false。  </p>
-<h5 id="every"><a href="#every" class="headerlink" title="every"></a>every</h5><p>every()方法对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true；只要有一项返回false，则返回false。  </p>
-<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h5 id="扩展运算符-…"><a href="#扩展运算符-…" class="headerlink" title="扩展运算符 …"></a>扩展运算符 …</h5><p>将一个数组转为用逗号分隔的参数序列。  </p>
-<h5 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h5><p>用于将两类对象转为真正的数组：类似数组的对象和可遍历的对象。  </p>
-<blockquote>
-<p>类似数组的对象必须有length参数</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arrayLike = &#123;</span><br><span class="line">    &apos;0&apos;: &apos;a&apos;,</span><br><span class="line">    &apos;1&apos;: &apos;b&apos;,</span><br><span class="line">    &apos;2&apos;: &apos;c&apos;,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var arr2 = Array.from(arrayLike); // [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
-<h5 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h5><p>用于将一组值转换为数组。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array.of(3, 11, 8) // [3, 11, 8]</span><br><span class="line">Array.of(3, 11, 8).length // 3</span><br></pre></td></tr></table></figure>
-<h5 id="copyEithin-target-start-0-end-this-length"><a href="#copyEithin-target-start-0-end-this-length" class="headerlink" title="copyEithin(target, start=0, end=this.length)"></a>copyEithin(target, start=0, end=this.length)</h5><p>数组实例的copyWithin方法，在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。也就是说，使用这个方法，会修改当前数组。  </p>
-<p>target（必需）：从该位置开始替换数据。<br>start（可选）：从该位置开始读取数据，默认为0。如果为负值，表示倒数。<br>end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5].copyWithin(0, 3)</span><br><span class="line">// [4, 5, 3, 4, 5]</span><br></pre></td></tr></table></figure>
-<h5 id="find-amp-findIndex"><a href="#find-amp-findIndex" class="headerlink" title="find() &amp; findIndex()"></a>find() &amp; findIndex()</h5><p>数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。  </p>
-<p>数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。  </p>
-<h5 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h5><p>使用给定值，填充一个数组。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7) // [7, 7, 7]</span><br><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7) // [7, 7, 7]</span><br></pre></td></tr></table></figure>
-<p>fill方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2) // [&apos;a&apos;, 7, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
-<h5 id="entries-amp-keys-amp-values"><a href="#entries-amp-keys-amp-values" class="headerlink" title="entries() &amp; keys() &amp; values()"></a>entries() &amp; keys() &amp; values()</h5><p>ES6 提供三个新的方法——entries()，keys()和values()——用于遍历数组。它们都返回一个遍历器对象，可以用for…of循环进行遍历，唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (let [index, elem] of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</span><br><span class="line">  console.log(index, elem);</span><br><span class="line">&#125;</span><br><span class="line">// 0 &quot;a&quot;</span><br><span class="line">// 1 &quot;b&quot;</span><br></pre></td></tr></table></figure>
-<p>如果不使用for…of循环，可以手动调用遍历器对象的next方法，进行遍历。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var letter = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</span><br><span class="line">var entries = letter.entries();</span><br><span class="line">console.log(entries.next().value); // [0, &apos;a&apos;]</span><br><span class="line">console.log(entries.next().value); // [1, &apos;b&apos;]</span><br><span class="line">console.log(entries.next().value); // [2, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
-<h5 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h5><p>Array.prototype.includes方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的includes方法类似。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].includes(2)     // true</span><br></pre></td></tr></table></figure>
-<p>该方法的第二个参数表示搜索的起始位置，默认为0。如果第二个参数为负数，则表示倒数的位置，如果这时它大于数组长度（比如第二个参数为-4，但数组长度为3），则会重置为从0开始。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].includes(3, 3);  // false</span><br><span class="line">[1, 2, 3].includes(3, -1); // true</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/05/JavaScript-数组的方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-输出控制格式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/C-输出控制格式/">C++ 输出控制格式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/C-输出控制格式/" class="archive-article-date">
-  	<time datetime="2018-05-04T08:05:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="输入输出流的控制符"><a href="#输入输出流的控制符" class="headerlink" title="输入输出流的控制符"></a>输入输出流的控制符</h2><table>
-<thead>
-<tr>
-<th>控制符</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dec</td>
-<td>设置数值的技术为10</td>
-</tr>
-<tr>
-<td>hex</td>
-<td>设置数值的技术为16</td>
-</tr>
-<tr>
-<td>oct</td>
-<td>设置数值的技术为8</td>
-</tr>
-<tr>
-<td>setfill(c)</td>
-<td>设置填充字符c，c可以是字符常量或字符变量</td>
-</tr>
-<tr>
-<td>setprecision(n)</td>
-<td>设置浮点数的精度为n位。在以一般十进制小数形式输出时，n代表有效数字。在以fixed（固定小数位数）形式和scientific（指数）形式输出时，n为小数位数</td>
-</tr>
-<tr>
-<td>setw(n)</td>
-<td>设置字段宽度为n位</td>
-</tr>
-<tr>
-<td>setiosflags(ios::fixed)</td>
-<td>设置浮点数以固定的小数位数显示</td>
-</tr>
-<tr>
-<td>setiosflags(ios::scientific)</td>
-<td>设置浮点数以科学计数法（即指数形式）显示</td>
-</tr>
-<tr>
-<td>setiosflags(ios::left)</td>
-<td>输出数据左对齐</td>
-</tr>
-<tr>
-<td>setiosflags(ios::right)</td>
-<td>输出数据右对齐</td>
-</tr>
-<tr>
-<td>setiosflags(ios::skipws)</td>
-<td>忽略前导的空格</td>
-</tr>
-<tr>
-<td>setiosflags(ios::uppercase)</td>
-<td>数据以十六进制形式输出时字母以大写表示</td>
-</tr>
-<tr>
-<td>setiosflags(ios::lowercase)</td>
-<td>数据以十六进制形式输出时字母以小写表示</td>
-</tr>
-<tr>
-<td>setiosflags(ios::showpos)</td>
-<td>输出正数的时候给出 “+” 号</td>
-</tr>
-</tbody>
-</table>
-<h2 id="流控制成员函数"><a href="#流控制成员函数" class="headerlink" title="流控制成员函数"></a>流控制成员函数</h2><table>
-<thead>
-<tr>
-<th>流成员函数</th>
-<th>与之作用相同的控制符</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>precision(n)</td>
-<td>setprocision(n)</td>
-<td>设置实数的精度为n位</td>
-</tr>
-<tr>
-<td>width(n)</td>
-<td>setw(n)</td>
-<td>设置字段宽度为n位</td>
-</tr>
-<tr>
-<td>fill(c)</td>
-<td>setfill(c)</td>
-<td>设置填充字符c</td>
-</tr>
-<tr>
-<td>setf()</td>
-<td>setiosflags()</td>
-<td>设置输出格式状态</td>
-</tr>
-<tr>
-<td>unsetf()</td>
-<td>resetioflags()</td>
-<td>终止已设置的输出格式状态，在括号中指定内容</td>
-</tr>
-</tbody>
-</table>
-<h2 id="设置格式状态的格式标志"><a href="#设置格式状态的格式标志" class="headerlink" title="设置格式状态的格式标志"></a>设置格式状态的格式标志</h2><table>
-<thead>
-<tr>
-<th>格式标志</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ios::left</td>
-<td>输出数据在本域宽范围内向左对齐</td>
-</tr>
-<tr>
-<td>ios::right</td>
-<td>输出数据在本域宽范围内向右对齐</td>
-</tr>
-<tr>
-<td>ios::internal</td>
-<td>数值的符号位在域宽内左对齐，数值右对齐，中间由填充字符填充</td>
-</tr>
-<tr>
-<td>ios::dec</td>
-<td>设置整数的基数为10</td>
-</tr>
-<tr>
-<td>ios::oct</td>
-<td>设置整数的基数为8</td>
-</tr>
-<tr>
-<td>ios::hex</td>
-<td>设置整数的基数为16</td>
-</tr>
-<tr>
-<td>ios::showbase</td>
-<td>强制输出整数的基数（八进制以0打头，十六进制以0x打头）</td>
-</tr>
-<tr>
-<td>ios::showpoint</td>
-<td>强制输出浮点数的小数点和尾数0</td>
-</tr>
-<tr>
-<td>ios::uppercase</td>
-<td>在以科学计数法格式E和以十六进制输出字母时以大写表示</td>
-</tr>
-<tr>
-<td>ios::lowercase</td>
-<td>在以科学计数法格式e和以十六进制输出字母时以小写表示</td>
-</tr>
-<tr>
-<td>ios::showpos</td>
-<td>对正数显示 “+” 号</td>
-</tr>
-<tr>
-<td>ios::scientific</td>
-<td>浮点数以科学计数法格式输出</td>
-</tr>
-<tr>
-<td>ios::fixed</td>
-<td>浮点数以定点格式（小数形式）输出</td>
-</tr>
-<tr>
-<td>ios::unitbuf</td>
-<td>每次输出之后刷新所有的流</td>
-</tr>
-<tr>
-<td>ios::stdio</td>
-<td>每次输出之后清除所有的流</td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/C-输出控制格式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux-常用命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/22/Linux-常用命令记录/">Linux 常用命令记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/22/Linux-常用命令记录/" class="archive-article-date">
-  	<time datetime="2018-04-22T06:16:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="查看linux的系统位数"><a href="#查看linux的系统位数" class="headerlink" title="查看linux的系统位数"></a>查看linux的系统位数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-<p>若返回的内容有 x86_64 的字样，则是64位系统。<br>若返回的内容有 i386 的字样，则是32位系统。  </p>
-<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>建议使用wget下载，curl一般是模拟提交web数据。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -o [保存在本地的文件或文件夹名称] URL</span><br></pre></td></tr></table></figure>
-<p>wget命令大全：<a href="http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2013/03/18/2965369.html</a></p>
-<p>wget和curl区别： <a href="https://blog.csdn.net/hzraymond/article/details/8181349" target="_blank" rel="noopener">https://blog.csdn.net/hzraymond/article/details/8181349</a>  </p>
-<h2 id="查看文件夹或目录大小"><a href="#查看文件夹或目录大小" class="headerlink" title="查看文件夹或目录大小"></a>查看文件夹或目录大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">du [目录] # 显示字节大小</span><br><span class="line">du -k [目录] # 以k为单位</span><br><span class="line">du -m [目录] # 以M为单位</span><br><span class="line">du -h [目录] # 以G为单位</span><br><span class="line">du -h --max-depth=1 [目录] # 只往下一层计算大小</span><br></pre></td></tr></table></figure>
-<p>参考： <a href="https://blog.csdn.net/ouyang_peng/article/details/10414499" target="_blank" rel="noopener">https://blog.csdn.net/ouyang_peng/article/details/10414499</a>  </p>
-<h2 id="修改文件或目录名"><a href="#修改文件或目录名" class="headerlink" title="修改文件或目录名"></a>修改文件或目录名</h2><ol>
-<li>使用mv命令</li>
-</ol>
-<pre><code>mv [原命名] [新命名]
-</code></pre><ol>
-<li>使用rename命令</li>
-</ol>
-<pre><code>rename &apos;[源字符]&apos; &apos;[替换字符]&apos; *
-</code></pre><h2 id="查看linux版本"><a href="#查看linux版本" class="headerlink" title="查看linux版本"></a>查看linux版本</h2><h4 id="内核版本"><a href="#内核版本" class="headerlink" title="内核版本"></a>内核版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/version</span><br><span class="line">uname -r</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-<h4 id="发行版本"><a href="#发行版本" class="headerlink" title="发行版本"></a>发行版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
-<h2 id="超级用户密码设置"><a href="#超级用户密码设置" class="headerlink" title="超级用户密码设置"></a>超级用户密码设置</h2><p>在安装了linux系统之后，忘记了设置密码，怎么办？<br>linux有默认密码么？</p>
-<p>linux的root默认密码是随机的，每次开机都有一个新的root密码。</p>
-<p>解决办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd</span><br></pre></td></tr></table></figure>
-<p>该命令可以修改root的密码</p>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p><code>Ctrl + H</code> 显示/隐藏 隐藏文件</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/22/Linux-常用命令记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1366,10 +1202,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
@@ -1378,11 +1210,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++ Linux xmlrpc-c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,7 +1222,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux MySQL C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux 工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1422,11 +1262,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">python pyenv 工具</a>
+                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">node npm pakage.json</a>
+                <a href="javascript:void(0)" class="js-tag color3">python numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python pyenv tkinter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python pyenv 工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,19 +1282,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具 C++ cmake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linux shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1454,15 +1298,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络 C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">python pyenv tkinter</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
